@@ -520,7 +520,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mainCamera: {fileID: 0}
   _jumpHeight: 8
-  _jumpResistanceMultiplikator: 0.2
+  _jumpResistanceMultiplikator: 0.3
   _isMoving: 0
   _direction: {x: 0, y: 0, z: 0}
   _moveResistance: 0.8
