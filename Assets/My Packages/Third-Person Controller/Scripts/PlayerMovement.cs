@@ -26,16 +26,14 @@ namespace ThirdPersonController
         [SerializeField] float _turnTime;
         private float _turnSmoothVelocity;
         private Vector3 _moveDir;
-        private float _targetAngle = 0f;
-
+        private float _angle = 0f;
         [Header("Gravity")]
         private float _gravity = -9.81f;
         private Vector3 _velocity = Vector3.zero;
         private float _basicDown = -1f;
 
         #region Animation Parameter
-        private Vector3 _oldVelocity = Vector3.zero;
-        private float _oldAngle = 0f;
+        private Vector3 _oldPosition = Vector3.zero;
         #endregion
         #endregion
 
@@ -47,8 +45,7 @@ namespace ThirdPersonController
 
         private void FixedUpdate()
         {
-            _oldVelocity = _velocity;
-            _oldAngle = transform.rotation.eulerAngles.y;
+            _oldPosition = transform.position;
 
             CalculateMovement();
             CalculateResistance();
@@ -56,8 +53,8 @@ namespace ThirdPersonController
 
             //TODO here place for extern forces, maybe as an list of extern calls
 
-            UpdateAnimation();
             _controller.Move(_velocity * Time.deltaTime);
+            UpdateAnimation();
 
         }
         #endregion
@@ -67,11 +64,11 @@ namespace ThirdPersonController
         {
             if (_isMoving && _controller.isGrounded)
             {
-                _targetAngle = Mathf.Atan2(_direction.x, _direction.z) * Mathf.Rad2Deg + _mainCamera.eulerAngles.y;
-                float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, _targetAngle, ref _turnSmoothVelocity, _turnTime);
-                transform.rotation = Quaternion.Euler(0f, angle, 0f);
+                float targetAngle = Mathf.Atan2(_direction.x, _direction.z) * Mathf.Rad2Deg + _mainCamera.eulerAngles.y;
+                _angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref _turnSmoothVelocity, _turnTime);
+                transform.rotation = Quaternion.Euler(0f, _angle, 0f);
 
-                _moveDir = Quaternion.Euler(0f, _targetAngle, 0f) * Vector3.forward;
+                _moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
                 AddForce(_moveDir * _acceleration * Time.deltaTime, false);
 
                 //TODO could be troublesome wiht extern force maybe, maybe not
@@ -115,7 +112,23 @@ namespace ThirdPersonController
 
         private void UpdateAnimation()
         {
-            throw new NotImplementedException();
+            Debug.Log("change of animation");
+            Vector3 difPosition = transform.position - _oldPosition;
+
+            float difRotation = Vector3.Angle(Vector3.forward, transform.forward);
+            Quaternion rotation = Quaternion.Euler(0f, transform.forward.x > 0f ? -difRotation : difRotation, 0f);
+            Debug.Log("difPosition: " + difPosition);
+            Debug.Log("difRotation: " + difRotation);
+            difPosition = rotation * difPosition;
+
+            Debug.Log("PositionChange clean: " + difPosition);
+            Debug.Log("Transform.forward: " + transform.forward);
+
+            _animator.SetFloat("MoveXAxis", difPosition.x * 5f);
+            _animator.SetFloat("MoveYAxis", difPosition.z * 5f);
+
+
+
         }
         #endregion
 

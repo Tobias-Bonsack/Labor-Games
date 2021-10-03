@@ -12,8 +12,6 @@ namespace ThirdPersonController
 
         public void OnMove(InputAction.CallbackContext context)
         {
-            Debug.Log(context);
-
             _player._isMoving = !context.canceled;
             //Normalize the vector to have an uniform vector in whichever form it came from (I.E Gamepad, mouse, etc)
             Vector2 moveDirection = context.ReadValue<Vector2>().normalized;
