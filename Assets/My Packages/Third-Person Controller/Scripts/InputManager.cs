@@ -22,7 +22,11 @@ namespace ThirdPersonController
         {
             if (context.started)
             {
-                _player.Jump();
+                _player.Jump(true);
+            }
+            else if (context.canceled)
+            {
+                _player.Jump(false);
             }
         }
     }

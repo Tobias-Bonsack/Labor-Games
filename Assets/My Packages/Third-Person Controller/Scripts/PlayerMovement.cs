@@ -15,7 +15,7 @@ namespace ThirdPersonController
         [Header("Jump")]
         [SerializeField] float _jumpHeight;
         [SerializeField] float _jumpResistanceMultiplikator;
-
+        [SerializeField] float _jumpTurnAccelarator;
         [Header("Move")]
         public bool _isMoving = false;
         public Vector3 _direction = Vector3.zero;
@@ -62,7 +62,7 @@ namespace ThirdPersonController
         #region FixedUpdate Methods
         private void CalculateMovement()
         {
-            if (_isMoving && _controller.isGrounded)
+            if (_isMoving)
             {
                 float targetAngle = Mathf.Atan2(_direction.x, _direction.z) * Mathf.Rad2Deg + _mainCamera.eulerAngles.y;
                 _angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref _turnSmoothVelocity, _turnTime);
@@ -112,33 +112,33 @@ namespace ThirdPersonController
 
         private void UpdateAnimation()
         {
-            Debug.Log("change of animation");
-            Vector3 difPosition = transform.position - _oldPosition;
+            if (_controller.isGrounded)
+            {
+                Vector3 difPosition = transform.position - _oldPosition;
 
-            float difRotation = Vector3.Angle(Vector3.forward, transform.forward);
-            Quaternion rotation = Quaternion.Euler(0f, transform.forward.x > 0f ? -difRotation : difRotation, 0f);
-            Debug.Log("difPosition: " + difPosition);
-            Debug.Log("difRotation: " + difRotation);
-            difPosition = rotation * difPosition;
+                float difRotation = Vector3.Angle(Vector3.forward, transform.forward);
+                Quaternion rotation = Quaternion.Euler(0f, transform.forward.x > 0f ? -difRotation : difRotation, 0f);
+                difPosition = rotation * difPosition;
 
-            Debug.Log("PositionChange clean: " + difPosition);
-            Debug.Log("Transform.forward: " + transform.forward);
-
-            _animator.SetFloat("MoveXAxis", difPosition.x * 5f);
-            _animator.SetFloat("MoveYAxis", difPosition.z * 5f);
-
-
-
+                _animator.SetFloat("MoveXAxis", difPosition.x * 5f);
+                _animator.SetFloat("MoveYAxis", difPosition.z * 5f);
+            }
+            _animator.SetBool("isGrounded", _controller.isGrounded);
         }
         #endregion
 
 
-        public void Jump()
+        public void Jump(bool isContextStarted)
         {
-            if (_controller.isGrounded)
+            if (isContextStarted && _controller.isGrounded)
             {
+                _turnTime /= _jumpTurnAccelarator;
                 float forceUp = Mathf.Sqrt(_jumpHeight * -2f * _gravity) - _basicDown;
                 AddForce(new Vector3(0f, _jumpHeight, 0f), false);
+            }
+            else if (!isContextStarted)
+            {
+                _turnTime *= _jumpTurnAccelarator;
             }
         }
 
