@@ -14,7 +14,7 @@ namespace ThirdPersonController
 
         [Header("Jump")]
         [SerializeField] float _jumpHeight;
-        [SerializeField] float _jumpResistanceMultiplikator;
+        [SerializeField] float _inMoveResistanceMultiplikator;
         [SerializeField] float _jumpTurnAccelarator;
         [Header("Move")]
         public bool _isMoving = false;
@@ -62,7 +62,7 @@ namespace ThirdPersonController
         #region FixedUpdate Methods
         private void CalculateMovement()
         {
-            if (_isMoving)
+            if (_isMoving && _controller.isGrounded)
             {
                 float targetAngle = Mathf.Atan2(_direction.x, _direction.z) * Mathf.Rad2Deg + _mainCamera.eulerAngles.y;
                 _angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref _turnSmoothVelocity, _turnTime);
@@ -87,8 +87,8 @@ namespace ThirdPersonController
             Vector3 brakeForce = Vector3.zero;
 
             // resistance * overall percent * opposite direction
-            brakeForce.x = _moveResistance * brakeXPercent * OppositeSign(_velocity.x) * (_isMoving ? _jumpResistanceMultiplikator : 1f);
-            brakeForce.z = _moveResistance * brakeZPercent * OppositeSign(_velocity.z) * (_isMoving ? _jumpResistanceMultiplikator : 1f);
+            brakeForce.x = _moveResistance * brakeXPercent * OppositeSign(_velocity.x) * (_isMoving ? _inMoveResistanceMultiplikator : 1f);
+            brakeForce.z = _moveResistance * brakeZPercent * OppositeSign(_velocity.z) * (_isMoving ? _inMoveResistanceMultiplikator : 1f);
 
             if (!_isMoving)
             {
@@ -120,8 +120,8 @@ namespace ThirdPersonController
                 Quaternion rotation = Quaternion.Euler(0f, transform.forward.x > 0f ? -difRotation : difRotation, 0f);
                 difPosition = rotation * difPosition;
 
-                _animator.SetFloat("MoveXAxis", difPosition.x * 5f);
-                _animator.SetFloat("MoveYAxis", difPosition.z * 5f);
+                _animator.SetFloat("MoveXAxis", difPosition.x / Time.deltaTime);
+                _animator.SetFloat("MoveYAxis", difPosition.z / Time.deltaTime);
             }
             _animator.SetBool("isGrounded", _controller.isGrounded);
         }

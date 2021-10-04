@@ -203,7 +203,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4579887126442428225}
-  m_LocalRotation: {x: 0.06257003, y: -0.000000018340412, z: 0.0000000011498131, w: 0.9980406}
+  m_LocalRotation: {x: 0.06257003, y: -0.000000018340415, z: 0.0000000011498134, w: 0.9980406}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -521,15 +521,15 @@ MonoBehaviour:
   _mainCamera: {fileID: 0}
   _animator: {fileID: 3343300793793187398}
   _jumpHeight: 8
-  _jumpResistanceMultiplikator: 0.3
+  _inMoveResistanceMultiplikator: 0.2
   _jumpTurnAccelarator: 5
   _isMoving: 0
   _direction: {x: 0, y: 0, z: 0}
-  _moveResistance: 0.8
-  _basicSpeedResistance: 0.75
-  _maxSpeed: 10
-  _acceleration: 15
-  _turnTime: 1
+  _moveResistance: 0.5
+  _basicSpeedResistance: 0.5
+  _maxSpeed: 4
+  _acceleration: 10
+  _turnTime: 0.75
 --- !u!1 &4579887127990915941
 GameObject:
   m_ObjectHideFlags: 0
@@ -1044,7 +1044,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4759721911903040, guid: d6d06c887a1aae94f8c6e8cc2c0c557b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1
+      value: -1.075
       objectReference: {fileID: 0}
     - target: {fileID: 4759721911903040, guid: d6d06c887a1aae94f8c6e8cc2c0c557b, type: 3}
       propertyPath: m_LocalPosition.z
