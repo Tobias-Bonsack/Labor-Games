@@ -15,7 +15,7 @@ namespace ThirdPersonController
         [Header("Jump")]
         [SerializeField] float _jumpHeight;
         [SerializeField] float _inMoveResistanceMultiplikator;
-        [SerializeField] float _jumpTurnAccelarator;
+
         [Header("Move")]
         public bool _isMoving = false;
         public Vector3 _direction = Vector3.zero;
@@ -132,13 +132,8 @@ namespace ThirdPersonController
         {
             if (isContextStarted && _controller.isGrounded)
             {
-                _turnTime /= _jumpTurnAccelarator;
                 float forceUp = Mathf.Sqrt(_jumpHeight * -2f * _gravity) - _basicDown;
                 AddForce(new Vector3(0f, _jumpHeight, 0f), false);
-            }
-            else if (!isContextStarted)
-            {
-                _turnTime *= _jumpTurnAccelarator;
             }
         }
 
