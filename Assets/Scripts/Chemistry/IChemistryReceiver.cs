@@ -6,6 +6,6 @@ namespace ChemistryEngine
 {
     public interface IChemistryReceiver : IChemistry
     {
-        void receiv();
+        void receiv(IChemistry.ChemistryTypes[] chemistryType);
     }
 }

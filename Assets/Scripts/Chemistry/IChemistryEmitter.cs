@@ -4,8 +4,8 @@ using UnityEngine;
 
 namespace ChemistryEngine
 {
-    public interface IChemistryEmitter : IChemistry
+    public interface IChemistryEmitter<T> : IChemistry
     {
-        void emit();
+        void Emit(T[] chemistryType);
     }
 }
