@@ -12,9 +12,13 @@ namespace ChemistryEngine
         [SerializeField] LayerMask _layerMask;
         [SerializeField] IChemistry.ChemistryTypes[] _types;
 
+        [Tooltip("Time between Overlapsphere cast, nagetiv value lead to Time.fixedDeltaTime")]
+        [SerializeField] float _timer;
+
         // Start is called before the first frame update
         void Start()
         {
+            _timer = _timer < 0f ? Time.fixedDeltaTime : _timer;
             StartCoroutine(CheckForReceiver());
         }
 
@@ -22,7 +26,7 @@ namespace ChemistryEngine
         {
             while (true)
             {
-                yield return new WaitForSeconds(1f);
+                yield return new WaitForSeconds(_timer);
                 Emit(_types);
             }
         }

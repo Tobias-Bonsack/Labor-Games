@@ -1245,6 +1245,7 @@ GameObject:
   - component: {fileID: 187518586475886839}
   - component: {fileID: 187518586475774295}
   - component: {fileID: 187518586456252824}
+  - component: {fileID: 187518586456252825}
   m_Layer: 7
   m_Name: Fire_01_FX
   m_TagString: Untagged
@@ -1270,6 +1271,20 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   _types: 00000000
+  _timer: 1
+--- !u!135 &187518586456252825
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 187518586456252823}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.1613501
+  m_Center: {x: -0.0781703, y: 0.9572998, z: -0.024158716}
 --- !u!4 &187518586456489399
 Transform:
   m_ObjectHideFlags: 0
