@@ -51,7 +51,7 @@ namespace ChemistryEngine
                 Debug.Log("Receiver: " + chemistryReceivers.Length);
                 foreach (IChemistryReceiver receiver in chemistryReceivers)
                 {
-                    receiver.receiv(_types);
+                    receiver.receiv(_types, _timer);
                 }
             }
         }
