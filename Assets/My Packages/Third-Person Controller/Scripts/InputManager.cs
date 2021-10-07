@@ -8,26 +8,43 @@ namespace ThirdPersonController
 {
     public class InputManager : MonoBehaviour
     {
-        [SerializeField] PlayerMovement _player;
+        [SerializeField] GameObject _player;
+        private PlayerMovement _movement;
+        private PlayerItem _item;
+
+        private void Awake()
+        {
+            _movement = _player.GetComponent<PlayerMovement>();
+            _item = _player.GetComponent<PlayerItem>();
+        }
 
         public void OnMove(InputAction.CallbackContext context)
         {
-            _player._isMoving = !context.canceled;
+            _movement._isMoving = !context.canceled;
             //Normalize the vector to have an uniform vector in whichever form it came from (I.E Gamepad, mouse, etc)
             Vector2 moveDirection = context.ReadValue<Vector2>().normalized;
-            _player._direction = new Vector3(moveDirection.x, 0f, moveDirection.y);
+            _movement._direction = new Vector3(moveDirection.x, 0f, moveDirection.y);
 
         }
         public void OnJump(InputAction.CallbackContext context)
         {
             if (context.started)
             {
-                _player.Jump(true);
+                _movement.Jump(true);
             }
             else if (context.canceled)
             {
-                _player.Jump(false);
+                _movement.Jump(false);
             }
+        }
+
+        public void OnItemGrab(InputAction.CallbackContext context)
+        {
+
+        }
+        public void OnScanEnvironment(InputAction.CallbackContext context)
+        {
+
         }
     }
 }

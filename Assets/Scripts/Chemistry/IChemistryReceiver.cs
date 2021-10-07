@@ -6,6 +6,5 @@ namespace ChemistryEngine
 {
     public interface IChemistryReceiver : IChemistry
     {
-        void receiv(IChemistry.ChemistryTypes[] chemistryType, float time);
     }
 }

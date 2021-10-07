@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,35 +8,53 @@ namespace ChemistryEngine
     public class HeatReceiver : MonoBehaviour, IChemistryReceiver
     {
         [SerializeField] GameObject _heatVFX;
-        [SerializeField] float _addWaitTime;
-        private Coroutine _routine;
 
-        // Start is called before the first frame update
-        void Start()
+        [Tooltip("0f = Full Resistance, 1f = Zero Resistance")]
+        [Range(0f, 1f)]
+        [SerializeField] float _heatSusceptibility;
+        private float _burnPercent = 0f;
+        private Material _material;
+
+        private void Awake()
         {
-
+            _material = gameObject.GetComponent<Renderer>().material;
         }
 
-        // Update is called once per frame
-        void Update()
+        private void OnTriggerEnter(Collider other)
         {
-
+            ChemistryEmitter chemistryEmitter = other.gameObject.GetComponent<ChemistryEmitter>();
+            int positionOfHeat = Array.IndexOf(chemistryEmitter._types, IChemistry.ChemistryTypes.HEAT);
+            if (positionOfHeat != -1)
+            {
+                _heatVFX.SetActive(true);
+            }
         }
-        public void receiv(IChemistry.ChemistryTypes[] chemistryType, float time)
+        private void OnTriggerStay(Collider other)
         {
-            if (_routine != null) StopCoroutine(_routine);
+            ChemistryEmitter chemistryEmitter = other.gameObject.GetComponent<ChemistryEmitter>();
+            int positionOfHeat = Array.IndexOf(chemistryEmitter._types, IChemistry.ChemistryTypes.HEAT);
+            if (positionOfHeat != -1)
+            {
+                float radiance = chemistryEmitter._radiance[positionOfHeat];
+                _burnPercent += _heatSusceptibility * radiance * Time.fixedDeltaTime;
+                _burnPercent = Mathf.Clamp(_burnPercent, 0f, 1f);
 
-            Debug.Log("Receive: " + chemistryType);
+                Color color = Color.black;
+                color.r = 1f - _burnPercent;
+                color.b = 1f - _burnPercent;
+                color.g = 1f - _burnPercent;
 
-            _routine = StartCoroutine(HeatRoutine(time));
-
+                _material.SetColor("_BaseColor", color);
+            }
         }
-
-        IEnumerator HeatRoutine(float time)
+        void OnTriggerExit(Collider other)
         {
-            _heatVFX.SetActive(true);
-            yield return new WaitForSeconds(time + _addWaitTime);
-            _heatVFX.SetActive(false);
+            ChemistryEmitter chemistryEmitter = other.gameObject.GetComponent<ChemistryEmitter>();
+            int positionOfHeat = Array.IndexOf(chemistryEmitter._types, IChemistry.ChemistryTypes.HEAT);
+            if (positionOfHeat != -1)
+            {
+                _heatVFX.SetActive(false);
+            }
         }
     }
 }
