@@ -11,11 +11,13 @@ namespace ThirdPersonController
         [SerializeField] GameObject _player;
         private PlayerMovement _movement;
         private PlayerItem _item;
+        private Scanner.EnvironmentScanner _scanner;
 
         private void Awake()
         {
             _movement = _player.GetComponent<PlayerMovement>();
             _item = _player.GetComponent<PlayerItem>();
+            _scanner = _player.GetComponent<Scanner.EnvironmentScanner>();
         }
 
         public void OnMove(InputAction.CallbackContext context)
@@ -44,7 +46,10 @@ namespace ThirdPersonController
         }
         public void OnScanEnvironment(InputAction.CallbackContext context)
         {
-
+            if (context.started)
+            {
+                _scanner.ScanEnvironment();
+            }
         }
     }
 }

@@ -123,11 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &152443983 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4579887127074717106, guid: b5755f71ad359d04a9e77df965acdbb1, type: 3}
-  m_PrefabInstance: {fileID: 1312525577}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &181156514
 GameObject:
   m_ObjectHideFlags: 0
@@ -958,13 +953,13 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4579887127074717117, guid: b5755f71ad359d04a9e77df965acdbb1, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4579887127074717117, guid: b5755f71ad359d04a9e77df965acdbb1, type: 3}
       propertyPath: _mainCamera
       value: 
       objectReference: {fileID: 1687258585}
-    - target: {fileID: 4579887128130083731, guid: b5755f71ad359d04a9e77df965acdbb1, type: 3}
-      propertyPath: _player
-      value: 
-      objectReference: {fileID: 152443983}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5755f71ad359d04a9e77df965acdbb1, type: 3}
 --- !u!1 &1378798026
@@ -1431,7 +1426,7 @@ GameObject:
   - component: {fileID: 1955351439}
   - component: {fileID: 1955351438}
   - component: {fileID: 1955351437}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: shraege
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6681,18 +6676,6 @@ PrefabInstance:
     - target: {fileID: 5741402971234802505, guid: 152b07e58a286b343b624b4a8f9ca8ce, type: 3}
       propertyPath: m_RootOrder
       value: 13
-      objectReference: {fileID: 0}
-    - target: {fileID: 5741402971234802505, guid: 152b07e58a286b343b624b4a8f9ca8ce, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2.6252
-      objectReference: {fileID: 0}
-    - target: {fileID: 5741402971234802505, guid: 152b07e58a286b343b624b4a8f9ca8ce, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2.6252
-      objectReference: {fileID: 0}
-    - target: {fileID: 5741402971234802505, guid: 152b07e58a286b343b624b4a8f9ca8ce, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 2.6252
       objectReference: {fileID: 0}
     - target: {fileID: 5741402971234802505, guid: 152b07e58a286b343b624b4a8f9ca8ce, type: 3}
       propertyPath: m_LocalPosition.x

@@ -36,6 +36,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "Scan",
+                    "type": "Button",
+                    "id": "8c30f2f5-b43d-4894-babd-9efbdbd9c9db",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -278,6 +286,28 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1b4ccbf9-a03c-4a1d-a7c9-b4ea5d4058a7",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Scan",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b112cc52-fa8e-471f-bb1f-aab98ea10c81",
+                    "path": "<Gamepad>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Scan",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

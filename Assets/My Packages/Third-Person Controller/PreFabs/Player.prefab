@@ -233,7 +233,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4579887126442428225}
-  m_LocalRotation: {x: 0.062570035, y: -0.000000018340417, z: 0.0000000011498135, w: 0.9980406}
+  m_LocalRotation: {x: 0.062570035, y: 0.000000018340415, z: -0.0000000011498134, w: 0.9980406}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -495,6 +495,7 @@ GameObject:
   - component: {fileID: 4579887127074717116}
   - component: {fileID: 4579887127074717117}
   - component: {fileID: 2171123997517771829}
+  - component: {fileID: 152443984}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -577,6 +578,19 @@ MonoBehaviour:
   _playerHead: {fileID: 3397665819219227124}
   _radius: 0.5
   _maxDistance: 10
+--- !u!114 &152443984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4579887127074717106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 436321e95a3b21f49a8ba7c3433bfcc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _radius: 20
 --- !u!1 &4579887127990915941
 GameObject:
   m_ObjectHideFlags: 0
@@ -747,7 +761,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5189b3bdc9f7a047a66b0e5d7dcc07e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 0}
+  _player: {fileID: 4579887127074717106}
 --- !u!114 &4579887128130083730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -865,6 +879,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 1cfc2db1-7367-45ea-9e73-4c66e41aae80
     m_ActionName: Player/Jump[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4579887128130083731}
+        m_TargetAssemblyTypeName: ThirdPersonController.InputManager, Assembly-CSharp
+        m_MethodName: OnScanEnvironment
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 8c30f2f5-b43d-4894-babd-9efbdbd9c9db
+    m_ActionName: Player/Scan[/Keyboard/q]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
