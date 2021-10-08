@@ -44,13 +44,21 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "Grab",
+                    "type": "Button",
+                    "id": "0793bc3f-3217-4274-89c7-b515e3fe7324",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
                 {
                     "name": "",
                     "id": "978bfe49-cc26-4a3d-ab7b-7d7a29327403",
-                    "path": "<Gamepad>/leftStick",
+                    "path": "<XInputController>/leftStick",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
@@ -182,7 +190,7 @@
                 {
                     "name": "",
                     "id": "c1f7a91b-d0fd-4a62-997e-7fb9b69bf235",
-                    "path": "<Gamepad>/rightStick",
+                    "path": "<XInputController>/rightStick",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
@@ -281,7 +289,7 @@
                 {
                     "name": "",
                     "id": "492ef766-0cf8-48bc-861a-1e5b4dab4d05",
-                    "path": "<Gamepad>/buttonSouth",
+                    "path": "<XInputController>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
@@ -303,11 +311,33 @@
                 {
                     "name": "",
                     "id": "b112cc52-fa8e-471f-bb1f-aab98ea10c81",
-                    "path": "<Gamepad>/leftTrigger",
+                    "path": "<XInputController>/leftShoulder",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "Scan",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7d800937-f1be-479c-9d01-232c070dd341",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Grab",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0c699372-acc5-47bf-add0-15d1ab872d6c",
+                    "path": "<XInputController>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Grab",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

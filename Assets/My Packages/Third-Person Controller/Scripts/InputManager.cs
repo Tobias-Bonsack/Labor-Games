@@ -42,7 +42,10 @@ namespace ThirdPersonController
 
         public void OnItemGrab(InputAction.CallbackContext context)
         {
-
+            if (context.started)
+            {
+                _item.OnGrabItem();
+            }
         }
         public void OnScanEnvironment(InputAction.CallbackContext context)
         {

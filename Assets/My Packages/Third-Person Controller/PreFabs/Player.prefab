@@ -895,6 +895,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 8c30f2f5-b43d-4894-babd-9efbdbd9c9db
     m_ActionName: Player/Scan[/Keyboard/q]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4579887128130083731}
+        m_TargetAssemblyTypeName: ThirdPersonController.InputManager, Assembly-CSharp
+        m_MethodName: OnItemGrab
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 0793bc3f-3217-4274-89c7-b515e3fe7324
+    m_ActionName: Player/Grab[/Keyboard/e]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player

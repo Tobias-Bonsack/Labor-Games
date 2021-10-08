@@ -16,17 +16,19 @@ namespace ThirdPersonController
 
         private int _layerMask = (1 << 8);
 
-        void FixedUpdate()
+        public void OnGrabItem()
         {
-
-        }
-
-        public void OnGrabItem(){
             Debug.DrawRay(_playerHead.position, _camera.forward, Color.red, 1f);
 
             if (Physics.SphereCast(_playerHead.position, _radius, _camera.forward, out RaycastHit hitInfo, _maxDistance, _layerMask))
             {
+                GameObject hittedObject = hitInfo.collider.gameObject;
+                hittedObject.transform.SetParent(_holdPlace.transform);
+                hittedObject.transform.localPosition = Vector3.zero;
+                hittedObject.transform.localScale = Vector3.one;
 
+                hittedObject.GetComponent<Collider>().enabled = false;
+                Destroy(hittedObject.GetComponent<Rigidbody>());
             }
 
         }
