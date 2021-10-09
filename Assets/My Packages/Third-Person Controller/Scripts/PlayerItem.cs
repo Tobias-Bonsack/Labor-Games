@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,6 +14,8 @@ namespace ThirdPersonController
         [SerializeField] Transform _playerHead;
         [SerializeField] float _radius;
         [SerializeField] float _maxDistance;
+
+        [SerializeField] Animator _animator;
 
         private int _layerMask = (1 << 8);
 
@@ -31,6 +34,16 @@ namespace ThirdPersonController
                 Destroy(hittedObject.GetComponent<Rigidbody>());
             }
 
+        }
+
+        internal void OnThrow(bool isStarted)
+        {
+            _animator.SetBool("isThrowing", isStarted);
+
+            if (!isStarted)
+            {
+                _animator.SetFloat("ThrowSpeedMultiplier", 2f);
+            }
         }
     }
 }

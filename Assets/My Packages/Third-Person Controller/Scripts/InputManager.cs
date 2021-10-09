@@ -54,6 +54,18 @@ namespace ThirdPersonController
                 _scanner.ScanEnvironment();
             }
         }
+
+        public void OnThrow(InputAction.CallbackContext context)
+        {
+            if (context.started)
+            {
+                _item.OnThrow(true);
+            }
+            else if (context.canceled)
+            {
+                _item.OnThrow(false);
+            }
+        }
     }
 }
 
