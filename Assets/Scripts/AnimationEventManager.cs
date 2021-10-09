@@ -14,4 +14,10 @@ public class AnimationEventManager : MonoBehaviour
             _animator.SetFloat("ThrowSpeedMultiplier", 0f);
         }
     }
+
+    public void ThrowItemEvent()
+    {
+        Debug.Log("throw item");
+        //TODO throw item
+    }
 }
