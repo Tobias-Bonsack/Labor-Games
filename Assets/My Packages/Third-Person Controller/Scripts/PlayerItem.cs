@@ -14,8 +14,10 @@ namespace ThirdPersonController
         [SerializeField] Transform _playerHead;
         [SerializeField] float _radius;
         [SerializeField] float _maxDistance;
-
         [SerializeField] Animator _animator;
+
+
+        private GameObject _holdItem;
 
         private int _layerMask = (1 << 8);
 
@@ -25,13 +27,13 @@ namespace ThirdPersonController
 
             if (Physics.SphereCast(_playerHead.position, _radius, _camera.forward, out RaycastHit hitInfo, _maxDistance, _layerMask))
             {
-                GameObject hittedObject = hitInfo.collider.gameObject;
-                hittedObject.transform.SetParent(_holdPlace.transform);
-                hittedObject.transform.localPosition = Vector3.zero;
-                hittedObject.transform.localScale = Vector3.one;
+                _holdItem = hitInfo.collider.gameObject;
+                _holdItem.transform.SetParent(_holdPlace.transform);
+                _holdItem.transform.localPosition = Vector3.zero;
+                _holdItem.transform.localScale = Vector3.one;
 
-                hittedObject.GetComponent<Collider>().enabled = false;
-                Destroy(hittedObject.GetComponent<Rigidbody>());
+                _holdItem.GetComponent<Collider>().enabled = false;
+                Destroy(_holdItem.GetComponent<Rigidbody>());
             }
 
         }
@@ -43,6 +45,19 @@ namespace ThirdPersonController
             if (!isStarted)
             {
                 _animator.SetFloat("ThrowSpeedMultiplier", 2f);
+            }
+        }
+
+        public void ThrowItem()
+        {
+            if (_holdItem != null)
+            {
+                _holdItem.GetComponent<Collider>().enabled = true;
+                _holdItem.AddComponent<Rigidbody>();
+                _holdItem.transform.SetParent(null);
+                _holdItem.GetComponent<Rigidbody>().AddForce(gameObject.transform.forward * 5f, ForceMode.VelocityChange);
+
+                _holdItem = null;
             }
         }
     }

@@ -6,7 +6,7 @@ public class AnimationEventManager : MonoBehaviour
 {
 
     [SerializeField] Animator _animator;
-
+    [SerializeField] ThirdPersonController.PlayerItem _playerItem;
     public void ThrowEvent()
     {
         if (_animator.GetBool("isThrowing"))
@@ -17,7 +17,6 @@ public class AnimationEventManager : MonoBehaviour
 
     public void ThrowItemEvent()
     {
-        Debug.Log("throw item");
-        //TODO throw item
+        _playerItem.ThrowItem();
     }
 }
