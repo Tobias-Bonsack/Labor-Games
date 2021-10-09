@@ -3,12 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Cinemachine;
 
 namespace ThirdPersonController
 {
     public class InputManager : MonoBehaviour
     {
         [SerializeField] GameObject _player;
+        [SerializeField] CinemachineVirtualCamera _zoomCamera;
+        [SerializeField] CinemachineFreeLook _suroundCamera;
         private PlayerMovement _movement;
         private PlayerItem _item;
         private Scanner.EnvironmentScanner _scanner;
@@ -64,6 +67,22 @@ namespace ThirdPersonController
             else if (context.canceled)
             {
                 _item.OnThrow(false);
+            }
+        }
+
+        public void OnZoom(InputAction.CallbackContext context)
+        {
+            if (context.started)
+            {
+                _suroundCamera.enabled = false;
+                _zoomCamera.Priority = 2;
+            }
+            else if (context.canceled)
+            {
+                _suroundCamera.enabled = true;
+                _zoomCamera.Priority = 0;
+                _suroundCamera.m_YAxis.Value = 0.4f;
+                _suroundCamera.m_XAxis.Value = -10f;
             }
         }
     }
