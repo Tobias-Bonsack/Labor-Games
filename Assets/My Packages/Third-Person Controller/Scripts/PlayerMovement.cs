@@ -11,6 +11,7 @@ namespace ThirdPersonController
         private CharacterController _controller;
         [SerializeField] Transform _mainCamera;
         [SerializeField] Animator _animator;
+        [SerializeField] PlayerEvents _playerEvents;
 
         [Header("Jump")]
         [SerializeField] float _jumpHeight;
@@ -31,10 +32,10 @@ namespace ThirdPersonController
         private float _gravity = -9.81f;
         private Vector3 _velocity = Vector3.zero;
         private float _basicDown = -1f;
+        #endregion
 
         #region Animation Parameter
         private Vector3 _oldPosition = Vector3.zero;
-        #endregion
         #endregion
 
         #region Unity Events
@@ -62,14 +63,23 @@ namespace ThirdPersonController
         #region FixedUpdate Methods
         private void CalculateMovement()
         {
-            if (_isMoving && _controller.isGrounded)
-            {
+            if (StaticProperties._currentCamera == 0 && _isMoving && _controller.isGrounded)
+            { //normal camera
                 float targetAngle = Mathf.Atan2(_direction.x, _direction.z) * Mathf.Rad2Deg + _mainCamera.eulerAngles.y;
                 _angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref _turnSmoothVelocity, _turnTime);
                 transform.rotation = Quaternion.Euler(0f, _angle, 0f);
 
                 _moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
-                AddForce(_moveDir * _acceleration * Time.deltaTime, false);
+                AddForce(_moveDir * _acceleration * Time.fixedDeltaTime, false);
+
+                //TODO could be troublesome wiht extern force maybe, maybe not
+                _velocity.x = Mathf.Clamp(_velocity.x, -_maxSpeed, _maxSpeed);
+                _velocity.z = Mathf.Clamp(_velocity.z, -_maxSpeed, _maxSpeed);
+            }
+            else if (StaticProperties._currentCamera == 1 && _isMoving && _controller.isGrounded)
+            { // throw camera
+                _moveDir = transform.TransformDirection(new Vector3(_direction.x, 0f, _direction.z));
+                AddForce(_moveDir * _acceleration * Time.fixedDeltaTime, false);
 
                 //TODO could be troublesome wiht extern force maybe, maybe not
                 _velocity.x = Mathf.Clamp(_velocity.x, -_maxSpeed, _maxSpeed);
@@ -127,6 +137,10 @@ namespace ThirdPersonController
         }
         #endregion
 
+        internal void Rotate(Vector2 vector2)
+        {
+            gameObject.transform.Rotate(new Vector3(0f, vector2.x, 0f));
+        }
 
         public void Jump(bool isContextStarted)
         {

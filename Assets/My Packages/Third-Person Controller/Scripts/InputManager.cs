@@ -15,12 +15,14 @@ namespace ThirdPersonController
         private PlayerMovement _movement;
         private PlayerItem _item;
         private Scanner.EnvironmentScanner _scanner;
+        private PlayerEvents _playerEvents;
 
         private void Awake()
         {
             _movement = _player.GetComponent<PlayerMovement>();
             _item = _player.GetComponent<PlayerItem>();
             _scanner = _player.GetComponent<Scanner.EnvironmentScanner>();
+            _playerEvents = gameObject.GetComponent<PlayerEvents>();
         }
 
         public void OnMove(InputAction.CallbackContext context)
@@ -29,6 +31,19 @@ namespace ThirdPersonController
             //Normalize the vector to have an uniform vector in whichever form it came from (I.E Gamepad, mouse, etc)
             Vector2 moveDirection = context.ReadValue<Vector2>().normalized;
             _movement._direction = new Vector3(moveDirection.x, 0f, moveDirection.y);
+
+        }
+        public void OnMouseDelta(InputAction.CallbackContext context)
+        {
+            if (StaticProperties._currentCamera == 0)
+            {
+
+                _suroundCamera.gameObject.GetComponent<FreeLookAddOn>().OnLook(context);
+            }
+            else if (StaticProperties._currentCamera == 1)
+            {
+                _movement.Rotate(context.ReadValue<Vector2>());
+            }
 
         }
         public void OnJump(InputAction.CallbackContext context)
@@ -76,6 +91,8 @@ namespace ThirdPersonController
             {
                 _suroundCamera.enabled = false;
                 _zoomCamera.Priority = 2;
+
+                StaticProperties._currentCamera = 1;
             }
             else if (context.canceled)
             {
@@ -83,6 +100,8 @@ namespace ThirdPersonController
                 _zoomCamera.Priority = 0;
                 _suroundCamera.m_YAxis.Value = 0.4f;
                 _suroundCamera.m_XAxis.Value = -10f;
+
+                StaticProperties._currentCamera = 0;
             }
         }
     }
