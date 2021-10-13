@@ -16,6 +16,11 @@ namespace ThirdPersonController
         [SerializeField] float _maxDistance;
         [SerializeField] Animator _animator;
 
+        #region throwing parameters
+        private Coroutine _ChargeThrow;
+        private float _throwPower = 10f, _minThrowPower = 10f, _maxThrowPower = 30f;
+        #endregion
+
 
         private GameObject _holdItem;
 
@@ -42,9 +47,23 @@ namespace ThirdPersonController
         {
             _animator.SetBool("isThrowing", isStarted);
 
-            if (!isStarted)
+            if (isStarted)
             {
-                _animator.SetFloat("ThrowSpeedMultiplier", 2f);
+                _ChargeThrow = StartCoroutine(ChargeThrow());
+            }
+            else
+            {
+                StopCoroutine(_ChargeThrow);
+                _animator.SetFloat("ThrowSpeedMultiplier", 1f);
+            }
+        }
+        private IEnumerator ChargeThrow()
+        {
+            while (true)
+            {
+                yield return new WaitForSeconds(0.01f);
+                _throwPower *= 1.01f;
+                _throwPower = Mathf.Clamp(_throwPower, _minThrowPower, _maxThrowPower);
             }
         }
 
@@ -55,10 +74,13 @@ namespace ThirdPersonController
                 _holdItem.GetComponent<Collider>().enabled = true;
                 _holdItem.AddComponent<Rigidbody>();
                 _holdItem.transform.SetParent(null);
-                _holdItem.GetComponent<Rigidbody>().AddForce(gameObject.transform.forward * 5f, ForceMode.VelocityChange);
+                _holdItem.GetComponent<Rigidbody>().AddForce(gameObject.transform.forward * _throwPower, ForceMode.Impulse);
+                //TODO: make it in an angle...maybe in charger
 
                 _holdItem = null;
             }
+
+            _throwPower = _minThrowPower;
         }
     }
 }

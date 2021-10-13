@@ -67,7 +67,6 @@ namespace ThirdPersonController
             }
         }
 
-
         public void OnJump(InputAction.CallbackContext context)
         {
             if (context.started)
