@@ -17,6 +17,11 @@ namespace ThirdPersonController
         private Scanner.EnvironmentScanner _scanner;
         private PlayerEvents _playerEvents;
 
+        #region camera
+        private bool _cameraIsMoving = false;
+        private Coroutine _cameraRoutine;
+        #endregion
+
         private void Awake()
         {
             _movement = _player.GetComponent<PlayerMovement>();
@@ -35,17 +40,34 @@ namespace ThirdPersonController
         }
         public void OnMouseDelta(InputAction.CallbackContext context)
         {
-            if (StaticProperties._currentCamera == 0)
+            _cameraIsMoving = !context.canceled;
+            if (context.started)
             {
-
-                _suroundCamera.gameObject.GetComponent<FreeLookAddOn>().OnLook(context);
+                _cameraRoutine = StartCoroutine(CameraMoving(context));
             }
-            else if (StaticProperties._currentCamera == 1)
+            else if (context.canceled)
             {
-                _movement.Rotate(context.ReadValue<Vector2>());
+                StopCoroutine(_cameraRoutine);
             }
-
         }
+        private IEnumerator CameraMoving(InputAction.CallbackContext context)
+        {
+            while (_cameraIsMoving)
+            {
+                yield return new WaitForSeconds(Time.fixedDeltaTime);
+
+                if (StaticProperties._currentCamera == 0)
+                {
+                    _suroundCamera.gameObject.GetComponent<FreeLookAddOn>().OnLook(context);
+                }
+                else if (StaticProperties._currentCamera == 1)
+                {
+                    _movement.Rotate(context.ReadValue<Vector2>());
+                }
+            }
+        }
+
+
         public void OnJump(InputAction.CallbackContext context)
         {
             if (context.started)
