@@ -97,8 +97,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 945084c8f01b0bc4db3945029afc600f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _heatSusceptibility: 0.484
   _heatVFX: {fileID: 5741402970466784662}
-  _heatSusceptibility: 1
 --- !u!114 &1042115153
 MonoBehaviour:
   m_ObjectHideFlags: 0
