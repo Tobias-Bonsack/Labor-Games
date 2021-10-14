@@ -36,12 +36,10 @@ namespace ThirdPersonController
                 _holdItem.transform.SetParent(_holdPlace.transform);
                 _holdItem.transform.localPosition = Vector3.zero;
                 _holdItem.transform.localScale = Vector3.one;
-                _holdItem.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
-                Debug.Log(_holdItem.transform.rotation);
+                _holdItem.transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
 
                 _holdItem.GetComponent<Collider>().enabled = false;
                 Destroy(_holdItem.GetComponent<Rigidbody>());
-                Debug.Log(_holdItem.transform.rotation);
             }
 
         }
