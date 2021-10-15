@@ -13,10 +13,11 @@ namespace HeatEngine
         [SerializeField] GameObject _receiver;
         [SerializeField, Range(0f, 1f)] float _pointToChange;
         [SerializeField] bool _receiveRemeins;
+        [SerializeField, Range(0f, 2f)] float _multiplierForSusceptibility = 1f;
 
         void Awake()
         {
-            _chemistryReceiver.OnReceiveHeat += StayTrigger;
+            _chemistryReceiver._onReceiveHeat += StayTrigger;
         }
 
         private void StayTrigger(object sender, ChemistryReceiver.OnReceiveHeatArgs e)
@@ -26,6 +27,7 @@ namespace HeatEngine
                 if (_heatReceiver._burnPercent >= _pointToChange)
                 {
                     _emitter.SetActive(true);
+                    _heatReceiver.MultiplieSusceptibility(_multiplierForSusceptibility);
                     _receiver.SetActive(_receiveRemeins);
                     Destroy(this);
                 }
@@ -34,7 +36,7 @@ namespace HeatEngine
 
         void OnDestroy()
         {
-            _chemistryReceiver.OnReceiveHeat -= StayTrigger;
+            _chemistryReceiver._onReceiveHeat -= StayTrigger;
         }
     }
 }

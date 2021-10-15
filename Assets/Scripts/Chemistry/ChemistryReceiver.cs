@@ -9,7 +9,7 @@ namespace ChemistryEngine
     public class ChemistryReceiver : MonoBehaviour, IChemistryReceiver
     {
         #region events
-        public event EventHandler<OnReceiveHeatArgs> OnReceiveHeat;
+        public event EventHandler<OnReceiveHeatArgs> _onReceiveHeat;
         #endregion
 
         #region event args
@@ -21,7 +21,12 @@ namespace ChemistryEngine
         #endregion
 
         #region trigger
-        public void OnReceiveHeatTrigger(OnReceiveHeatArgs args) => OnReceiveHeat?.Invoke(this, args);
+        public void OnReceiveHeatTrigger(OnReceiveHeatArgs args) => _onReceiveHeat?.Invoke(this, args);
+        #endregion
+
+        #region parameter
+        [SerializeField] bool _burnItself = false;
+        [SerializeField] ChemistryEmitter _ownEmitter;
         #endregion
 
         void OnTriggerEnter(Collider other)
@@ -39,21 +44,29 @@ namespace ChemistryEngine
         private void TriggerEvents(IChemistryReceiver.Status status, Collider other)
         {
             ChemistryEmitter chemistryEmitter = other.gameObject.GetComponent<ChemistryEmitter>();
-            for (int i = 0; i < chemistryEmitter._types.Length; i++)
+            if (IsStrangerEmitter(chemistryEmitter))
             {
-                IChemistry.ChemistryTypes type = chemistryEmitter._types[i];
-                switch (type)
+                for (int i = 0; i < chemistryEmitter._types.Length; i++)
                 {
-                    case IChemistry.ChemistryTypes.HEAT:
-                        OnReceiveHeatArgs onReceiveHeatArgs = new OnReceiveHeatArgs { _status = status, _radiance = chemistryEmitter._radiance[i] };
-                        OnReceiveHeatTrigger(onReceiveHeatArgs);
-                        Debug.Log("HeatEvent");
-                        break;
-                    default:
-                        Debug.LogWarning("Unknown type");
-                        break;
+                    IChemistry.ChemistryTypes type = chemistryEmitter._types[i];
+                    switch (type)
+                    {
+                        case IChemistry.ChemistryTypes.HEAT:
+                            OnReceiveHeatArgs onReceiveHeatArgs = new OnReceiveHeatArgs { _status = status, _radiance = chemistryEmitter._radiance[i] };
+                            OnReceiveHeatTrigger(onReceiveHeatArgs);
+                            Debug.Log("HeatEvent");
+                            break;
+                        default:
+                            Debug.LogWarning("Unknown type");
+                            break;
+                    }
                 }
             }
+        }
+
+        private bool IsStrangerEmitter(ChemistryEmitter chemistryEmitter)
+        {
+            return _burnItself || _ownEmitter == null || _ownEmitter != chemistryEmitter;
         }
 
     }

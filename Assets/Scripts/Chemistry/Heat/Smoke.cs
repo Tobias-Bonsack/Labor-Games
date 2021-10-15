@@ -16,8 +16,8 @@ namespace HeatEngine
         {
             _visualEffect = GetComponent<VisualEffect>();
             
-            _chemistryReceiver.OnReceiveHeat += EnterTrigger;
-            _chemistryReceiver.OnReceiveHeat += ExitTrigger;
+            _chemistryReceiver._onReceiveHeat += EnterTrigger;
+            _chemistryReceiver._onReceiveHeat += ExitTrigger;
         }
 
         private void EnterTrigger(object sender, ChemistryReceiver.OnReceiveHeatArgs e)

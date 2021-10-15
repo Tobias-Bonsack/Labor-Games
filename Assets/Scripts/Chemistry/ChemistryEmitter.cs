@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
 
 namespace ChemistryEngine
 {
+    [RequireComponent(typeof(Collider))]
     public class ChemistryEmitter : MonoBehaviour, IChemistryEmitter
     {
 

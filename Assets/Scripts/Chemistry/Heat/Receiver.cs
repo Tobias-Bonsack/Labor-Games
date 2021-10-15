@@ -16,7 +16,7 @@ namespace HeatEngine
 
         void Awake()
         {
-            _chemistryReceiver.OnReceiveHeat += TriggerStay;
+            _chemistryReceiver._onReceiveHeat += TriggerStay;
         }
 
         private void TriggerStay(object sender, ChemistryReceiver.OnReceiveHeatArgs e)
@@ -26,6 +26,12 @@ namespace HeatEngine
                 _burnPercent += _heatSusceptibility * e._radiance * Time.fixedDeltaTime;
                 _burnPercent = Mathf.Clamp(_burnPercent, 0f, 1f);
             }
+        }
+
+        public void MultiplieSusceptibility(float multiplier)
+        {
+            _heatSusceptibility *= multiplier;
+            _heatSusceptibility = Mathf.Clamp(_heatSusceptibility, 0f, 1f);
         }
     }
 }

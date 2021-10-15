@@ -7,7 +7,7 @@ namespace Scanner
     public class Interactive : MonoBehaviour
     {
         [SerializeField] Outline _outline;
-        [SerializeField] float _timer;
+        [SerializeField] float _timer = 2f;
 
         public void ActivateOutline()
         {

@@ -11,7 +11,7 @@ namespace HeatEngine
         [SerializeField] Renderer _renderer;
         void Awake()
         {
-            _chemistryReceiver.OnReceiveHeat += EnterStay;
+            _chemistryReceiver._onReceiveHeat += EnterStay;
         }
 
         private void EnterStay(object sender, ChemistryReceiver.OnReceiveHeatArgs e)
