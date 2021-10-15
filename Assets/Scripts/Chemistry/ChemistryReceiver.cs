@@ -54,7 +54,6 @@ namespace ChemistryEngine
                         case IChemistry.ChemistryTypes.HEAT:
                             OnReceiveHeatArgs onReceiveHeatArgs = new OnReceiveHeatArgs { _status = status, _radiance = chemistryEmitter._radiance[i] };
                             OnReceiveHeatTrigger(onReceiveHeatArgs);
-                            Debug.Log("HeatEvent");
                             break;
                         default:
                             Debug.LogWarning("Unknown type");
