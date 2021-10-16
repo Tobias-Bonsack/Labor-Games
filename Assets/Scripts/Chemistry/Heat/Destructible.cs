@@ -10,7 +10,7 @@ namespace HeatEngine
     {
         [Header("Parameter")]
         [SerializeField] GameObject _objectToDestroy;
-        [SerializeField, Range(0f, 1f)] float _pointToDestroy;
+        [SerializeField, Range(0f, 1f)] float _pointToDestroy = 1f;
 
         private void Awake()
         {

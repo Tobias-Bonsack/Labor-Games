@@ -44,21 +44,22 @@ namespace ChemistryEngine
         private void TriggerEvents(IChemistryReceiver.Status status, Collider other)
         {
             ChemistryEmitter chemistryEmitter = other.gameObject.GetComponent<ChemistryEmitter>();
-            if (IsStrangerEmitter(chemistryEmitter))
+
+            for (int i = 0; i < chemistryEmitter._types.Length; i++)
             {
-                for (int i = 0; i < chemistryEmitter._types.Length; i++)
+                IChemistry.ChemistryTypes type = chemistryEmitter._types[i];
+                switch (type)
                 {
-                    IChemistry.ChemistryTypes type = chemistryEmitter._types[i];
-                    switch (type)
-                    {
-                        case IChemistry.ChemistryTypes.HEAT:
+                    case IChemistry.ChemistryTypes.HEAT:
+                        if (IsStrangerEmitter(chemistryEmitter))
+                        {
                             OnReceiveHeatArgs onReceiveHeatArgs = new OnReceiveHeatArgs { _status = status, _radiance = chemistryEmitter._radiance[i] };
                             OnReceiveHeatTrigger(onReceiveHeatArgs);
-                            break;
-                        default:
-                            Debug.LogWarning("Unknown type");
-                            break;
-                    }
+                        }
+                        break;
+                    default:
+                        Debug.LogWarning("Unknown type");
+                        break;
                 }
             }
         }

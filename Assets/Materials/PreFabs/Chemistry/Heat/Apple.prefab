@@ -144,6 +144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f25e7caab9e28e42bb118189cac8040, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _burnItself: 0
   _ownEmitter: {fileID: 0}
 --- !u!1 &1837029415452652228
 GameObject:
@@ -191,7 +192,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _chemistryReceiver: {fileID: 5844618056439269188}
-  _heatSusceptibility: 1
+  _heatSusceptibility: 0.75
   _burnPercent: 0
 --- !u!1 &5741402971234802504
 GameObject:
