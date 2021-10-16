@@ -21,8 +21,15 @@ namespace HeatEngine
         {
             if (e._status == IChemistryReceiver.Status.STAY && _heatReceiver._burnPercent >= _pointToDestroy)
             {
-                Destroy(_objectToDestroy);
+                _objectToDestroy.transform.position -= new Vector3(0f, -1000f, 0f);
+                StartCoroutine(MoveBevoreDestroy());
             }
+        }
+
+        private IEnumerator MoveBevoreDestroy()
+        {
+            yield return new WaitForSecondsRealtime(0.1f);
+            Destroy(_objectToDestroy);
         }
 
         void OnDestroy()

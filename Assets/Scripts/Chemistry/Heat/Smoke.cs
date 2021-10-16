@@ -11,6 +11,7 @@ namespace HeatEngine
     public class Smoke : AbstractProperty
     {
         VisualEffect _visualEffect;
+        int _numberOfTrigger = 0;
 
         void Awake()
         {
@@ -25,6 +26,7 @@ namespace HeatEngine
             if (e._status == ChemistryEngine.IChemistryReceiver.Status.ENTER)
             {
                 _visualEffect.enabled = true;
+                _numberOfTrigger++;
             }
         }
 
@@ -32,7 +34,7 @@ namespace HeatEngine
         {
             if (e._status == ChemistryEngine.IChemistryReceiver.Status.EXIT)
             {
-                _visualEffect.enabled = false;
+                if(--_numberOfTrigger == 0) _visualEffect.enabled = false;
             }
         }
     }
