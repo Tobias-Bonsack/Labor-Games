@@ -8,6 +8,7 @@ namespace ThirdPersonController
     public class PlayerItem : MonoBehaviour
     {
         [SerializeField] GameObject _holdPlace;
+        [SerializeField] GameObject _throwPosition;
 
         [Header("SphereCast Parameter")]
         [SerializeField] Transform _camera;
@@ -18,7 +19,7 @@ namespace ThirdPersonController
 
         #region throwing parameters
         private Coroutine _ChargeThrow;
-        private float _throwPower = 10f, _minThrowPower = 10f, _maxThrowPower = 30f;
+        private float _throwPower = 5f, _minThrowPower = 5f, _maxThrowPower = 30f;
         #endregion
 
 
@@ -48,6 +49,8 @@ namespace ThirdPersonController
         {
             _animator.SetBool("isThrowing", isStarted);
 
+            Trajectory.SetParams(20, 0.1f, _throwPosition.GetComponent<LineRenderer>());
+            Trajectory.SetPoints(_throwPosition.transform.position, _throwPosition.transform.forward * _throwPower);
             if (isStarted)
             {
                 _ChargeThrow = StartCoroutine(ChargeThrow());
@@ -62,9 +65,11 @@ namespace ThirdPersonController
         {
             while (true)
             {
-                yield return new WaitForSeconds(0.01f);
+                yield return new WaitForSeconds(0.02f);
                 _throwPower *= 1.01f;
                 _throwPower = Mathf.Clamp(_throwPower, _minThrowPower, _maxThrowPower);
+                Trajectory.SetPoints(_throwPosition.transform.position, _throwPosition.transform.forward * _throwPower);
+
             }
         }
 
@@ -75,12 +80,14 @@ namespace ThirdPersonController
                 _holdItem.GetComponent<Collider>().enabled = true;
                 _holdItem.AddComponent<Rigidbody>();
                 _holdItem.transform.SetParent(null);
-                _holdItem.GetComponent<Rigidbody>().AddForce(gameObject.transform.forward * _throwPower, ForceMode.Impulse);
+                _holdItem.GetComponent<Rigidbody>().AddForce(_throwPosition.transform.forward * _throwPower, ForceMode.Impulse);
                 //TODO: make it in an angle...maybe in charger
+
 
                 _holdItem = null;
             }
 
+            _throwPosition.GetComponent<LineRenderer>().positionCount = 0;
             _throwPower = _minThrowPower;
         }
     }
