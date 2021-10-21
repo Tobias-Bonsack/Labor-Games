@@ -7,13 +7,15 @@ namespace ThirdPersonController
 {
     public class PlayerMovement : MonoBehaviour
     {
-
+        #region Parameters
         private CharacterController _controller;
         [SerializeField] Transform _mainCamera;
+        [SerializeField] Animator _animator;
+        [SerializeField] PlayerEvents _playerEvents;
 
         [Header("Jump")]
         [SerializeField] float _jumpHeight;
-        [SerializeField] float _jumpResistanceMultiplikator;
+        [SerializeField] float _inMoveResistanceMultiplikator;
 
         [Header("Move")]
         public bool _isMoving = false;
@@ -25,12 +27,18 @@ namespace ThirdPersonController
         [SerializeField] float _turnTime;
         private float _turnSmoothVelocity;
         private Vector3 _moveDir;
-
+        private float _angle = 0f;
         [Header("Gravity")]
         private float _gravity = -9.81f;
         private Vector3 _velocity = Vector3.zero;
         private float _basicDown = -1f;
+        #endregion
 
+        #region Animation Parameter
+        private Vector3 _oldPosition = Vector3.zero;
+        #endregion
+
+        #region Unity Events
         void Awake()
         {
             _controller = GetComponent<CharacterController>();
@@ -38,26 +46,42 @@ namespace ThirdPersonController
 
         private void FixedUpdate()
         {
+            _oldPosition = transform.position;
+
             CalculateMovement();
             CalculateResistance();
             CalculateGravity();
 
-            //TODO here place for extern forces
+            //TODO here place for extern forces, maybe as an list of extern calls
 
             _controller.Move(_velocity * Time.deltaTime);
+            UpdateAnimation();
 
         }
+        #endregion
+
+        #region FixedUpdate Methods
         private void CalculateMovement()
         {
-            if (_isMoving && _controller.isGrounded)
-            {
+            if (StaticProperties._currentCamera == 0 && _isMoving && _controller.isGrounded)
+            { //normal camera
                 float targetAngle = Mathf.Atan2(_direction.x, _direction.z) * Mathf.Rad2Deg + _mainCamera.eulerAngles.y;
-                float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref _turnSmoothVelocity, _turnTime);
-                transform.rotation = Quaternion.Euler(0f, angle, 0f);
+                _angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref _turnSmoothVelocity, _turnTime);
+                transform.rotation = Quaternion.Euler(0f, _angle, 0f);
 
                 _moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
-                AddForce(_moveDir * _acceleration * Time.deltaTime, false);
+                AddForce(_moveDir * _acceleration * Time.fixedDeltaTime, false);
 
+                //TODO could be troublesome wiht extern force maybe, maybe not
+                _velocity.x = Mathf.Clamp(_velocity.x, -_maxSpeed, _maxSpeed);
+                _velocity.z = Mathf.Clamp(_velocity.z, -_maxSpeed, _maxSpeed);
+            }
+            else if (StaticProperties._currentCamera == 1 && _isMoving && _controller.isGrounded)
+            { // throw camera
+                _moveDir = transform.TransformDirection(new Vector3(_direction.x, 0f, _direction.z));
+                AddForce(_moveDir * _acceleration * Time.fixedDeltaTime, false);
+
+                //TODO could be troublesome wiht extern force maybe, maybe not
                 _velocity.x = Mathf.Clamp(_velocity.x, -_maxSpeed, _maxSpeed);
                 _velocity.z = Mathf.Clamp(_velocity.z, -_maxSpeed, _maxSpeed);
             }
@@ -73,8 +97,8 @@ namespace ThirdPersonController
             Vector3 brakeForce = Vector3.zero;
 
             // resistance * overall percent * opposite direction
-            brakeForce.x = _moveResistance * brakeXPercent * OppositeSign(_velocity.x) * (_isMoving ? _jumpResistanceMultiplikator : 1f);
-            brakeForce.z = _moveResistance * brakeZPercent * OppositeSign(_velocity.z) * (_isMoving ? _jumpResistanceMultiplikator : 1f);
+            brakeForce.x = _moveResistance * brakeXPercent * OppositeSign(_velocity.x) * (_isMoving ? _inMoveResistanceMultiplikator : 1f);
+            brakeForce.z = _moveResistance * brakeZPercent * OppositeSign(_velocity.z) * (_isMoving ? _inMoveResistanceMultiplikator : 1f);
 
             if (!_isMoving)
             {
@@ -96,10 +120,31 @@ namespace ThirdPersonController
             else if (_velocity.y < _basicDown) { _velocity.y = _basicDown; }
         }
 
-
-        public void Jump()
+        private void UpdateAnimation()
         {
             if (_controller.isGrounded)
+            {
+                Vector3 difPosition = transform.position - _oldPosition;
+
+                float difRotation = Vector3.Angle(Vector3.forward, transform.forward);
+                Quaternion rotation = Quaternion.Euler(0f, transform.forward.x > 0f ? -difRotation : difRotation, 0f);
+                difPosition = rotation * difPosition;
+
+                _animator.SetFloat("MoveXAxis", difPosition.x / Time.deltaTime);
+                _animator.SetFloat("MoveYAxis", difPosition.z / Time.deltaTime);
+            }
+            _animator.SetBool("isGrounded", _controller.isGrounded);
+        }
+        #endregion
+
+        internal void Rotate(Vector2 vector2)
+        {
+            gameObject.transform.Rotate(new Vector3(0f, vector2.x, 0f));
+        }
+
+        public void Jump(bool isContextStarted)
+        {
+            if (isContextStarted && _controller.isGrounded)
             {
                 float forceUp = Mathf.Sqrt(_jumpHeight * -2f * _gravity) - _basicDown;
                 AddForce(new Vector3(0f, _jumpHeight, 0f), false);
@@ -110,6 +155,7 @@ namespace ThirdPersonController
         public void AddForce(Vector3 force, bool reset) => _velocity = reset ? force : force + _velocity;
 
         private int OppositeSign(float number) => number > 0f ? -1 : 1;
+
         //TODO maybe delete later, dont know if needed at any time
         private bool SameSign(float num1, float num2) => Mathf.Sign(num1) == Mathf.Sign(num2);
     }
