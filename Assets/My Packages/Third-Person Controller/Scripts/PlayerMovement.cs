@@ -31,7 +31,7 @@ namespace ThirdPersonController
         [Header("Gravity")]
         private float _gravity = -9.81f;
         private Vector3 _velocity = Vector3.zero;
-        private float _basicDown = -1f;
+        public float _basicDown = -2f;
         #endregion
 
         #region Animation Parameter
@@ -54,7 +54,8 @@ namespace ThirdPersonController
 
             //TODO here place for extern forces, maybe as an list of extern calls
 
-            _controller.Move(_velocity * Time.deltaTime);
+            Debug.Log(_velocity);
+            _controller.Move(_velocity * Time.fixedDeltaTime);
             UpdateAnimation();
 
         }
@@ -116,7 +117,7 @@ namespace ThirdPersonController
         }
         private void CalculateGravity()
         {
-            if (!_controller.isGrounded) { _velocity.y += _gravity * Time.deltaTime; }
+            if (!_controller.isGrounded) { _velocity.y += (_gravity * Time.fixedDeltaTime); }
             else if (_velocity.y < _basicDown) { _velocity.y = _basicDown; }
         }
 
@@ -146,8 +147,9 @@ namespace ThirdPersonController
         {
             if (isContextStarted && _controller.isGrounded)
             {
-                float forceUp = Mathf.Sqrt(_jumpHeight * -2f * _gravity) - _basicDown;
-                AddForce(new Vector3(0f, _jumpHeight, 0f), false);
+                float forceUp = Mathf.Sqrt(_jumpHeight * -2f * _gravity) - _velocity.y;
+                Debug.Log(forceUp + _basicDown);
+                AddForce(new Vector3(0f, forceUp, 0f), false);
             }
         }
 
