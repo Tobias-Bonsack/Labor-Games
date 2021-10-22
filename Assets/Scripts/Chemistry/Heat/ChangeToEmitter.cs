@@ -15,6 +15,8 @@ namespace HeatEngine
         [SerializeField] bool _receiveRemeins;
         [SerializeField, Range(0f, 2f)] float _multiplierForSusceptibility = 1f;
 
+        private bool _isTriggert = false;
+
         void Awake()
         {
             _chemistryReceiver._onReceiveHeat += StayTrigger;
@@ -24,8 +26,9 @@ namespace HeatEngine
         {
             if (e._status == ChemistryEngine.IChemistryReceiver.Status.STAY)
             {
-                if (_heatReceiver._burnPercent >= _pointToChange)
+                if (_heatReceiver._burnPercent >= _pointToChange && !_isTriggert)
                 {
+                    _isTriggert = true;
                     _emitter.SetActive(true);
                     _heatReceiver.MultiplieSusceptibility(_multiplierForSusceptibility);
                     _receiver.SetActive(_receiveRemeins);
