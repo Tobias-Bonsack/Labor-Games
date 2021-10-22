@@ -14,8 +14,8 @@ namespace Scanner
 
         private void Awake()
         {
-            // 8 == Grabbable
-            _layerMask = (1 << 8);
+            // 8 == Grabbable, 9 == Outline
+            _layerMask = (1 << 8) | (1 << 9);
         }
 
         public void ScanEnvironment()

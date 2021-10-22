@@ -969,6 +969,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WoodPlank (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 7906280729028746418, guid: 55cf7caa3c398164fb69044c77756691, type: 3}
+      propertyPath: _multiplierForSusceptibility
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7922037163361967858, guid: 55cf7caa3c398164fb69044c77756691, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -1985,6 +1989,10 @@ PrefabInstance:
     - target: {fileID: 6401869642193555646, guid: 55cf7caa3c398164fb69044c77756691, type: 3}
       propertyPath: m_Name
       value: WoodPlank (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7906280729028746418, guid: 55cf7caa3c398164fb69044c77756691, type: 3}
+      propertyPath: _multiplierForSusceptibility
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7922037163361967858, guid: 55cf7caa3c398164fb69044c77756691, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -3104,8 +3112,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1358330924}
-  m_LocalRotation: {x: 0.080665655, y: 0.0000000027927813, z: 2.2613578e-10, w: 0.99674124}
-  m_LocalPosition: {x: 7.86, y: 3.4899998, z: -10.63}
+  m_LocalRotation: {x: 0.080665655, y: 0.0000000027927813, z: 2.2613601e-10, w: 0.99674124}
+  m_LocalPosition: {x: 7.86, y: 4.85, z: -10.63}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3932,7 +3940,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1897186211962671105, guid: 08297c6358d696b428ac978c3fb5a6fa, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.14
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 1897186211962671105, guid: 08297c6358d696b428ac978c3fb5a6fa, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3967,6 +3975,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1897186211962671119, guid: 08297c6358d696b428ac978c3fb5a6fa, type: 3}
+      propertyPath: _basicDown
+      value: -4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1897186211962671119, guid: 08297c6358d696b428ac978c3fb5a6fa, type: 3}
+      propertyPath: _jumpHeight
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1897186211962671119, guid: 08297c6358d696b428ac978c3fb5a6fa, type: 3}
       propertyPath: _mainCamera
       value: 
       objectReference: {fileID: 1358330927}
@@ -3980,11 +3996,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1897186212219561235, guid: 08297c6358d696b428ac978c3fb5a6fa, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 1e-45
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1897186212219561235, guid: 08297c6358d696b428ac978c3fb5a6fa, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1897186212372658495, guid: 08297c6358d696b428ac978c3fb5a6fa, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.35
       objectReference: {fileID: 0}
     - target: {fileID: 1897186212372658495, guid: 08297c6358d696b428ac978c3fb5a6fa, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3996,11 +4016,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1897186212395723504, guid: 08297c6358d696b428ac978c3fb5a6fa, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000018340417
+      value: -0.000000018340412
       objectReference: {fileID: 0}
     - target: {fileID: 1897186212395723504, guid: 08297c6358d696b428ac978c3fb5a6fa, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000000011498135
+      value: 0.0000000011498131
       objectReference: {fileID: 0}
     - target: {fileID: 2727826627379492551, guid: 08297c6358d696b428ac978c3fb5a6fa, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -4649,6 +4669,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WoodPlank (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 7906280729028746418, guid: 55cf7caa3c398164fb69044c77756691, type: 3}
+      propertyPath: _multiplierForSusceptibility
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7922037163361967858, guid: 55cf7caa3c398164fb69044c77756691, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -5077,6 +5101,10 @@ PrefabInstance:
     - target: {fileID: 6401869642193555646, guid: 55cf7caa3c398164fb69044c77756691, type: 3}
       propertyPath: m_Name
       value: WoodPlank (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7906280729028746418, guid: 55cf7caa3c398164fb69044c77756691, type: 3}
+      propertyPath: _multiplierForSusceptibility
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7922037163361967858, guid: 55cf7caa3c398164fb69044c77756691, type: 3}
       propertyPath: m_Materials.Array.data[0]

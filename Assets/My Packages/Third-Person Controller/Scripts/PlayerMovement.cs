@@ -54,7 +54,6 @@ namespace ThirdPersonController
 
             //TODO here place for extern forces, maybe as an list of extern calls
 
-            Debug.Log(_velocity);
             _controller.Move(_velocity * Time.fixedDeltaTime);
             UpdateAnimation();
 
