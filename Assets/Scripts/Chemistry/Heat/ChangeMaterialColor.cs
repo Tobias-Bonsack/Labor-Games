@@ -15,19 +15,23 @@ namespace HeatEngine
         void Awake()
         {
             _chemistryReceiver._onReceiveHeat += EnterStay;
+            _heatReceiver._onBurnPercentChange += OnBurnPercentChange;
             _materialColor = _renderer.material.GetColor("_BaseColor");
 
             _stepColor = _endColor - _materialColor;
         }
-
         private void EnterStay(object sender, ChemistryReceiver.OnReceiveHeatArgs e)
         {
             if (e._status == ChemistryEngine.IChemistryReceiver.Status.STAY)
             {
                 Color color = _materialColor + (_stepColor * _heatReceiver._burnPercent);
-                Debug.Log(color);
                 _renderer.material.SetColor("_BaseColor", color);
             }
+        }
+        private void OnBurnPercentChange(object sender, EventArgs e)
+        {
+            Color color = _materialColor + (_stepColor * _heatReceiver._burnPercent);
+            _renderer.material.SetColor("_BaseColor", color);
         }
     }
 }
