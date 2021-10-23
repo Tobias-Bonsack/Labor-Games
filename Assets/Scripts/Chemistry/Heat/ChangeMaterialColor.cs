@@ -8,21 +8,24 @@ namespace HeatEngine
 {
     public class ChangeMaterialColor : AbstractProperty
     {
+        [Header("Propertie-Parameter")]
         [SerializeField] Renderer _renderer;
+        [SerializeField] Color _endColor;
+        private Color _materialColor, _stepColor;
         void Awake()
         {
             _chemistryReceiver._onReceiveHeat += EnterStay;
+            _materialColor = _renderer.material.GetColor("_BaseColor");
+
+            _stepColor = _endColor - _materialColor;
         }
 
         private void EnterStay(object sender, ChemistryReceiver.OnReceiveHeatArgs e)
         {
             if (e._status == ChemistryEngine.IChemistryReceiver.Status.STAY)
             {
-                Color color = Color.black;
-                color.r = 1f - _heatReceiver._burnPercent;
-                color.b = 1f - _heatReceiver._burnPercent;
-                color.g = 1f - _heatReceiver._burnPercent;
-
+                Color color = _materialColor + (_stepColor * _heatReceiver._burnPercent);
+                Debug.Log(color);
                 _renderer.material.SetColor("_BaseColor", color);
             }
         }

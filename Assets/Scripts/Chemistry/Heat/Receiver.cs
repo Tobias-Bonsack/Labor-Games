@@ -12,7 +12,7 @@ namespace HeatEngine
 
         [SerializeField] ChemistryReceiver _chemistryReceiver;
         [SerializeField, Tooltip("0f = Full Resistance, 1f = Zero Resistance"), Range(0f, 1f)] protected float _heatSusceptibility;
-        public float _burnPercent = 0f;
+        [HideInInspector] public float _burnPercent = 0f;
 
         void Awake()
         {
