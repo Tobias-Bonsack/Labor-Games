@@ -3565,7 +3565,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5944765508077310960, guid: 13af98bd272bb8c4490987d0aecc4a52, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5944765508077310961, guid: 13af98bd272bb8c4490987d0aecc4a52, type: 3}
       propertyPath: m_RootOrder
@@ -3980,7 +3980,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1897186211962671119, guid: 08297c6358d696b428ac978c3fb5a6fa, type: 3}
       propertyPath: _jumpHeight
-      value: 10
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1897186211962671119, guid: 08297c6358d696b428ac978c3fb5a6fa, type: 3}
       propertyPath: _mainCamera

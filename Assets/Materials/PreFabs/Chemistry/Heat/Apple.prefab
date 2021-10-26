@@ -194,6 +194,7 @@ MonoBehaviour:
   _chemistryReceiver: {fileID: 5844618056439269188}
   _heatSusceptibility: 0.75
   _burnPercent: 0
+  _activeTriggers: 0
 --- !u!1 &5741402971234802504
 GameObject:
   m_ObjectHideFlags: 0
@@ -361,7 +362,7 @@ VisualEffect:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7860712481317084651}
   m_Enabled: 0
-  m_Asset: {fileID: 8926484042661614526, guid: ab52d63b5f3787c40a10165b5e352ba3, type: 3}
+  m_Asset: {fileID: 8926484042661614526, guid: afa78fc83035755458176d2e1794b2c8, type: 3}
   m_InitialEventName: OnPlay
   m_InitialEventNameOverriden: 0
   m_StartSeed: 0
@@ -369,16 +370,34 @@ VisualEffect:
   m_ResourceVersion: 1
   m_PropertySheet:
     m_Float:
-      m_Array: []
+      m_Array:
+      - m_Value: 1
+        m_Name: Lifetime A
+        m_Overridden: 1
+      - m_Value: 3
+        m_Name: Lifetime B
+        m_Overridden: 1
     m_Vector2f:
       m_Array: []
     m_Vector3f:
       m_Array:
-      - m_Value: {x: 0.01852783, y: -0.01114133, z: 0.0012361091}
-        m_Name: SpawnArea_center
+      - m_Value: {x: 2.4273314, y: 0.11657143, z: 0.3473177}
+        m_Name: SpawnPosition_size
         m_Overridden: 1
-      - m_Value: {x: 0.41609317, y: 0.62321883, z: 0.4203391}
-        m_Name: SpawnArea_size
+      - m_Value: {x: 0.001648426, y: -0.0065926313, z: 0.009889126}
+        m_Name: SpawnPosition_center
+        m_Overridden: 1
+      - m_Value: {x: 0.5397661, y: 0.6164037, z: 0.4937542}
+        m_Name: Spawn Box_size
+        m_Overridden: 1
+      - m_Value: {x: 0, y: 0, z: 0}
+        m_Name: Spawn Box_center
+        m_Overridden: 0
+      - m_Value: {x: -1, y: 0.1, z: -1}
+        m_Name: Velocity A
+        m_Overridden: 1
+      - m_Value: {x: 1, y: 1, z: 1}
+        m_Name: Velocity B
         m_Overridden: 1
     m_Vector4f:
       m_Array: []
@@ -386,15 +405,110 @@ VisualEffect:
       m_Array: []
     m_Int:
       m_Array:
-      - m_Value: 8
+      - m_Value: 12
         m_Name: SpawnRate
+        m_Overridden: 1
+      - m_Value: 5
+        m_Name: Constant Spanw Rate
         m_Overridden: 1
     m_Matrix4x4f:
       m_Array: []
     m_AnimationCurve:
-      m_Array: []
+      m_Array:
+      - m_Value:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0.011375427
+            value: 0.15034485
+            inSlope: -0.9689498
+            outSlope: -0.9689498
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0.02947872
+          - serializedVersion: 3
+            time: 1.0000763
+            value: 0.04922104
+            inSlope: -0.13186516
+            outSlope: -0.13186516
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0.19145812
+            outWeight: 0
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        m_Name: SizeOverLife
+        m_Overridden: 1
+      - m_Value:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.35562897
+            value: 0.25052643
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        m_Name: Size over Life
+        m_Overridden: 1
     m_Gradient:
-      m_Array: []
+      m_Array:
+      - m_Value:
+          serializedVersion: 2
+          key0: {r: 0, g: 0, b: 0, a: 0}
+          key1: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+          key2: {r: 0.3018868, g: 0.08373086, b: 0.08373086, a: 0.67058825}
+          key3: {r: 0, g: 0, b: 0, a: 0}
+          key4: {r: 0, g: 0, b: 0, a: 0}
+          key5: {r: 0, g: 0, b: 0, a: 0}
+          key6: {r: 0, g: 0, b: 0, a: 0}
+          key7: {r: 0, g: 0, b: 0, a: 0}
+          ctime0: 0
+          ctime1: 65535
+          ctime2: 65535
+          ctime3: 0
+          ctime4: 0
+          ctime5: 0
+          ctime6: 0
+          ctime7: 0
+          atime0: 0
+          atime1: 6554
+          atime2: 53585
+          atime3: 65535
+          atime4: 0
+          atime5: 0
+          atime6: 0
+          atime7: 0
+          m_Mode: 0
+          m_NumColorKeys: 2
+          m_NumAlphaKeys: 4
+        m_Name: Color over Life
+        m_Overridden: 1
     m_NamedObject:
       m_Array: []
     m_Bool:
