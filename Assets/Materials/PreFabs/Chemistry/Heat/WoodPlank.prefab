@@ -740,8 +740,8 @@ GameObject:
   m_Component:
   - component: {fileID: 919731427535739746}
   - component: {fileID: 4574260519120050054}
-  - component: {fileID: 443188326569928480}
-  - component: {fileID: 8028471122162905718}
+  - component: {fileID: 8578555369416598311}
+  - component: {fileID: 2727580888279919723}
   m_Layer: 31
   m_Name: Destruction
   m_TagString: Untagged
@@ -779,7 +779,7 @@ MonoBehaviour:
   _heatReceiver: {fileID: 2240372316054183283}
   _objectToDestroy: {fileID: 6401869642193555646}
   _pointToDestroy: 1
---- !u!2083052967 &443188326569928480
+--- !u!2083052967 &8578555369416598311
 VisualEffect:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -802,24 +802,27 @@ VisualEffect:
       - m_Value: 3
         m_Name: Lifetime B
         m_Overridden: 1
-      - m_Value: 300
-        m_Name: Count
-        m_Overridden: 1
     m_Vector2f:
       m_Array: []
     m_Vector3f:
       m_Array:
-      - m_Value: {x: -1, y: -1, z: -1}
+      - m_Value: {x: 2.4273314, y: 0.11657143, z: 0.3473177}
+        m_Name: SpawnPosition_size
+        m_Overridden: 1
+      - m_Value: {x: 0.001648426, y: -0.0065926313, z: 0.009889126}
+        m_Name: SpawnPosition_center
+        m_Overridden: 1
+      - m_Value: {x: 2.4156077, y: 0.13855502, z: 0.36173192}
+        m_Name: Spawn Box_size
+        m_Overridden: 1
+      - m_Value: {x: -0.00395, y: 0.0078998655, z: -0.0039500445}
+        m_Name: Spawn Box_center
+        m_Overridden: 1
+      - m_Value: {x: -1, y: 0.1, z: -1}
         m_Name: Velocity A
         m_Overridden: 1
       - m_Value: {x: 1, y: 1, z: 1}
         m_Name: Velocity B
-        m_Overridden: 1
-      - m_Value: {x: 2.4375138, y: 0.12298444, z: 0.34058988}
-        m_Name: Spawn Box_size
-        m_Overridden: 1
-      - m_Value: {x: 0, y: 0, z: 0}
-        m_Name: Spawn Box_center
         m_Overridden: 1
     m_Vector4f:
       m_Array: []
@@ -827,16 +830,45 @@ VisualEffect:
       m_Array: []
     m_Int:
       m_Array:
-      - m_Value: 300
-        m_Name: Single Burst Count
+      - m_Value: 12
+        m_Name: SpawnRate
         m_Overridden: 1
       - m_Value: 0
         m_Name: Constant Spanw Rate
         m_Overridden: 0
+      - m_Value: 200
+        m_Name: Single Burst Count
+        m_Overridden: 1
     m_Matrix4x4f:
       m_Array: []
     m_AnimationCurve:
       m_Array:
+      - m_Value:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0.011375427
+            value: 0.15034485
+            inSlope: -0.9689498
+            outSlope: -0.9689498
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0.02947872
+          - serializedVersion: 3
+            time: 1.0000763
+            value: 0.04922104
+            inSlope: -0.13186516
+            outSlope: -0.13186516
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0.19145812
+            outWeight: 0
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        m_Name: SizeOverLife
+        m_Overridden: 1
       - m_Value:
           serializedVersion: 2
           m_Curve:
@@ -850,8 +882,8 @@ VisualEffect:
             inWeight: 0
             outWeight: 0
           - serializedVersion: 3
-            time: 0.25
-            value: 0.25
+            time: 0.26812744
+            value: 0.24993134
             inSlope: 0
             outSlope: 0
             tangentMode: 0
@@ -876,16 +908,16 @@ VisualEffect:
       m_Array:
       - m_Value:
           serializedVersion: 2
-          key0: {r: 0.6792453, g: 0.3288689, b: 0.047418986, a: 1}
-          key1: {r: 0.509434, g: 0.31713817, b: 0.16532573, a: 0.8156863}
-          key2: {r: 0.5, g: 0.5, b: 0.5, a: 0}
+          key0: {r: 0, g: 0, b: 0, a: 0}
+          key1: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+          key2: {r: 0.3018868, g: 0.08373086, b: 0.08373086, a: 0.67058825}
           key3: {r: 0, g: 0, b: 0, a: 0}
           key4: {r: 0, g: 0, b: 0, a: 0}
           key5: {r: 0, g: 0, b: 0, a: 0}
           key6: {r: 0, g: 0, b: 0, a: 0}
           key7: {r: 0, g: 0, b: 0, a: 0}
           ctime0: 0
-          ctime1: 48573
+          ctime1: 65535
           ctime2: 65535
           ctime3: 0
           ctime4: 0
@@ -893,23 +925,23 @@ VisualEffect:
           ctime6: 0
           ctime7: 0
           atime0: 0
-          atime1: 59560
-          atime2: 65535
+          atime1: 6554
+          atime2: 53585
           atime3: 65535
           atime4: 0
           atime5: 0
           atime6: 0
           atime7: 0
           m_Mode: 0
-          m_NumColorKeys: 3
-          m_NumAlphaKeys: 3
+          m_NumColorKeys: 2
+          m_NumAlphaKeys: 4
         m_Name: Color over Life
         m_Overridden: 1
     m_NamedObject:
       m_Array: []
     m_Bool:
       m_Array: []
---- !u!73398921 &8028471122162905718
+--- !u!73398921 &2727580888279919723
 VFXRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
