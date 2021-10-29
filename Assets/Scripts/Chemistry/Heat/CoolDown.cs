@@ -19,13 +19,13 @@ namespace HeatEngine
             _chemistryReceiver._onReceiveHeat += ExitTrigger;
         }
 
-        private void EnterTrigger(object sender, ChemistryReceiver.OnReceiveHeatArgs e)
+        private void EnterTrigger(object sender, ChemistryReceiver.OnReceiveElementArgs e)
         {
             if (e._status == IChemistryReceiver.Status.ENTER)
                 if (_cooldown != null) StopCoroutine(_cooldown);
         }
 
-        private void ExitTrigger(object sender, ChemistryReceiver.OnReceiveHeatArgs e)
+        private void ExitTrigger(object sender, ChemistryReceiver.OnReceiveElementArgs e)
         {
             if (e._status == IChemistryReceiver.Status.EXIT && _heatReceiver._activeTriggers == 0)
             {

@@ -20,7 +20,7 @@ namespace HeatEngine
 
             _stepColor = _endColor - _materialColor;
         }
-        private void EnterStay(object sender, ChemistryReceiver.OnReceiveHeatArgs e)
+        private void EnterStay(object sender, ChemistryReceiver.OnReceiveElementArgs e)
         {
             if (e._status == ChemistryEngine.IChemistryReceiver.Status.STAY)
             {

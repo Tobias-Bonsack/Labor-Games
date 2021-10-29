@@ -21,7 +21,7 @@ namespace HeatEngine
             _chemistryReceiver._onReceiveHeat += ExitTrigger;
         }
 
-        private void EnterTrigger(object sender, ChemistryReceiver.OnReceiveHeatArgs e)
+        private void EnterTrigger(object sender, ChemistryReceiver.OnReceiveElementArgs e)
         {
             if (e._status == ChemistryEngine.IChemistryReceiver.Status.ENTER)
             {
@@ -30,7 +30,7 @@ namespace HeatEngine
             }
         }
 
-        private void ExitTrigger(object sender, ChemistryReceiver.OnReceiveHeatArgs e)
+        private void ExitTrigger(object sender, ChemistryReceiver.OnReceiveElementArgs e)
         {
             if (e._status == ChemistryEngine.IChemistryReceiver.Status.EXIT)
             {

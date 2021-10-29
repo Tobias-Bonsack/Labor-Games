@@ -9,11 +9,12 @@ namespace ChemistryEngine
     public class ChemistryReceiver : MonoBehaviour, IChemistryReceiver
     {
         #region events
-        public event EventHandler<OnReceiveHeatArgs> _onReceiveHeat;
+        public event EventHandler<OnReceiveElementArgs> _onReceiveHeat;
+        public event EventHandler<OnReceiveElementArgs> _onReceiveFrost;
         #endregion
 
         #region event args
-        public class OnReceiveHeatArgs : EventArgs
+        public class OnReceiveElementArgs : EventArgs
         {
             public IChemistryReceiver.Status _status;
             public float _radiance;
@@ -21,7 +22,8 @@ namespace ChemistryEngine
         #endregion
 
         #region trigger
-        public void OnReceiveHeatTrigger(OnReceiveHeatArgs args) => _onReceiveHeat?.Invoke(this, args);
+        public void OnReceiveHeatTrigger(OnReceiveElementArgs args) => _onReceiveHeat?.Invoke(this, args);
+        public void OnReceiveFrostTrigger(OnReceiveElementArgs args) => _onReceiveFrost?.Invoke(this, args);
         #endregion
 
         #region parameter
@@ -53,9 +55,13 @@ namespace ChemistryEngine
                     case IChemistry.ChemistryTypes.HEAT:
                         if (IsStrangerEmitter(chemistryEmitter))
                         {
-                            OnReceiveHeatArgs onReceiveHeatArgs = new OnReceiveHeatArgs { _status = status, _radiance = chemistryEmitter._radiance[i] };
+                            OnReceiveElementArgs onReceiveHeatArgs = new OnReceiveElementArgs { _status = status, _radiance = chemistryEmitter._radiance[i] };
                             OnReceiveHeatTrigger(onReceiveHeatArgs);
                         }
+                        break;
+                    case IChemistry.ChemistryTypes.COLD:
+                        OnReceiveElementArgs onReceiveFrostArgs = new OnReceiveElementArgs { _status = status, _radiance = chemistryEmitter._radiance[i] };
+                        OnReceiveFrostTrigger(onReceiveFrostArgs);
                         break;
                     default:
                         Debug.LogWarning("Unknown type");

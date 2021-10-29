@@ -23,7 +23,7 @@ namespace HeatEngine
             _heatReceiver._onBurnPercentChange += OnBurnPercentChange;
         }
 
-        private void StayTrigger(object sender, ChemistryReceiver.OnReceiveHeatArgs e)
+        private void StayTrigger(object sender, ChemistryReceiver.OnReceiveElementArgs e)
         {
             if (e._status == ChemistryEngine.IChemistryReceiver.Status.STAY)
             {

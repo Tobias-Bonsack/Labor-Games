@@ -21,11 +21,11 @@ namespace HeatEngine
             _chemistryReceiver._onReceiveHeat += TriggerStay;
         }
 
-        private void EnterTrigger(object sender, ChemistryReceiver.OnReceiveHeatArgs e)
+        private void EnterTrigger(object sender, ChemistryReceiver.OnReceiveElementArgs e)
         {
             if (e._status == IChemistryReceiver.Status.ENTER) _activeTriggers++;
         }
-        private void TriggerStay(object sender, ChemistryReceiver.OnReceiveHeatArgs e)
+        private void TriggerStay(object sender, ChemistryReceiver.OnReceiveElementArgs e)
         {
             if (e._status == IChemistryReceiver.Status.STAY)
             {
@@ -33,7 +33,7 @@ namespace HeatEngine
                 _burnPercent = Mathf.Clamp(_burnPercent, 0f, 1f);
             }
         }
-        private void ExitTrigger(object sender, ChemistryReceiver.OnReceiveHeatArgs e)
+        private void ExitTrigger(object sender, ChemistryReceiver.OnReceiveElementArgs e)
         {
             if (e._status == IChemistryReceiver.Status.EXIT) _activeTriggers--;
         }
