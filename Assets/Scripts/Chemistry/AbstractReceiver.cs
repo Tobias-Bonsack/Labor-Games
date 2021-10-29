@@ -25,11 +25,11 @@ namespace ChemistryEngine
         }
 
         #region events
-        public event EventHandler<EventArgs> _onBurnPercentChange;
+        public event EventHandler<EventArgs> _onElementPercentChange;
         #endregion
 
         #region trigger methods
-        public void OnBurnPercentChangeTrigger() => _onBurnPercentChange?.Invoke(this, EventArgs.Empty);
+        public void OnElementPercentChangeTrigger() => _onElementPercentChange?.Invoke(this, EventArgs.Empty);
         #endregion
     }
 }

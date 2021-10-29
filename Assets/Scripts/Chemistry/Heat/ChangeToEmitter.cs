@@ -20,7 +20,7 @@ namespace HeatEngine
         void Awake()
         {
             _chemistryReceiver._onReceiveHeat += StayTrigger;
-            _elementReceiver._onBurnPercentChange += OnBurnPercentChange;
+            _elementReceiver._onElementPercentChange += OnBurnPercentChange;
         }
 
         private void StayTrigger(object sender, ChemistryReceiver.OnReceiveElementArgs e)

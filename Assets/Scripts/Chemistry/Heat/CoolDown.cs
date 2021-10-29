@@ -39,7 +39,7 @@ namespace HeatEngine
             while (_elementReceiver._elementPercent > 0f)
             {
                 _elementReceiver._elementPercent -= _rateToCooldown;
-                _elementReceiver.OnBurnPercentChangeTrigger();
+                _elementReceiver.OnElementPercentChangeTrigger();
                 yield return new WaitForSeconds(_timeBetweenCooldown);
             }
             _elementReceiver._elementPercent = 0f;

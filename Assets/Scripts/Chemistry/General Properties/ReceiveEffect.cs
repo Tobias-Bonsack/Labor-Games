@@ -10,6 +10,7 @@ namespace ChemistryEngine
     [RequireComponent(typeof(VisualEffect))]
     public class ReceiveEffect : AbstractProperty
     {
+        [Header("Propertie-Parameter")]
         VisualEffect _visualEffect;
         int _numberOfTrigger = 0;
 

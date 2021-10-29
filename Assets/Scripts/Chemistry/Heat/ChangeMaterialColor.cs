@@ -15,7 +15,7 @@ namespace HeatEngine
         void Awake()
         {
             _chemistryReceiver._onReceiveHeat += EnterStay;
-            _elementReceiver._onBurnPercentChange += OnBurnPercentChange;
+            _elementReceiver._onElementPercentChange += OnBurnPercentChange;
             _materialColor = _renderer.material.GetColor("_BaseColor");
 
             _stepColor = _endColor - _materialColor;
