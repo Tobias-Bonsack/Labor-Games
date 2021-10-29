@@ -276,8 +276,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9f61ed6f5878ea49ad36b8fc5f5190d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _type: 0
   _chemistryReceiver: {fileID: 6859814169030407581}
-  _heatReceiver: {fileID: 4686537601182074783}
+  _elementReceiver: {fileID: 4686537601182074783}
   _objectToDestroy: {fileID: 7446782720037582083}
   _pointToDestroy: 1
 --- !u!2083052967 &6303992139575771780
@@ -667,8 +668,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _chemistryReceiver: {fileID: 6859814169030407581}
-  _heatSusceptibility: 1
-  _burnPercent: 0
+  _susceptibility: 1
+  _elementPercent: 0
   _activeTriggers: 0
 --- !u!1 &7408547503233737118
 GameObject:
@@ -681,7 +682,7 @@ GameObject:
   - component: {fileID: 8050600447390106027}
   - component: {fileID: 6389472076244662670}
   - component: {fileID: 8344257718280310373}
-  - component: {fileID: 6592180375831738551}
+  - component: {fileID: 8021236568403699747}
   m_Layer: 31
   m_Name: Smoke
   m_TagString: Untagged
@@ -902,7 +903,7 @@ VFXRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &6592180375831738551
+--- !u!114 &8021236568403699747
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -911,11 +912,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 7408547503233737118}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66dd915c873ae1345817cb4879a5ef86, type: 3}
+  m_Script: {fileID: 11500000, guid: fe65ec23eb0929c48829564140d98a81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _type: 0
   _chemistryReceiver: {fileID: 6859814169030407581}
-  _heatReceiver: {fileID: 4686537601182074783}
+  _elementReceiver: {fileID: 4686537601182074783}
 --- !u!1 &7446782720037582083
 GameObject:
   m_ObjectHideFlags: 0
@@ -1039,8 +1041,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d38d4356d1c1cb4e92ac3926b1eb2bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _type: 0
   _chemistryReceiver: {fileID: 6859814169030407581}
-  _heatReceiver: {fileID: 4686537601182074783}
+  _elementReceiver: {fileID: 4686537601182074783}
   _emitter: {fileID: 4694993803560459323}
   _receiver: {fileID: 2212802089811371971}
   _pointToChange: 0.5

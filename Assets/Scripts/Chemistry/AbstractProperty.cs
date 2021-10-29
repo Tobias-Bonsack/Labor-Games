@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace HeatEngine
+namespace ChemistryEngine
 {
     public abstract class AbstractProperty : MonoBehaviour
     {
         [Header("Generally Parameter")]
+        [SerializeField] protected IChemistry.ChemistryTypes _type;
         [SerializeField] protected ChemistryEngine.ChemistryReceiver _chemistryReceiver;
-        [SerializeField] protected Receiver _heatReceiver;
+        [SerializeField] protected AbstractReceiver _elementReceiver;
     }
 }

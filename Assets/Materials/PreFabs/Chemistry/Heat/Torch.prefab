@@ -92,8 +92,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _chemistryReceiver: {fileID: 1849248337037774846}
-  _heatSusceptibility: 1
-  _burnPercent: 0
+  _susceptibility: 0
+  _elementPercent: 0
   _activeTriggers: 0
 --- !u!1 &1694544873
 GameObject:
@@ -479,8 +479,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d38d4356d1c1cb4e92ac3926b1eb2bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _type: 0
   _chemistryReceiver: {fileID: 1849248337037774846}
-  _heatReceiver: {fileID: 4286297078658100895}
+  _elementReceiver: {fileID: 4286297078658100895}
   _emitter: {fileID: 1694544873}
   _receiver: {fileID: 884086050}
   _pointToChange: 1
@@ -597,7 +598,7 @@ GameObject:
   - component: {fileID: 4761654500943335775}
   - component: {fileID: 3344263143094888023}
   - component: {fileID: 4442889740466626253}
-  - component: {fileID: 1377978423976244409}
+  - component: {fileID: 4431469996380544102}
   m_Layer: 6
   m_Name: Smoke
   m_TagString: Untagged
@@ -818,7 +819,7 @@ VFXRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &1377978423976244409
+--- !u!114 &4431469996380544102
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -827,8 +828,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 8370331264587063065}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66dd915c873ae1345817cb4879a5ef86, type: 3}
+  m_Script: {fileID: 11500000, guid: fe65ec23eb0929c48829564140d98a81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _type: 0
   _chemistryReceiver: {fileID: 1849248337037774846}
-  _heatReceiver: {fileID: 4286297078658100895}
+  _elementReceiver: {fileID: 4286297078658100895}

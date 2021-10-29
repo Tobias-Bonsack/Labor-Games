@@ -192,8 +192,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _chemistryReceiver: {fileID: 5844618056439269188}
-  _heatSusceptibility: 0.75
-  _burnPercent: 0
+  _susceptibility: 1
+  _elementPercent: 0
   _activeTriggers: 0
 --- !u!1 &5741402971234802504
 GameObject:
@@ -317,8 +317,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 973aa61db64b55c4d9427d53aaf0b439, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _type: 0
   _chemistryReceiver: {fileID: 5844618056439269188}
-  _heatReceiver: {fileID: 8253443969176652285}
+  _elementReceiver: {fileID: 8253443969176652285}
   _renderer: {fileID: 1181320338241983696}
   _endColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &7860712481317084651
@@ -331,8 +332,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3364889088990662443}
   - component: {fileID: 6045958441735838817}
-  - component: {fileID: 3017255402665639255}
   - component: {fileID: 7247921005789154496}
+  - component: {fileID: 2986949495115005232}
   m_Layer: 8
   m_Name: Smoke
   m_TagString: Untagged
@@ -513,20 +514,6 @@ VisualEffect:
       m_Array: []
     m_Bool:
       m_Array: []
---- !u!114 &3017255402665639255
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7860712481317084651}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66dd915c873ae1345817cb4879a5ef86, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _chemistryReceiver: {fileID: 5844618056439269188}
-  _heatReceiver: {fileID: 8253443969176652285}
 --- !u!73398921 &7247921005789154496
 VFXRenderer:
   m_ObjectHideFlags: 0
@@ -567,3 +554,18 @@ VFXRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &2986949495115005232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7860712481317084651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe65ec23eb0929c48829564140d98a81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _type: 0
+  _chemistryReceiver: {fileID: 5844618056439269188}
+  _elementReceiver: {fileID: 8253443969176652285}

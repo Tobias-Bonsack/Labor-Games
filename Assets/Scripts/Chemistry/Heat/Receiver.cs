@@ -7,11 +7,9 @@ using UnityEngine.VFX;
 
 namespace HeatEngine
 {
-    public class Receiver : MonoBehaviour
+    public class Receiver : AbstractReceiver
     {
-        [SerializeField] ChemistryReceiver _chemistryReceiver;
-        [SerializeField, Tooltip("0f = Full Resistance, 1f = Zero Resistance"), Range(0f, 1f)] protected float _heatSusceptibility;
-        [HideInNormalInspector] public float _burnPercent = 0f;
+        [Header("Heat Properties")]
         [HideInNormalInspector] public int _activeTriggers = 0;
 
         void Awake()
@@ -29,28 +27,13 @@ namespace HeatEngine
         {
             if (e._status == IChemistryReceiver.Status.STAY)
             {
-                _burnPercent += _heatSusceptibility * e._radiance * Time.fixedDeltaTime;
-                _burnPercent = Mathf.Clamp(_burnPercent, 0f, 1f);
+                UpdateElementPercent(e);
             }
         }
+
         private void ExitTrigger(object sender, ChemistryReceiver.OnReceiveElementArgs e)
         {
             if (e._status == IChemistryReceiver.Status.EXIT) _activeTriggers--;
         }
-
-
-        public void MultiplieSusceptibility(float multiplier)
-        {
-            _heatSusceptibility *= multiplier;
-            _heatSusceptibility = Mathf.Clamp(_heatSusceptibility, 0f, 1f);
-        }
-
-        #region events
-        public event EventHandler<EventArgs> _onBurnPercentChange;
-        #endregion
-
-        #region triggermethods
-        public void OnBurnPercentChangeTrigger() => _onBurnPercentChange?.Invoke(this, EventArgs.Empty);
-        #endregion
     }
 }

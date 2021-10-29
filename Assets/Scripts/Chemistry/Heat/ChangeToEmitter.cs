@@ -20,7 +20,7 @@ namespace HeatEngine
         void Awake()
         {
             _chemistryReceiver._onReceiveHeat += StayTrigger;
-            _heatReceiver._onBurnPercentChange += OnBurnPercentChange;
+            _elementReceiver._onBurnPercentChange += OnBurnPercentChange;
         }
 
         private void StayTrigger(object sender, ChemistryReceiver.OnReceiveElementArgs e)
@@ -33,18 +33,18 @@ namespace HeatEngine
 
         private void OnBurnPercentChange(object sender, EventArgs e)
         {
-            if (!_isTriggert && _heatReceiver._burnPercent >= _pointToChange)
+            if (!_isTriggert && _elementReceiver._elementPercent >= _pointToChange)
             {
                 _isTriggert = true;
                 _emitter.SetActive(true);
-                _heatReceiver.MultiplieSusceptibility(_multiplierForSusceptibility);
+                _elementReceiver.MultiplieSusceptibility(_multiplierForSusceptibility);
                 _receiver.SetActive(_receiveRemeins);
             }
-            else if (_isTriggert && _heatReceiver._burnPercent <= _pointToChange)
+            else if (_isTriggert && _elementReceiver._elementPercent <= _pointToChange)
             {
                 _isTriggert = false;
                 _emitter.SetActive(false);
-                _heatReceiver.MultiplieSusceptibility(1f / _multiplierForSusceptibility);
+                _elementReceiver.MultiplieSusceptibility(1f / _multiplierForSusceptibility);
                 _receiver.SetActive(!_receiveRemeins);
             }
         }

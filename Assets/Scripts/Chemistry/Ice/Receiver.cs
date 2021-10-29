@@ -6,21 +6,19 @@ using UnityEngine;
 
 namespace FrostEngine
 {
-    public class Receiver : MonoBehaviour
+    public class Receiver : AbstractReceiver
     {
-        [SerializeField] ChemistryReceiver _chemistryReceiver;
-        [SerializeField, Tooltip("0f = Full Resistance, 1f = Zero Resistance"), Range(0f, 1f)] protected float _frostSusceptibility;
-        [HideInNormalInspector] public float _frostPercent = 0f;
-
-
         void Awake()
         {
-            _chemistryReceiver._onReceiveHeat += TriggerStay;
+            _chemistryReceiver._onReceiveFrost += TriggerStay;
         }
 
         private void TriggerStay(object sender, ChemistryReceiver.OnReceiveElementArgs e)
         {
-            throw new NotImplementedException();
+            if (e._status == IChemistryReceiver.Status.STAY)
+            {
+                UpdateElementPercent(e);
+            }
         }
     }
 }

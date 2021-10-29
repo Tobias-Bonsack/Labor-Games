@@ -5,10 +5,10 @@ using ChemistryEngine;
 using UnityEngine;
 using UnityEngine.VFX;
 
-namespace HeatEngine
+namespace ChemistryEngine
 {
     [RequireComponent(typeof(VisualEffect))]
-    public class Smoke : AbstractProperty
+    public class ReceiveEffect : AbstractProperty
     {
         VisualEffect _visualEffect;
         int _numberOfTrigger = 0;
@@ -16,9 +16,21 @@ namespace HeatEngine
         void Awake()
         {
             _visualEffect = GetComponent<VisualEffect>();
-            
-            _chemistryReceiver._onReceiveHeat += EnterTrigger;
-            _chemistryReceiver._onReceiveHeat += ExitTrigger;
+
+            switch (_type)
+            {
+                case IChemistry.ChemistryTypes.HEAT:
+                    _chemistryReceiver._onReceiveHeat += EnterTrigger;
+                    _chemistryReceiver._onReceiveHeat += ExitTrigger;
+                    break;
+                case IChemistry.ChemistryTypes.COLD:
+                    _chemistryReceiver._onReceiveFrost += EnterTrigger;
+                    _chemistryReceiver._onReceiveFrost += ExitTrigger;
+                    break;
+                default:
+                    Debug.LogError("UnknownType");
+                    break;
+            }
         }
 
         private void EnterTrigger(object sender, ChemistryReceiver.OnReceiveElementArgs e)
@@ -34,7 +46,7 @@ namespace HeatEngine
         {
             if (e._status == ChemistryEngine.IChemistryReceiver.Status.EXIT)
             {
-                if(--_numberOfTrigger == 0) _visualEffect.enabled = false;
+                if (--_numberOfTrigger == 0) _visualEffect.enabled = false;
             }
         }
     }

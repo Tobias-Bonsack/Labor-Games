@@ -27,7 +27,7 @@ namespace HeatEngine
 
         private void ExitTrigger(object sender, ChemistryReceiver.OnReceiveElementArgs e)
         {
-            if (e._status == IChemistryReceiver.Status.EXIT && _heatReceiver._activeTriggers == 0)
+            if (e._status == IChemistryReceiver.Status.EXIT && ((HeatEngine.Receiver)_elementReceiver)._activeTriggers == 0)
             {
                 StopAllCoroutines();
                 _cooldown = StartCoroutine(CooldownRoutine());
@@ -36,13 +36,13 @@ namespace HeatEngine
 
         IEnumerator CooldownRoutine()
         {
-            while (_heatReceiver._burnPercent > 0f)
+            while (_elementReceiver._elementPercent > 0f)
             {
-                _heatReceiver._burnPercent -= _rateToCooldown;
-                _heatReceiver.OnBurnPercentChangeTrigger();
+                _elementReceiver._elementPercent -= _rateToCooldown;
+                _elementReceiver.OnBurnPercentChangeTrigger();
                 yield return new WaitForSeconds(_timeBetweenCooldown);
             }
-            _heatReceiver._burnPercent = 0f;
+            _elementReceiver._elementPercent = 0f;
         }
     }
 }

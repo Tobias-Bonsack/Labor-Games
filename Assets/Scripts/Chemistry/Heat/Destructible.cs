@@ -24,7 +24,7 @@ namespace HeatEngine
 
         private void StayTrigger(object sender, ChemistryReceiver.OnReceiveElementArgs e)
         {
-            if (e._status == IChemistryReceiver.Status.STAY && _heatReceiver._burnPercent >= _pointToDestroy)
+            if (e._status == IChemistryReceiver.Status.STAY && _elementReceiver._elementPercent >= _pointToDestroy)
             {
                 transform.parent = null;
                 StartCoroutine(WaitToDestroy(_visualEffect.GetFloat("Lifetime B")));
