@@ -52,6 +52,7 @@ namespace ChemistryEngine
             {
                 _elementPercent += _susceptibility * e._radiance * Time.fixedDeltaTime;
                 _elementPercent = Mathf.Clamp(_elementPercent, 0f, 1f);
+                OnElementPercentChangeTrigger();
                 ExtendStayTrigger(e);
             }
         }

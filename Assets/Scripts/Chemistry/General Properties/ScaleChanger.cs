@@ -14,29 +14,7 @@ namespace ChemistryEngine
         void Awake()
         {
             _elementReceiver._onElementPercentChange += ChangeScale;
-
-            switch (_type)
-            {
-                case IChemistry.ChemistryTypes.HEAT:
-                    _chemistryReceiver._onReceiveHeat += StayTrigger;
-                    break;
-                case IChemistry.ChemistryTypes.COLD:
-                    _chemistryReceiver._onReceiveFrost += StayTrigger;
-                    break;
-                default:
-                    Debug.LogError("UnknownType");
-                    break;
-            }
         }
-
-        private void StayTrigger(object sender, ChemistryReceiver.OnReceiveElementArgs e)
-        {
-            if (e._status == IChemistryReceiver.Status.STAY)
-            {
-                ChangeScale(null, null);
-            }
-        }
-
         private void ChangeScale(object sender, EventArgs e)
         {
             Vector3 addSize = (_biggestSize - _lowestSize) * _elementReceiver._elementPercent;
