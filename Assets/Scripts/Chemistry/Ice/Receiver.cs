@@ -10,15 +10,18 @@ namespace FrostEngine
     {
         void Awake()
         {
-            _chemistryReceiver._onReceiveFrost += TriggerStay;
+            SetAbstractEvents(IChemistry.ChemistryTypes.COLD);
+        }
+        protected override void ExtendEnterTrigger(ChemistryReceiver.OnReceiveElementArgs e)
+        {
         }
 
-        private void TriggerStay(object sender, ChemistryReceiver.OnReceiveElementArgs e)
+        protected override void ExtendExitTrigger(ChemistryReceiver.OnReceiveElementArgs e)
         {
-            if (e._status == IChemistryReceiver.Status.STAY)
-            {
-                UpdateElementPercent(e);
-            }
+        }
+
+        protected override void ExtendStayTrigger(ChemistryReceiver.OnReceiveElementArgs e)
+        {
         }
     }
 }

@@ -9,7 +9,8 @@ namespace ChemistryEngine
         {
             HEAT,
             COLD,
-            ELECTRICITY
+            ELECTRICITY,
+            NOTHING
         }
     }
 }

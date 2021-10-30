@@ -550,6 +550,7 @@ MonoBehaviour:
   _chemistryReceiver: {fileID: 4354096725676731277}
   _susceptibility: 1
   _elementPercent: 0
+  _activeTriggers: 0
 --- !u!1 &4354096727013051112
 GameObject:
   m_ObjectHideFlags: 0
@@ -562,7 +563,9 @@ GameObject:
   - component: {fileID: 4354096727013051117}
   - component: {fileID: 4354096727013051114}
   - component: {fileID: 4354096727013051115}
-  m_Layer: 0
+  - component: {fileID: 8242088215584651528}
+  - component: {fileID: 3682302272861781560}
+  m_Layer: 9
   m_Name: Puddle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -646,6 +649,38 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &8242088215584651528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4354096727013051112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0beabc015d6610e47b7b7b25cf06ec2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _outline: {fileID: 3682302272861781560}
+  _timer: 2
+--- !u!114 &3682302272861781560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4354096727013051112}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0, g: 1, b: 1, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &6972572355993758837
 GameObject:
   m_ObjectHideFlags: 0
@@ -655,8 +690,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4679656354614939507}
+  - component: {fileID: 5094914741435670265}
   m_Layer: 31
-  m_Name: Ice Block
+  m_Name: Without specific Components
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -676,3 +712,22 @@ Transform:
   m_Father: {fileID: 4354096726618641767}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5094914741435670265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6972572355993758837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22a67aa791c9a494c962da685a677224, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _type: 1
+  _chemistryReceiver: {fileID: 4354096725676731277}
+  _elementReceiver: {fileID: 4354096726618641766}
+  _weaknessType: 0
+  _timeMultiplier: 0.5
+  _timeBetweenCooldown: 1
+  _rateToCooldown: 0.01

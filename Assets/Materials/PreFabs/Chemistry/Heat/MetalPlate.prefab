@@ -58,7 +58,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9096797163080104770}
-  - component: {fileID: 7638138735276761173}
+  - component: {fileID: 7179062665642039356}
   m_Layer: 31
   m_Name: Cooldown
   m_TagString: Untagged
@@ -80,7 +80,7 @@ Transform:
   m_Father: {fileID: 8594831302268375176}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7638138735276761173
+--- !u!114 &7179062665642039356
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -89,12 +89,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 777538761891361920}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 757e7f9f7d0709d478a70b4458133698, type: 3}
+  m_Script: {fileID: 11500000, guid: 22a67aa791c9a494c962da685a677224, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 0
   _chemistryReceiver: {fileID: 6624070620796306670}
   _elementReceiver: {fileID: 6026116002775345098}
+  _weaknessType: 1
+  _timeMultiplier: 0.5
   _timeBetweenCooldown: 1
   _rateToCooldown: 0.01
 --- !u!1 &5876606609711241275
@@ -157,7 +159,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0beabc015d6610e47b7b7b25cf06ec2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _outline: {fileID: 7729305689311582026}
+  _outline: {fileID: 3910898142414945256}
   _timer: 2
 --- !u!1 &5910838464617001437
 GameObject:
@@ -236,24 +238,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _burnItself: 0
   _ownEmitter: {fileID: 5364019816809064218}
---- !u!114 &7729305689311582026
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6701902572296468562}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 1
-  outlineColor: {r: 1, g: 0, b: 0, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!1 &8441454714196207259
 GameObject:
   m_ObjectHideFlags: 0
@@ -373,10 +357,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Prop_MetalPlate_01
       objectReference: {fileID: 0}
-    - target: {fileID: 1054779504841968, guid: 9521e37e952285346bdcd875e0a2a0f9, type: 3}
-      propertyPath: m_Layer
-      value: 31
-      objectReference: {fileID: 0}
     - target: {fileID: 4048253084937606, guid: 9521e37e952285346bdcd875e0a2a0f9, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -423,11 +403,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9521e37e952285346bdcd875e0a2a0f9, type: 3}
---- !u!1 &6701902572296468562 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1054779504841968, guid: 9521e37e952285346bdcd875e0a2a0f9, type: 3}
-  m_PrefabInstance: {fileID: 6702006818730814626}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6704784987706917156 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4048253084937606, guid: 9521e37e952285346bdcd875e0a2a0f9, type: 3}
@@ -438,3 +413,14 @@ MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 23017586495049046, guid: 9521e37e952285346bdcd875e0a2a0f9, type: 3}
   m_PrefabInstance: {fileID: 6702006818730814626}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3910898142414945256 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7729305689311582026, guid: 9521e37e952285346bdcd875e0a2a0f9, type: 3}
+  m_PrefabInstance: {fileID: 6702006818730814626}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
