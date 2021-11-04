@@ -92,7 +92,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _chemistryReceiver: {fileID: 1849248337037774846}
-  _susceptibility: 0
+  _susceptibility: 1
   _elementPercent: 0
   _activeTriggers: 0
 --- !u!1 &1694544873

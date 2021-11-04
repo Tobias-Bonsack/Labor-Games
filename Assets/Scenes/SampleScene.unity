@@ -346,7 +346,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5944765508077310960, guid: 13af98bd272bb8c4490987d0aecc4a52, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5944765508077310961, guid: 13af98bd272bb8c4490987d0aecc4a52, type: 3}
       propertyPath: m_RootOrder
@@ -5481,6 +5481,43 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!1 &574436780 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4352750271894308670, guid: 8d5bf28285fc9ca4ebd6b2e44b3fac42, type: 3}
+  m_PrefabInstance: {fileID: 4354096725520875961}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &574436782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 574436780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0beabc015d6610e47b7b7b25cf06ec2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _outline: {fileID: 574436786}
+  _timer: 2
+--- !u!114 &574436786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 574436780}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 0, g: 1, b: 1, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &588220831
 GameObject:
   m_ObjectHideFlags: 0
@@ -13100,7 +13137,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 4.5904e-41, y: 49752320, z: 4.5904e-41, w: 9.403955e-38}
+  m_BoundingSphereOverride: {x: 4.5905e-41, y: 0, z: 0, w: 1e-45}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -13493,6 +13530,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8783829}
     m_Modifications:
+    - target: {fileID: 4352750271894308670, guid: 8d5bf28285fc9ca4ebd6b2e44b3fac42, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 4354096726180287327, guid: 8d5bf28285fc9ca4ebd6b2e44b3fac42, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -13507,15 +13548,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4354096726551645479, guid: 8d5bf28285fc9ca4ebd6b2e44b3fac42, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 32
+      value: 29.5
       objectReference: {fileID: 0}
     - target: {fileID: 4354096726551645479, guid: 8d5bf28285fc9ca4ebd6b2e44b3fac42, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.51
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4354096726551645479, guid: 8d5bf28285fc9ca4ebd6b2e44b3fac42, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4354096726551645479, guid: 8d5bf28285fc9ca4ebd6b2e44b3fac42, type: 3}
       propertyPath: m_LocalRotation.w
@@ -13733,15 +13774,7 @@ PrefabInstance:
       value: Torch
       objectReference: {fileID: 0}
     - target: {fileID: 4442889740466626253, guid: fed7c5691e635b94881e25de84c8bf5d, type: 3}
-      propertyPath: m_Materials.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4442889740466626253, guid: fed7c5691e635b94881e25de84c8bf5d, type: 3}
       propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4442889740466626253, guid: fed7c5691e635b94881e25de84c8bf5d, type: 3}
-      propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4475728217534875751, guid: fed7c5691e635b94881e25de84c8bf5d, type: 3}
@@ -13789,10 +13822,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5094372279712550424, guid: fed7c5691e635b94881e25de84c8bf5d, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6625657459730040954, guid: fed7c5691e635b94881e25de84c8bf5d, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 0}
