@@ -11,7 +11,7 @@ namespace ChemistryEngine
         [Header("Parameter")]
         [SerializeField] ChemistryEmitter _emitter;
         [SerializeField, Range(0f, 1f)] float _pointToChange;
-        [SerializeField] bool _receiveRemeins;
+        [SerializeField] bool _receiveRemeins = true;
         [SerializeField, Range(0f, 2f)] float _multiplierForSusceptibility = 1f;
         [SerializeField, Range(0f, 1f)] float _radiance;
 
@@ -26,7 +26,8 @@ namespace ChemistryEngine
 
         private void OnBurnPercentChange(object sender, EventArgs e)
         {
-            _numberOfChanges++;
+            if (_numberOfChanges < 0) _numberOfChanges = 0;
+            ++_numberOfChanges;
             if (_queue == null)
             {
                 _queue = StartCoroutine(CheckPercentChange());
@@ -50,7 +51,6 @@ namespace ChemistryEngine
                     _isEmitter = false;
                     ChangeEmitter(false);
                     _elementReceiver.MultiplieSusceptibility(1f / _multiplierForSusceptibility);
-                    _elementReceiver.gameObject.SetActive(!_receiveRemeins);
                 }
             }
             _queue = null;

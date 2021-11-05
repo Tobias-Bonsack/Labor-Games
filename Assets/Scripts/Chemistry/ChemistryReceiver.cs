@@ -27,7 +27,7 @@ namespace ChemistryEngine
         #endregion
 
         #region parameter
-        [SerializeField] bool _burnItself = false;
+        [SerializeField] bool _burnItself = false, _frostItself = false;
         [SerializeField] ChemistryEmitter _ownEmitter;
         #endregion
 
@@ -53,15 +53,18 @@ namespace ChemistryEngine
                 switch (type)
                 {
                     case IChemistry.ChemistryTypes.HEAT:
-                        if (IsStrangerEmitter(chemistryEmitter))
+                        if (IsStrangerEmitter(chemistryEmitter, _burnItself))
                         {
                             OnReceiveElementArgs onReceiveHeatArgs = new OnReceiveElementArgs { _status = status, _radiance = chemistryEmitter._radiance[i] };
                             OnReceiveHeatTrigger(onReceiveHeatArgs);
                         }
                         break;
                     case IChemistry.ChemistryTypes.COLD:
-                        OnReceiveElementArgs onReceiveFrostArgs = new OnReceiveElementArgs { _status = status, _radiance = chemistryEmitter._radiance[i] };
-                        OnReceiveFrostTrigger(onReceiveFrostArgs);
+                        if (IsStrangerEmitter(chemistryEmitter, _frostItself))
+                        {
+                            OnReceiveElementArgs onReceiveFrostArgs = new OnReceiveElementArgs { _status = status, _radiance = chemistryEmitter._radiance[i] };
+                            OnReceiveFrostTrigger(onReceiveFrostArgs);
+                        }
                         break;
                     default:
                         Debug.LogWarning("Unknown type");
@@ -70,9 +73,9 @@ namespace ChemistryEngine
             }
         }
 
-        private bool IsStrangerEmitter(ChemistryEmitter chemistryEmitter)
+        private bool IsStrangerEmitter(ChemistryEmitter chemistryEmitter, bool typeItself)
         {
-            return _burnItself || _ownEmitter == null || _ownEmitter != chemistryEmitter;
+            return typeItself || _ownEmitter == null || _ownEmitter != chemistryEmitter;
         }
 
     }

@@ -565,6 +565,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _burnItself: 1
+  _frostItself: 0
   _ownEmitter: {fileID: 7424229642546322481}
 --- !u!1 &4694993803560459323
 GameObject:
@@ -1056,7 +1057,7 @@ MonoBehaviour:
   _emitter: {fileID: 7424229642546322481}
   _pointToChange: 0.25
   _receiveRemeins: 1
-  _multiplierForSusceptibility: 0.01
+  _multiplierForSusceptibility: 1
   _radiance: 0
 --- !u!1001 &2151881196048804711
 PrefabInstance:
