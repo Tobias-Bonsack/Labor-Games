@@ -243,9 +243,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4531984542114218408}
-  - component: {fileID: 2195149768170847464}
   - component: {fileID: 6303992139575771780}
   - component: {fileID: 5984622814512076230}
+  - component: {fileID: 2307091160624352993}
   m_Layer: 31
   m_Name: Destruction
   m_TagString: Untagged
@@ -267,23 +267,6 @@ Transform:
   m_Father: {fileID: 963892933603416380}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2195149768170847464
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1350007749280100415}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9f61ed6f5878ea49ad36b8fc5f5190d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _type: 0
-  _chemistryReceiver: {fileID: 6859814169030407581}
-  _elementReceiver: {fileID: 4686537601182074783}
-  _objectToDestroy: {fileID: 7446782720037582083}
-  _pointToDestroy: 1
 --- !u!2083052967 &6303992139575771780
 VisualEffect:
   m_ObjectHideFlags: 0
@@ -489,6 +472,23 @@ VFXRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &2307091160624352993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1350007749280100415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f600ab6ef0379946985bd85f4cc96ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _type: 0
+  _chemistryReceiver: {fileID: 6859814169030407581}
+  _elementReceiver: {fileID: 4686537601182074783}
+  _objectToDestroy: {fileID: 7446782720037582083}
+  _pointToDestroy: 1
 --- !u!1 &2212802089811371971
 GameObject:
   m_ObjectHideFlags: 0

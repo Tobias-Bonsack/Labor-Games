@@ -19,7 +19,18 @@ namespace HeatEngine
         private void Awake()
         {
             _visualEffect = GetComponent<VisualEffect>();
-            _chemistryReceiver._onReceiveHeat += StayTrigger;
+
+            switch (_type)
+            {
+                case IChemistry.ChemistryTypes.HEAT:
+                    _chemistryReceiver._onReceiveHeat += StayTrigger;
+                    break;
+                case IChemistry.ChemistryTypes.COLD:
+                    _chemistryReceiver._onReceiveFrost += StayTrigger;
+                    break;
+                default:
+                    break;
+            }
         }
 
         private void StayTrigger(object sender, ChemistryReceiver.OnReceiveElementArgs e)
@@ -48,7 +59,17 @@ namespace HeatEngine
 
         void OnDestroy()
         {
-            _chemistryReceiver._onReceiveHeat -= StayTrigger;
+            switch (_type)
+            {
+                case IChemistry.ChemistryTypes.HEAT:
+                    _chemistryReceiver._onReceiveHeat -= StayTrigger;
+                    break;
+                case IChemistry.ChemistryTypes.COLD:
+                    _chemistryReceiver._onReceiveFrost -= StayTrigger;
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }
