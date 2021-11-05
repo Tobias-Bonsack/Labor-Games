@@ -5,7 +5,7 @@ using ChemistryEngine;
 using UnityEngine;
 using UnityEngine.VFX;
 
-namespace HeatEngine
+namespace ChemistryEngine
 {
 
     [RequireComponent(typeof(VisualEffect))]
