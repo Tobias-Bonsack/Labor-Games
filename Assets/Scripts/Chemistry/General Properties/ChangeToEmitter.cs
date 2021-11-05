@@ -61,25 +61,11 @@ namespace ChemistryEngine
             if (isAdd)
             {
                 _emitter.gameObject.SetActive(true);
-                int position = _emitter._types.IndexOf(_type);
-                if (position == -1)
-                {
-                    _emitter._types.Add(_type);
-                    _emitter._radiance.Add(_radiance);
-                }
-                else
-                {
-                    _emitter._radiance[position] += _radiance;
-                }
+                _emitter.AddType(_type, _radiance);
             }
             else
             {
-                int position = _emitter._types.IndexOf(_type);
-                if (position != -1)
-                {
-                    _emitter._types.Remove(_type);
-                    _emitter._radiance.RemoveAt(position);
-                }
+                _emitter.RemoveType(_type);
                 _emitter.gameObject.SetActive(_emitter._types.Count != 0);
             }
         }
