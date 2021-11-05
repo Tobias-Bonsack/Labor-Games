@@ -12,9 +12,9 @@ namespace ChemistryEngine
         [Header("Emit Parameter")]
 
         [Tooltip("Types of chemistry this GameObject is able to emit, each type needs an _radiance float")]
-        public IChemistry.ChemistryTypes[] _types;
+        public List<IChemistry.ChemistryTypes> _types;
 
         [Tooltip("Radiance per second, Position mirrors _types"), Range(0f, 1f)]
-        public float[] _radiance;
+        public List<float> _radiance;
     }
 }

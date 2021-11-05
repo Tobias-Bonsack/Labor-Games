@@ -8,7 +8,7 @@ namespace ChemistryEngine
     {
         [Header("Generally Parameter")]
         [SerializeField] protected IChemistry.ChemistryTypes _type;
-        [SerializeField] protected ChemistryEngine.ChemistryReceiver _chemistryReceiver;
+        [SerializeField] protected ChemistryReceiver _chemistryReceiver;
         [SerializeField] protected AbstractReceiver _elementReceiver;
     }
 }

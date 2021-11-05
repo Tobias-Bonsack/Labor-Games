@@ -485,11 +485,11 @@ MonoBehaviour:
   _type: 0
   _chemistryReceiver: {fileID: 1849248337037774846}
   _elementReceiver: {fileID: 4286297078658100895}
-  _emitter: {fileID: 1694544873}
-  _receiver: {fileID: 884086050}
+  _emitter: {fileID: 8577983521727701865}
   _pointToChange: 1
   _receiveRemeins: 0
   _multiplierForSusceptibility: 1
+  _radiance: 0
 --- !u!1 &6299839314830524346
 GameObject:
   m_ObjectHideFlags: 0

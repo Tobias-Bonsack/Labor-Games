@@ -47,7 +47,7 @@ namespace ChemistryEngine
         {
             ChemistryEmitter chemistryEmitter = other.gameObject.GetComponent<ChemistryEmitter>();
 
-            for (int i = 0; i < chemistryEmitter._types.Length; i++)
+            for (int i = 0; i < chemistryEmitter._types.Count; i++)
             {
                 IChemistry.ChemistryTypes type = chemistryEmitter._types[i];
                 switch (type)
