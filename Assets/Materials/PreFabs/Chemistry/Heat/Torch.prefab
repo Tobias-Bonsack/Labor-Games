@@ -202,6 +202,9 @@ VisualEffect:
       - m_Value: {x: 0.5, y: 1, z: 0.5}
         m_Name: Velocity B
         m_Overridden: 1
+      - m_Value: {x: 0.07, y: 0.06, z: 0.08}
+        m_Name: Spawn Size
+        m_Overridden: 1
     m_Vector4f:
       m_Array: []
     m_Uint:
@@ -665,6 +668,9 @@ VisualEffect:
       - m_Value: {x: 0, y: 0, z: 0}
         m_Name: Spawn Box_center
         m_Overridden: 0
+      - m_Value: {x: 0.07, y: 0.05, z: 0.08}
+        m_Name: Spawn Size
+        m_Overridden: 1
     m_Vector4f:
       m_Array: []
     m_Uint:

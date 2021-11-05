@@ -65,9 +65,9 @@ VisualEffect:
       - m_Value: {x: 0.001648426, y: -0.0065926313, z: 0.009889126}
         m_Name: SpawnPosition_center
         m_Overridden: 1
-      - m_Value: {x: 0.7802752, y: 0.9443706, z: 0.7488396}
+      - m_Value: {x: 1, y: 1, z: 1}
         m_Name: Spawn Box_size
-        m_Overridden: 1
+        m_Overridden: 0
       - m_Value: {x: 0, y: 0, z: 0}
         m_Name: Spawn Box_center
         m_Overridden: 0
@@ -76,6 +76,9 @@ VisualEffect:
         m_Overridden: 1
       - m_Value: {x: 1, y: 1, z: 1}
         m_Name: Velocity B
+        m_Overridden: 1
+      - m_Value: {x: 0.8, y: 0.9, z: 0.75}
+        m_Name: Spawn Size
         m_Overridden: 1
     m_Vector4f:
       m_Array: []
@@ -325,6 +328,9 @@ VisualEffect:
         m_Overridden: 1
       - m_Value: {x: 1, y: 1, z: 1}
         m_Name: Velocity B
+        m_Overridden: 1
+      - m_Value: {x: 0.8, y: 0.95, z: 0.75}
+        m_Name: Spawn Size
         m_Overridden: 1
     m_Vector4f:
       m_Array: []
@@ -737,9 +743,9 @@ VisualEffect:
       - m_Value: {x: 0.001648426, y: -0.0065926313, z: 0.009889126}
         m_Name: SpawnPosition_center
         m_Overridden: 1
-      - m_Value: {x: 0.7802752, y: 0.9443706, z: 0.7488396}
+      - m_Value: {x: 1, y: 1, z: 1}
         m_Name: Spawn Box_size
-        m_Overridden: 1
+        m_Overridden: 0
       - m_Value: {x: 0, y: 0, z: 0}
         m_Name: Spawn Box_center
         m_Overridden: 0
@@ -748,6 +754,9 @@ VisualEffect:
         m_Overridden: 1
       - m_Value: {x: 1, y: 1, z: 1}
         m_Name: Velocity B
+        m_Overridden: 1
+      - m_Value: {x: 0.8, y: 1, z: 0.75}
+        m_Name: Spawn Size
         m_Overridden: 1
     m_Vector4f:
       m_Array: []
@@ -1046,9 +1055,9 @@ MonoBehaviour:
   _elementReceiver: {fileID: 4686537601182074783}
   _emitter: {fileID: 4694993803560459323}
   _receiver: {fileID: 2212802089811371971}
-  _pointToChange: 0.5
+  _pointToChange: 0.25
   _receiveRemeins: 1
-  _multiplierForSusceptibility: 0.1
+  _multiplierForSusceptibility: 0.01
 --- !u!1001 &2151881196048804711
 PrefabInstance:
   m_ObjectHideFlags: 0
