@@ -1,0 +1,26 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace PlayerInteraction
+{
+    public class MudPropertyChanger : ChemistryEngine.AbstractProperty
+    {
+
+        [SerializeField] Mud _mudScript;
+        [SerializeField] Mud.MudType _mudType;
+        [SerializeField] float _changeMudType;
+
+        private void Awake()
+        {
+            _elementReceiver._onElementPercentChange += ElementPercentChange;
+        }
+
+        private void ElementPercentChange(object sender, EventArgs e)
+        {
+            if (_elementReceiver._elementPercent >= _changeMudType) _mudScript.State = _mudType;
+            else _mudScript.State = Mud.MudType.STANDART;
+        }
+    }
+}

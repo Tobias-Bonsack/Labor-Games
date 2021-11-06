@@ -26,8 +26,8 @@ namespace ThirdPersonController
         [SerializeField] float _acceleration;
         [SerializeField] float _turnTime;
         private float _turnSmoothVelocity;
-        private Vector3 _moveDir;
         private float _angle = 0f;
+
         [Header("Gravity")]
         private float _gravity = -9.81f;
         private Vector3 _velocity = Vector3.zero;
@@ -63,14 +63,15 @@ namespace ThirdPersonController
         #region FixedUpdate Methods
         private void CalculateMovement()
         {
+            Vector3 moveDir;
             if (StaticProperties._currentCamera == 0 && _isMoving && _controller.isGrounded)
             { //normal camera
                 float targetAngle = Mathf.Atan2(_direction.x, _direction.z) * Mathf.Rad2Deg + _mainCamera.eulerAngles.y;
                 _angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref _turnSmoothVelocity, _turnTime);
                 transform.rotation = Quaternion.Euler(0f, _angle, 0f);
 
-                _moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
-                AddForce(_moveDir * _acceleration * Time.fixedDeltaTime, false);
+                moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
+                AddForce(moveDir * _acceleration * Time.fixedDeltaTime, false);
 
                 //TODO could be troublesome wiht extern force maybe, maybe not
                 _velocity.x = Mathf.Clamp(_velocity.x, -_maxSpeed, _maxSpeed);
@@ -78,8 +79,8 @@ namespace ThirdPersonController
             }
             else if (StaticProperties._currentCamera == 1 && _isMoving && _controller.isGrounded)
             { // throw camera
-                _moveDir = transform.TransformDirection(new Vector3(_direction.x, 0f, _direction.z));
-                AddForce(_moveDir * _acceleration * Time.fixedDeltaTime, false);
+                moveDir = transform.TransformDirection(new Vector3(_direction.x, 0f, _direction.z));
+                AddForce(moveDir * _acceleration * Time.fixedDeltaTime, false);
 
                 //TODO could be troublesome wiht extern force maybe, maybe not
                 _velocity.x = Mathf.Clamp(_velocity.x, -_maxSpeed, _maxSpeed);
