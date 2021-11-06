@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5978317393976283545}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Dry
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7381528004848085107}
   - component: {fileID: 8843943464141254153}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Heat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78,6 +78,64 @@ MonoBehaviour:
   _susceptibility: 0.5
   _elementPercent: 0
   _activeTriggers: 0
+--- !u!1 &2446100938993410001
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4952663218225357726}
+  - component: {fileID: 6068672784302470960}
+  - component: {fileID: 5035384156917179538}
+  m_Layer: 7
+  m_Name: Mud Player Trigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4952663218225357726
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2446100938993410001}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8190466847353225039}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &6068672784302470960
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2446100938993410001}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.4, z: 1}
+  m_Center: {x: 0, y: 0.2, z: 0}
+--- !u!114 &5035384156917179538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2446100938993410001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d878c047c9792840a7459a01fb86df3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _state: 0
 --- !u!1 &4214356877738538062
 GameObject:
   m_ObjectHideFlags: 0
@@ -186,6 +244,7 @@ Transform:
   m_Children:
   - {fileID: 6401225688930597774}
   - {fileID: 2532304694571830423}
+  - {fileID: 4952663218225357726}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -199,7 +258,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8847465216808708817}
   - component: {fileID: 1514954133089805674}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Frost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -246,7 +305,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6190097143660969097}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Smooth
   m_TagString: Untagged
   m_Icon: {fileID: 0}

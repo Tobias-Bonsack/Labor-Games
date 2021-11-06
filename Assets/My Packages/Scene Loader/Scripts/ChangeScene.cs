@@ -12,6 +12,7 @@ namespace SceneLoader
 
         void OnTriggerEnter(Collider other)
         {
+            Debug.Log("Load Scene: " + _sceneNumber);
             _eventSystem.TriggerOnEndScene(_sceneNumber);
         }
 

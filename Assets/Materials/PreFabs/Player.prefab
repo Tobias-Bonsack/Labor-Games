@@ -790,7 +790,7 @@ MonoBehaviour:
   _mainCamera: {fileID: 0}
   _animator: {fileID: 846366147089720308}
   _playerEvents: {fileID: 2727826625993214463}
-  _jumpHeight: 8
+  _jumpHeight: 2
   _inMoveResistanceMultiplikator: 0.2
   _isMoving: 0
   _direction: {x: 0, y: 0, z: 0}
@@ -799,6 +799,7 @@ MonoBehaviour:
   _maxSpeed: 5
   _acceleration: 10
   _turnTime: 0.75
+  _basicDown: -4
 --- !u!114 &4321852660610144647
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -855,7 +856,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1897186212219561234}
-  m_LocalRotation: {x: 0.09878252, y: 1e-45, z: -0, w: 0.9951091}
+  m_LocalRotation: {x: 0.09878252, y: -1e-45, z: -0, w: 0.9951091}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:

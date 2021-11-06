@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace ThirdPersonController
 {
-    public class PlayerMovement : MonoBehaviour
+    public class PlayerMovement : MonoBehaviour, PlayerInteraction.IPlayerInteraction
     {
         #region Parameters
         private CharacterController _controller;
@@ -31,7 +31,7 @@ namespace ThirdPersonController
         [Header("Gravity")]
         private float _gravity = -9.81f;
         private Vector3 _velocity = Vector3.zero;
-        public float _basicDown = -2f;
+        public float _basicDown = -4f;
         #endregion
 
         #region Animation Parameter
@@ -157,7 +157,13 @@ namespace ThirdPersonController
 
         private int OppositeSign(float number) => number > 0f ? -1 : 1;
 
-        //TODO maybe delete later, dont know if needed at any time
-        private bool SameSign(float num1, float num2) => Mathf.Sign(num1) == Mathf.Sign(num2);
+        #region IPlayerInteraction
+        public void MudChanges(bool isEnterTrigger, float[] changeArray)
+        { // 0 = jumbHeight, 1 = maxSpeed, 2 = acceleration
+            _jumpHeight = isEnterTrigger ? _jumpHeight * changeArray[0] : _jumpHeight / changeArray[0];
+            _maxSpeed = isEnterTrigger ? _maxSpeed * changeArray[1] : _maxSpeed / changeArray[1];
+            _acceleration = isEnterTrigger ? _acceleration * changeArray[2] : _acceleration / changeArray[2];
+        }
+        #endregion
     }
 }
