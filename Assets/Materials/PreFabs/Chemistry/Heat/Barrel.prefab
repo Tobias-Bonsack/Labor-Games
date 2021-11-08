@@ -191,7 +191,10 @@ VisualEffect:
         m_Name: Color over Life
         m_Overridden: 1
     m_NamedObject:
-      m_Array: []
+      m_Array:
+      - m_Value: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+        m_Name: Mesh
+        m_Overridden: 1
     m_Bool:
       m_Array: []
 --- !u!73398921 &8533009340542233441
@@ -429,7 +432,10 @@ VisualEffect:
         m_Name: Color over Life
         m_Overridden: 1
     m_NamedObject:
-      m_Array: []
+      m_Array:
+      - m_Value: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+        m_Name: Mesh
+        m_Overridden: 1
     m_Bool:
       m_Array: []
 --- !u!73398921 &5984622814512076230
@@ -628,6 +634,8 @@ MonoBehaviour:
   _types: 00000000
   _radiance:
   - 0.25
+  _typeOfEffect: 
+  _effects: []
 --- !u!1 &6958027712719566630
 GameObject:
   m_ObjectHideFlags: 0
@@ -870,7 +878,10 @@ VisualEffect:
         m_Name: Color over Life
         m_Overridden: 1
     m_NamedObject:
-      m_Array: []
+      m_Array:
+      - m_Value: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+        m_Name: Mesh
+        m_Overridden: 1
     m_Bool:
       m_Array: []
 --- !u!73398921 &8344257718280310373

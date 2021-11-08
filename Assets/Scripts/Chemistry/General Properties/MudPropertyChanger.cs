@@ -1,9 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using PlayerInteraction;
 using UnityEngine;
 
-namespace PlayerInteraction
+namespace ChemistryEngine
 {
     public class MudPropertyChanger : ChemistryEngine.AbstractProperty
     {

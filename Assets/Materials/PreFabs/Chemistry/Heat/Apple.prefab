@@ -145,6 +145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _burnItself: 0
+  _frostItself: 0
   _ownEmitter: {fileID: 0}
 --- !u!1 &1837029415452652228
 GameObject:
@@ -514,7 +515,10 @@ VisualEffect:
         m_Name: Color over Life
         m_Overridden: 1
     m_NamedObject:
-      m_Array: []
+      m_Array:
+      - m_Value: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+        m_Name: Mesh
+        m_Overridden: 1
     m_Bool:
       m_Array: []
 --- !u!73398921 &7247921005789154496

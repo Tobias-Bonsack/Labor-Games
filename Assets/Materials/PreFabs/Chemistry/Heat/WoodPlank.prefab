@@ -173,7 +173,10 @@ VisualEffect:
         m_Name: Color over Life
         m_Overridden: 1
     m_NamedObject:
-      m_Array: []
+      m_Array:
+      - m_Value: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+        m_Name: Mesh
+        m_Overridden: 1
     m_Bool:
       m_Array: []
 --- !u!73398921 &4453434930286624798
@@ -307,6 +310,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _burnItself: 1
+  _frostItself: 0
   _ownEmitter: {fileID: 0}
 --- !u!1 &6401869642193555646
 GameObject:
@@ -628,7 +632,10 @@ VisualEffect:
         m_Name: Color over Life
         m_Overridden: 1
     m_NamedObject:
-      m_Array: []
+      m_Array:
+      - m_Value: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+        m_Name: Mesh
+        m_Overridden: 1
     m_Bool:
       m_Array: []
 --- !u!73398921 &7922037163361967858
@@ -883,7 +890,10 @@ VisualEffect:
         m_Name: Color over Life
         m_Overridden: 1
     m_NamedObject:
-      m_Array: []
+      m_Array:
+      - m_Value: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+        m_Name: Mesh
+        m_Overridden: 1
     m_Bool:
       m_Array: []
 --- !u!73398921 &2727580888279919723
@@ -987,6 +997,8 @@ MonoBehaviour:
   _types: 00000000
   _radiance:
   - 0.05
+  _typeOfEffect: 
+  _effects: []
 --- !u!1001 &3089312753565953869
 PrefabInstance:
   m_ObjectHideFlags: 0

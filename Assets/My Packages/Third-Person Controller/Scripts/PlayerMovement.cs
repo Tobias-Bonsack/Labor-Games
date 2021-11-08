@@ -165,6 +165,11 @@ namespace ThirdPersonController
             _maxSpeed = isEnterTrigger ? _maxSpeed * changeArray[1] : _maxSpeed / changeArray[1];
             _acceleration = isEnterTrigger ? _acceleration * changeArray[2] : _acceleration / changeArray[2];
         }
+
+        public void GravityChange(bool isEnterTrigger, float gravityChange)
+        {
+            _velocity.y = gravityChange;
+        }
         #endregion
     }
 }

@@ -78,6 +78,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _burnItself: 0
+  _frostItself: 0
   _ownEmitter: {fileID: 8577983521727701865}
 --- !u!114 &4286297078658100895
 MonoBehaviour:
@@ -157,6 +158,8 @@ MonoBehaviour:
   _types: 00000000
   _radiance:
   - 0.05
+  _typeOfEffect: 
+  _effects: []
 --- !u!2083052967 &2938715686635914525
 VisualEffect:
   m_ObjectHideFlags: 0
@@ -316,7 +319,10 @@ VisualEffect:
         m_Name: Color over Life
         m_Overridden: 1
     m_NamedObject:
-      m_Array: []
+      m_Array:
+      - m_Value: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+        m_Name: Mesh
+        m_Overridden: 1
     m_Bool:
       m_Array: []
 --- !u!73398921 &5094372279712550424
@@ -782,7 +788,10 @@ VisualEffect:
         m_Name: Color over Life
         m_Overridden: 1
     m_NamedObject:
-      m_Array: []
+      m_Array:
+      - m_Value: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+        m_Name: Mesh
+        m_Overridden: 1
     m_Bool:
       m_Array: []
 --- !u!73398921 &4442889740466626253

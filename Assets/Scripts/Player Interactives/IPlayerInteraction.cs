@@ -6,6 +6,8 @@ namespace PlayerInteraction
 {
     public interface IPlayerInteraction
     {
-        public void MudChanges(bool isEnterTrigger, float[] changeArray);
+        void MudChanges(bool isEnterTrigger, float[] changeArray);
+
+        void GravityChange(bool isEnterTrigger, float gravityChange);
     }
 }
