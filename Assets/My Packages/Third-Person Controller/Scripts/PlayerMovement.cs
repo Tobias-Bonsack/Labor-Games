@@ -14,17 +14,17 @@ namespace ThirdPersonController
         [SerializeField] PlayerEvents _playerEvents;
 
         [Header("Jump")]
-        [SerializeField] float _jumpHeight;
-        [SerializeField] float _inMoveResistanceMultiplikator;
+        [SerializeField, Tooltip("Height in meter player is able to jump")] float _jumpHeight;
 
         [Header("Move")]
         public bool _isMoving = false;
-        public Vector3 _direction = Vector3.zero;
-        [SerializeField] float _moveResistance;
-        [SerializeField] float _basicSpeedResistance;
+        [SerializeField, Tooltip("Stops the player movement immediately")] float _basicSpeedResistance;
+        [SerializeField, Tooltip("Slows down the player")] float _moveResistance;
+        [SerializeField, Tooltip("In Move the move resistance will be multipliet with it")] float _inMoveResistanceMultiplikator;
         [SerializeField] float _maxSpeed;
         [SerializeField] float _acceleration;
         [SerializeField] float _turnTime;
+        [HideInNormalInspector] public Vector3 _direction = Vector3.zero;
         private float _turnSmoothVelocity;
         private float _angle = 0f;
 
@@ -118,7 +118,7 @@ namespace ThirdPersonController
         private void CalculateGravity()
         {
             if (!_controller.isGrounded) { _velocity.y += (_gravity * Time.fixedDeltaTime); }
-            else if (_velocity.y < _basicDown) { _velocity.y = _basicDown; }
+            // TODO bremmst aufsteigen aus: else if (_velocity.y < _basicDown) { _velocity.y = _basicDown; }
         }
 
         private void UpdateAnimation()
@@ -147,7 +147,7 @@ namespace ThirdPersonController
         {
             if (isContextStarted && _controller.isGrounded)
             {
-                float forceUp = Mathf.Sqrt(_jumpHeight * -2f * _gravity) - _velocity.y;
+                float forceUp = Mathf.Sqrt(_jumpHeight * -2f * _gravity * OppositeSign(_gravity)) - _velocity.y;
                 Debug.Log(forceUp + _basicDown);
                 AddForce(new Vector3(0f, forceUp, 0f), false);
             }
@@ -168,7 +168,7 @@ namespace ThirdPersonController
 
         public void GravityChange(bool isEnterTrigger, float gravityChange)
         {
-            _velocity.y = gravityChange;
+            _gravity = isEnterTrigger ? _gravity + gravityChange : _gravity - gravityChange;
         }
         #endregion
     }
