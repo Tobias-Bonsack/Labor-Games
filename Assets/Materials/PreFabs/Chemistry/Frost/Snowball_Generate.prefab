@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1334873591794121211}
   - component: {fileID: 8350962352147250}
-  - component: {fileID: 5597222357371946616}
+  - component: {fileID: 7892486635692970868}
   m_Layer: 6
-  m_Name: Emitter
+  m_Name: Spawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,7 +45,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5597222357371946616
+--- !u!114 &7892486635692970868
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -54,14 +54,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 2451284668714974138}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0018e61335d1daa4da775965212d5e79, type: 3}
+  m_Script: {fileID: 11500000, guid: 1ee4c6a4a52d77f44a13e2ea415a77ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _types: 01000000
-  _radiance:
-  - 0.25
-  _typeOfEffect: 
-  _effects: []
+  _type: 3
+  _chemistryReceiver: {fileID: 0}
+  _elementReceiver: {fileID: 0}
+  _preFabToSpawn: {fileID: 4354096726551645476, guid: 49fd9b5931c165e44a91e7f9114d4644, type: 3}
+  _objectForRespawn: {fileID: 7416708320373925417}
+  _respawn: {fileID: 0}
 --- !u!1 &7001389125564771253
 GameObject:
   m_ObjectHideFlags: 0

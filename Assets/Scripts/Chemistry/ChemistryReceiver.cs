@@ -72,7 +72,6 @@ namespace ChemistryEngine
                     }
                 }
             }
-
         }
 
         private bool IsStrangerEmitter(ChemistryEmitter chemistryEmitter, bool typeItself)
