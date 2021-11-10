@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using PlayerInteraction;
 using UnityEngine;
 
-namespace ChemistryEngine
+namespace PlayerInteraction
 {
     public class MudPropertyChanger : ChemistryEngine.AbstractProperty
     {

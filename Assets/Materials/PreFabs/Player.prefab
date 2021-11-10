@@ -791,14 +791,14 @@ MonoBehaviour:
   _animator: {fileID: 846366147089720308}
   _playerEvents: {fileID: 2727826625993214463}
   _jumpHeight: 2
-  _inMoveResistanceMultiplikator: 0.2
   _isMoving: 0
-  _direction: {x: 0, y: 0, z: 0}
-  _moveResistance: 0.5
   _basicSpeedResistance: 0.5
+  _moveResistance: 0.5
+  _inMoveResistanceMultiplikator: 0.2
   _maxSpeed: 5
   _acceleration: 10
   _turnTime: 0.75
+  _direction: {x: 0, y: 0, z: 0}
   _basicDown: -4
 --- !u!114 &4321852660610144647
 MonoBehaviour:
@@ -1109,7 +1109,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1897186212395723507}
-  m_LocalRotation: {x: 0.06257003, y: -0.000000018340417, z: 0.0000000011498135, w: 0.9980406}
+  m_LocalRotation: {x: 0.06257003, y: 0.000000018340415, z: -0.0000000011498134, w: 0.9980406}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:

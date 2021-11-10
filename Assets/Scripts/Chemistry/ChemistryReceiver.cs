@@ -45,32 +45,34 @@ namespace ChemistryEngine
         }
         private void TriggerEvents(IChemistryReceiver.Status status, Collider other)
         {
-            ChemistryEmitter chemistryEmitter = other.gameObject.GetComponent<ChemistryEmitter>();
-
-            for (int i = 0; i < chemistryEmitter._types.Count; i++)
+            if (other.gameObject.TryGetComponent<ChemistryEmitter>(out ChemistryEmitter chemistryEmitter))
             {
-                IChemistry.ChemistryTypes type = chemistryEmitter._types[i];
-                switch (type)
+                for (int i = 0; i < chemistryEmitter._types.Count; i++)
                 {
-                    case IChemistry.ChemistryTypes.HEAT:
-                        if (IsStrangerEmitter(chemistryEmitter, _burnItself))
-                        {
-                            OnReceiveElementArgs onReceiveHeatArgs = new OnReceiveElementArgs { _status = status, _radiance = chemistryEmitter._radiance[i] };
-                            OnReceiveHeatTrigger(onReceiveHeatArgs);
-                        }
-                        break;
-                    case IChemistry.ChemistryTypes.COLD:
-                        if (IsStrangerEmitter(chemistryEmitter, _frostItself))
-                        {
-                            OnReceiveElementArgs onReceiveFrostArgs = new OnReceiveElementArgs { _status = status, _radiance = chemistryEmitter._radiance[i] };
-                            OnReceiveFrostTrigger(onReceiveFrostArgs);
-                        }
-                        break;
-                    default:
-                        Debug.LogWarning("Unknown type");
-                        break;
+                    IChemistry.ChemistryTypes type = chemistryEmitter._types[i];
+                    switch (type)
+                    {
+                        case IChemistry.ChemistryTypes.HEAT:
+                            if (IsStrangerEmitter(chemistryEmitter, _burnItself))
+                            {
+                                OnReceiveElementArgs onReceiveHeatArgs = new OnReceiveElementArgs { _status = status, _radiance = chemistryEmitter._radiance[i] };
+                                OnReceiveHeatTrigger(onReceiveHeatArgs);
+                            }
+                            break;
+                        case IChemistry.ChemistryTypes.COLD:
+                            if (IsStrangerEmitter(chemistryEmitter, _frostItself))
+                            {
+                                OnReceiveElementArgs onReceiveFrostArgs = new OnReceiveElementArgs { _status = status, _radiance = chemistryEmitter._radiance[i] };
+                                OnReceiveFrostTrigger(onReceiveFrostArgs);
+                            }
+                            break;
+                        default:
+                            Debug.LogWarning("Unknown type");
+                            break;
+                    }
                 }
             }
+
         }
 
         private bool IsStrangerEmitter(ChemistryEmitter chemistryEmitter, bool typeItself)
