@@ -8,5 +8,7 @@ namespace ChemistryEngine
     {
         public void RemoveType(IChemistry.ChemistryTypes type);
         public void AddType(IChemistry.ChemistryTypes type, float radiance);
+
+        public void RemoveReceiver(IChemistryReceiver receiver);
     }
 }

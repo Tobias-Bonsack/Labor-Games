@@ -38,16 +38,9 @@ namespace ChemistryEngine
             if (e._status == IChemistryReceiver.Status.STAY && _elementReceiver._elementPercent >= _pointToDestroy)
             {
                 transform.parent = null;
+                Destroy(_objectToDestroy);
                 StartCoroutine(WaitToDestroy(_visualEffect.GetFloat("Lifetime B")));
-                StartCoroutine(MoveBevoreDestroy());
             }
-        }
-
-        private IEnumerator MoveBevoreDestroy()
-        {
-            _objectToDestroy.transform.position -= new Vector3(0f, -1000f, 0f);
-            yield return new WaitForSecondsRealtime(0.1f);
-            Destroy(_objectToDestroy);
         }
 
         IEnumerator WaitToDestroy(float maxLifespan)

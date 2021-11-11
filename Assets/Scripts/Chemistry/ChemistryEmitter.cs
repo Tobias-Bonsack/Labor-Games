@@ -45,7 +45,7 @@ namespace ChemistryEngine
         [Tooltip("Types of VisualEffects, Position mirrors _typeOfEffect")]
         public List<VisualEffect> _effects;
 
-        private Dictionary<IChemistry.ChemistryTypes, List<ChemistryReceiver>> _activeReceiver;
+        private HashSet<IChemistryReceiver> _activeReceiver = new HashSet<IChemistryReceiver>();
 
         public void AddType(IChemistry.ChemistryTypes type, float radiance)
         {
@@ -54,6 +54,10 @@ namespace ChemistryEngine
             {
                 _types.Add(type);
                 _radiance.Add(radiance);
+                foreach (IChemistryReceiver receiver in _activeReceiver)
+                {
+                    receiver.NewEmitType(this, type);
+                }
             }
             else
             {
@@ -70,6 +74,10 @@ namespace ChemistryEngine
             {
                 _types.Remove(type);
                 _radiance.RemoveAt(position);
+                foreach (IChemistryReceiver receiver in _activeReceiver)
+                {
+                    receiver.RemovedEmitType(this, type);
+                }
             }
 
             UpdateVisualEffects(false, type);
@@ -81,6 +89,29 @@ namespace ChemistryEngine
             if (pos == -1) return;
 
             _effects[pos].enabled = toActivate;
+        }
+
+        void OnTriggerEnter(Collider other)
+        {
+            if (other.gameObject.TryGetComponent<IChemistryReceiver>(out IChemistryReceiver receiver))
+            {
+                Debug.Log("Add: " + other);
+                _activeReceiver.Add(receiver);
+            }
+        }
+        void OnTriggerExit(Collider other)
+        {
+            if (other.gameObject.TryGetComponent<IChemistryReceiver>(out IChemistryReceiver receiver))
+            {
+                Debug.Log("Remvoe: " + other);
+                _activeReceiver.Remove(receiver);
+            }
+        }
+
+        public void RemoveReceiver(IChemistryReceiver receiver)
+        {
+            Debug.Log("Remvoe: " + receiver);
+            _activeReceiver.Remove(receiver);
         }
     }
 }
