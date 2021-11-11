@@ -13,7 +13,7 @@ namespace ChemistryEngine
             EXIT
         }
 
-        void RemovedEmitType(ChemistryEmitter emitter, IChemistry.ChemistryTypes type);
+        void RemoveEmitType(ChemistryEmitter emitter, IChemistry.ChemistryTypes type);
         void NewEmitType(ChemistryEmitter emitter, IChemistry.ChemistryTypes type);
     }
 }

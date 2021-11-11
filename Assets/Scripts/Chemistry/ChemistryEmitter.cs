@@ -76,7 +76,7 @@ namespace ChemistryEngine
                 _radiance.RemoveAt(position);
                 foreach (IChemistryReceiver receiver in _activeReceiver)
                 {
-                    receiver.RemovedEmitType(this, type);
+                    receiver.RemoveEmitType(this, type);
                 }
             }
 

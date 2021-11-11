@@ -5,7 +5,7 @@ namespace ChemistryEngine
 {
     public interface IChemistry
     {
-        public enum ChemistryTypes
+        enum ChemistryTypes
         {
             HEAT,
             COLD,

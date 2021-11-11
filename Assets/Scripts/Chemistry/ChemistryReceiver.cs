@@ -93,7 +93,7 @@ namespace ChemistryEngine
         {
             TriggerElementEvents(IChemistryReceiver.Status.STAY, emitter, type, emitter.Radiance[emitter.Types.IndexOf(type)]);
         }
-        public void RemovedEmitType(ChemistryEmitter emitter, IChemistry.ChemistryTypes type)
+        public void RemoveEmitType(ChemistryEmitter emitter, IChemistry.ChemistryTypes type)
         {
             TriggerElementEvents(IChemistryReceiver.Status.EXIT, emitter, type, 0f);
         }

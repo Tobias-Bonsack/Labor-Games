@@ -9,7 +9,7 @@ namespace ChemistryEngine
     public class ReduceElementPercent : AbstractProperty
     {
         [Header("Propertie-Parameter")]
-        [SerializeField] bool _alwaysReduce = false;
+        [SerializeField, Tooltip("Starts the Routine in the Awake-Mehtod")] bool _alwaysReduce = false;
         [SerializeField] IChemistry.ChemistryTypes _weaknessType;
         [SerializeField, Range(0f, 2f)] float _timeMultiplier = 0.5f;
         [SerializeField] float _timeBetweenCooldown = 1f;

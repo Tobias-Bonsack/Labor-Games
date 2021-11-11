@@ -6,9 +6,9 @@ namespace ChemistryEngine
 {
     public interface IChemistryEmitter : IChemistry
     {
-        public void RemoveType(IChemistry.ChemistryTypes type);
-        public void AddType(IChemistry.ChemistryTypes type, float radiance);
+        void RemoveType(IChemistry.ChemistryTypes type);
+        void AddType(IChemistry.ChemistryTypes type, float radiance);
 
-        public void RemoveReceiver(IChemistryReceiver receiver);
+        void RemoveReceiver(IChemistryReceiver receiver);
     }
 }

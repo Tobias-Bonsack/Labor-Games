@@ -246,6 +246,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4686537601182074783, guid: f022e44520d075a43b552c04cff3133e, type: 3}
+      propertyPath: _susceptibility
+      value: 0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 4694993803560459323, guid: f022e44520d075a43b552c04cff3133e, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -443,7 +447,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1166587308}
-  m_LocalRotation: {x: 0.080665655, y: -0.0000000027927813, z: -2.2613601e-10, w: 0.99674124}
+  m_LocalRotation: {x: 0.080665655, y: 0.0000000027927813, z: 2.2613578e-10, w: 0.99674124}
   m_LocalPosition: {x: 0, y: 3.35, z: -11.72}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -575,7 +579,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: MetalPlate
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3007661938499857966, guid: 6e1b45eda0f8d344984f264d10f305c1, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6e1b45eda0f8d344984f264d10f305c1, type: 3}
 --- !u!1 &1175700065
 GameObject:
@@ -670,11 +675,11 @@ PrefabInstance:
       objectReference: {fileID: 1166587311}
     - target: {fileID: 1897186212395723504, guid: 08297c6358d696b428ac978c3fb5a6fa, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000018340415
+      value: -0.000000018340417
       objectReference: {fileID: 0}
     - target: {fileID: 1897186212395723504, guid: 08297c6358d696b428ac978c3fb5a6fa, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000000011498134
+      value: 0.0000000011498135
       objectReference: {fileID: 0}
     - target: {fileID: 2727826627379492551, guid: 08297c6358d696b428ac978c3fb5a6fa, type: 3}
       propertyPath: m_Materials.Array.data[0]
