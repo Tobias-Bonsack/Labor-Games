@@ -95,7 +95,6 @@ namespace ChemistryEngine
         {
             if (other.gameObject.TryGetComponent<IChemistryReceiver>(out IChemistryReceiver receiver))
             {
-                Debug.Log("Add: " + other);
                 _activeReceiver.Add(receiver);
             }
         }
@@ -103,15 +102,23 @@ namespace ChemistryEngine
         {
             if (other.gameObject.TryGetComponent<IChemistryReceiver>(out IChemistryReceiver receiver))
             {
-                Debug.Log("Remvoe: " + other);
                 _activeReceiver.Remove(receiver);
             }
         }
 
         public void RemoveReceiver(IChemistryReceiver receiver)
         {
-            Debug.Log("Remvoe: " + receiver);
             _activeReceiver.Remove(receiver);
+        }
+
+        void OnDestroy()
+        {
+            Debug.Log("On-Destroy ChemistryEmitter");
+            List<IChemistry.ChemistryTypes> copyTypes = new List<IChemistry.ChemistryTypes>(_types);
+            foreach (IChemistry.ChemistryTypes type in copyTypes)
+            {
+                RemoveType(type);
+            }
         }
     }
 }

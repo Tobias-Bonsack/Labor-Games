@@ -42,6 +42,7 @@ namespace ChemistryEngine
             if (e._status == IChemistryReceiver.Status.ENTER)
             {
                 _activeTriggers++;
+                Debug.Log(_activeTriggers);
                 OnActiveTriggerChangeTrigger();
                 ExtendEnterTrigger(e);
             }
@@ -61,6 +62,7 @@ namespace ChemistryEngine
             if (e._status == IChemistryReceiver.Status.EXIT)
             {
                 _activeTriggers--;
+                Debug.Log(_activeTriggers);
                 OnActiveTriggerChangeTrigger();
                 ExtendExitTrigger(e);
             }
