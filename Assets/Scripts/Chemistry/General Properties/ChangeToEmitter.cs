@@ -66,7 +66,7 @@ namespace ChemistryEngine
             else
             {
                 _emitter.RemoveType(_type);
-                _emitter.gameObject.SetActive(_emitter._types.Count != 0);
+                _emitter.gameObject.SetActive(_emitter.Types.Count != 0);
             }
         }
     }

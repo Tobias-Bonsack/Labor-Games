@@ -1,3 +1,4 @@
+using System.Collections.ObjectModel;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,10 +13,28 @@ namespace ChemistryEngine
         [Header("Emit Parameter")]
 
         [Tooltip("Types of chemistry this GameObject is able to emit, each type needs an _radiance float")]
-        public List<IChemistry.ChemistryTypes> _types;
+        [SerializeField] List<IChemistry.ChemistryTypes> _types;
+
+        [HideInInspector]
+        public ReadOnlyCollection<IChemistry.ChemistryTypes> Types
+        {
+            get
+            {
+                return new ReadOnlyCollection<IChemistry.ChemistryTypes>(_types);
+            }
+        }
+
 
         [Tooltip("Radiance per second, Position mirrors _types"), Range(0f, 1f)]
-        public List<float> _radiance;
+        [SerializeField] List<float> _radiance;
+        [HideInInspector]
+        public ReadOnlyCollection<float> Radiance
+        {
+            get
+            {
+                return new ReadOnlyCollection<float>(_radiance);
+            }
+        }
 
 
         [Header("Effect Parameter")]
@@ -26,9 +45,11 @@ namespace ChemistryEngine
         [Tooltip("Types of VisualEffects, Position mirrors _typeOfEffect")]
         public List<VisualEffect> _effects;
 
+        private Dictionary<IChemistry.ChemistryTypes, List<ChemistryReceiver>> _activeReceiver;
+
         public void AddType(IChemistry.ChemistryTypes type, float radiance)
         {
-            int position = _types.IndexOf(type);
+            int position = Types.IndexOf(type);
             if (position == -1)
             {
                 _types.Add(type);
@@ -44,7 +65,7 @@ namespace ChemistryEngine
 
         public void RemoveType(IChemistry.ChemistryTypes type)
         {
-            int position = _types.IndexOf(type);
+            int position = Types.IndexOf(type);
             if (position != -1)
             {
                 _types.Remove(type);

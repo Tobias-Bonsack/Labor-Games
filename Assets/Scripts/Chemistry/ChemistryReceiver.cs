@@ -47,22 +47,22 @@ namespace ChemistryEngine
         {
             if (other.gameObject.TryGetComponent<ChemistryEmitter>(out ChemistryEmitter chemistryEmitter))
             {
-                for (int i = 0; i < chemistryEmitter._types.Count; i++)
+                for (int i = 0; i < chemistryEmitter.Types.Count; i++)
                 {
-                    IChemistry.ChemistryTypes type = chemistryEmitter._types[i];
+                    IChemistry.ChemistryTypes type = chemistryEmitter.Types[i];
                     switch (type)
                     {
                         case IChemistry.ChemistryTypes.HEAT:
                             if (IsStrangerEmitter(chemistryEmitter, _burnItself))
                             {
-                                OnReceiveElementArgs onReceiveHeatArgs = new OnReceiveElementArgs { _status = status, _radiance = chemistryEmitter._radiance[i] };
+                                OnReceiveElementArgs onReceiveHeatArgs = new OnReceiveElementArgs { _status = status, _radiance = chemistryEmitter.Radiance[i] };
                                 OnReceiveHeatTrigger(onReceiveHeatArgs);
                             }
                             break;
                         case IChemistry.ChemistryTypes.COLD:
                             if (IsStrangerEmitter(chemistryEmitter, _frostItself))
                             {
-                                OnReceiveElementArgs onReceiveFrostArgs = new OnReceiveElementArgs { _status = status, _radiance = chemistryEmitter._radiance[i] };
+                                OnReceiveElementArgs onReceiveFrostArgs = new OnReceiveElementArgs { _status = status, _radiance = chemistryEmitter.Radiance[i] };
                                 OnReceiveFrostTrigger(onReceiveFrostArgs);
                             }
                             break;
