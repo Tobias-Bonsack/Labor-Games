@@ -9,6 +9,7 @@ namespace ChemistryEngine
     public class ReduceElementPercent : AbstractProperty
     {
         [Header("Propertie-Parameter")]
+        [SerializeField] bool _alwaysReduce = false;
         [SerializeField] IChemistry.ChemistryTypes _weaknessType;
         [SerializeField, Range(0f, 2f)] float _timeMultiplier = 0.5f;
         [SerializeField] float _timeBetweenCooldown = 1f;
@@ -17,7 +18,15 @@ namespace ChemistryEngine
 
         private void Awake()
         {
-            _elementReceiver._onActiveTriggerChange += TriggerChange;
+            if (_alwaysReduce)
+            {
+                Debug.Log("Start reduce");
+                _cooldown = StartCoroutine(CooldownRoutine());
+            }
+            else
+            {
+                _elementReceiver._onActiveTriggerChange += TriggerChange;
+            }
 
             switch (_weaknessType)
             {
@@ -28,6 +37,7 @@ namespace ChemistryEngine
                 default:
                     break;
             }
+
         }
 
         private void TriggerChange(object sender, EventArgs e)
