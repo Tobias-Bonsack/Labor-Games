@@ -41,6 +41,7 @@ namespace ChemistryEngine
         void OnTriggerStay(Collider other)
         {
             TriggerEvents(IChemistryReceiver.Status.STAY, other);
+
         }
         void OnTriggerExit(Collider other)
         {
@@ -62,6 +63,8 @@ namespace ChemistryEngine
 
         private void TriggerElementEvents(IChemistryReceiver.Status status, ChemistryEmitter chemistryEmitter, IChemistry.ChemistryTypes type, float radiance)
         {
+            Debug.Log("Receiver " + status + ": " + _activeEmitter.Count);
+
             switch (type)
             {
                 case IChemistry.ChemistryTypes.HEAT:
@@ -91,10 +94,12 @@ namespace ChemistryEngine
 
         public void NewEmitType(ChemistryEmitter emitter, IChemistry.ChemistryTypes type)
         {
+            _activeEmitter.Add(emitter);
             TriggerElementEvents(IChemistryReceiver.Status.STAY, emitter, type, emitter.Radiance[emitter.Types.IndexOf(type)]);
         }
         public void RemoveEmitType(ChemistryEmitter emitter, IChemistry.ChemistryTypes type)
         {
+            _activeEmitter.Remove(emitter);
             TriggerElementEvents(IChemistryReceiver.Status.EXIT, emitter, type, 0f);
         }
 

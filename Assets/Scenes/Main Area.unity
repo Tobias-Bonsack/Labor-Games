@@ -246,17 +246,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2212802089811371971, guid: f022e44520d075a43b552c04cff3133e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4686537601182074783, guid: f022e44520d075a43b552c04cff3133e, type: 3}
       propertyPath: _susceptibility
       value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 4694993803560459323, guid: f022e44520d075a43b552c04cff3133e, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5984622814512076230, guid: f022e44520d075a43b552c04cff3133e, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7424229642546322481, guid: f022e44520d075a43b552c04cff3133e, type: 3}
+      propertyPath: _types.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7424229642546322481, guid: f022e44520d075a43b552c04cff3133e, type: 3}
+      propertyPath: _radiance.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7424229642546322481, guid: f022e44520d075a43b552c04cff3133e, type: 3}
+      propertyPath: _radiance.Array.data[0]
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 7446782720037582083, guid: f022e44520d075a43b552c04cff3133e, type: 3}
       propertyPath: m_Name
@@ -268,7 +284,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8533009340542233441, guid: f022e44520d075a43b552c04cff3133e, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8533009340542233441, guid: f022e44520d075a43b552c04cff3133e, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -578,6 +594,10 @@ PrefabInstance:
     - target: {fileID: 5876606609711241275, guid: 6e1b45eda0f8d344984f264d10f305c1, type: 3}
       propertyPath: m_Name
       value: MetalPlate
+      objectReference: {fileID: 0}
+    - target: {fileID: 8441454714196207259, guid: 6e1b45eda0f8d344984f264d10f305c1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3007661938499857966, guid: 6e1b45eda0f8d344984f264d10f305c1, type: 3}

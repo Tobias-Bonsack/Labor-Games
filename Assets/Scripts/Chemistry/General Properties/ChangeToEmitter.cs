@@ -58,16 +58,8 @@ namespace ChemistryEngine
 
         private void ChangeEmitter(bool isAdd)
         {
-            if (isAdd)
-            {
-                _emitter.gameObject.SetActive(true);
-                _emitter.AddType(_type, _radiance);
-            }
-            else
-            {
-                _emitter.RemoveType(_type);
-                _emitter.gameObject.SetActive(_emitter.Types.Count != 0);
-            }
+            if (isAdd) _emitter.AddType(_type, _radiance);
+            else _emitter.RemoveType(_type);
         }
     }
 }

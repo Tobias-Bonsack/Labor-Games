@@ -97,6 +97,7 @@ namespace ChemistryEngine
             {
                 _activeReceiver.Add(receiver);
             }
+            Debug.Log("Emitter Enter: " + _activeReceiver.Count);
         }
         void OnTriggerExit(Collider other)
         {
@@ -104,11 +105,27 @@ namespace ChemistryEngine
             {
                 _activeReceiver.Remove(receiver);
             }
+            Debug.Log("Emitter Exit: " + _activeReceiver.Count);
         }
 
         public void RemoveReceiver(IChemistryReceiver receiver)
         {
             _activeReceiver.Remove(receiver);
+        }
+
+        private void OnDisable()
+        {
+            Debug.Log("OnDisable Emitter");
+            List<IChemistry.ChemistryTypes> copyTypes = new List<IChemistry.ChemistryTypes>(_types);
+            foreach (IChemistry.ChemistryTypes type in copyTypes)
+            {
+                foreach (IChemistryReceiver receiver in _activeReceiver)
+                {
+                    receiver.RemoveEmitType(this, type);
+                }
+            }
+            _activeReceiver.Clear();
+
         }
 
         void OnDestroy()

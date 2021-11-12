@@ -22,7 +22,7 @@ namespace ChemistryEngine
 
         private void ElementPercentChange(object sender, EventArgs e)
         {
-            if (_elementReceiver._elementPercent >= _percentToRemove)
+            if (!_isElementRemoved && _elementReceiver._elementPercent >= _percentToRemove)
             {
                 _emitter.RemoveType(_type);
                 _isElementRemoved = true;
