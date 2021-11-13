@@ -8,8 +8,9 @@ namespace ChemistryEngine
     public abstract class AbstractReceiver : MonoBehaviour
     {
         [Header("Universal Properties")]
+        [SerializeField] protected IChemistry.ChemistryTypes _type;
         [SerializeField] protected ChemistryReceiver _chemistryReceiver;
-        [SerializeField, Tooltip("0f = Full Resistance, 1f = Zero Resistance"), Range(0f, 1f)] protected float _susceptibility;
+        [SerializeField, Tooltip("0f = Full Resistance, 1f = Zero Resistance"), Range(0f, 1f)] protected float _susceptibility = 1f;
         [HideInNormalInspector] public float _elementPercent = 0f;
         [HideInNormalInspector] public int _activeTriggers = 0;
 
@@ -32,6 +33,11 @@ namespace ChemistryEngine
                     _chemistryReceiver._onReceiveFrost += EnterTrigger;
                     _chemistryReceiver._onReceiveFrost += StayTrigger;
                     _chemistryReceiver._onReceiveFrost += ExitTrigger;
+                    break;
+                case IChemistry.ChemistryTypes.ELECTRICITY:
+                    _chemistryReceiver._onReceiveElectricity += EnterTrigger;
+                    _chemistryReceiver._onReceiveElectricity += StayTrigger;
+                    _chemistryReceiver._onReceiveElectricity += ExitTrigger;
                     break;
                 default:
                     break;

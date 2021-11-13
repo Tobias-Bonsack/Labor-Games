@@ -11,6 +11,7 @@ namespace ChemistryEngine
         #region events
         public event EventHandler<OnReceiveElementArgs> _onReceiveHeat;
         public event EventHandler<OnReceiveElementArgs> _onReceiveFrost;
+        public event EventHandler<OnReceiveElementArgs> _onReceiveElectricity;
         #endregion
 
         #region event args
@@ -24,6 +25,7 @@ namespace ChemistryEngine
         #region trigger
         public void OnReceiveHeatTrigger(OnReceiveElementArgs args) => _onReceiveHeat?.Invoke(this, args);
         public void OnReceiveFrostTrigger(OnReceiveElementArgs args) => _onReceiveFrost?.Invoke(this, args);
+        public void OnReceiveElectricityTrigger(OnReceiveElementArgs args) => _onReceiveElectricity?.Invoke(this, args);
         #endregion
 
         #region parameter

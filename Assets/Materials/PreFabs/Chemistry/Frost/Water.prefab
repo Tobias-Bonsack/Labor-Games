@@ -237,7 +237,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _type: 1
   _chemistryReceiver: {fileID: 4354096725676731277}
-  _elementReceiver: {fileID: 4354096726618641766}
+  _elementReceiver: {fileID: 0}
   _objectToChange: {fileID: 4354096725903472135}
   _lowestSize: {x: 0, y: 0, z: 0}
   _biggestSize: {x: 1, y: 2, z: 1}
@@ -458,7 +458,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _type: 1
   _chemistryReceiver: {fileID: 4354096725676731277}
-  _elementReceiver: {fileID: 4354096726618641766}
+  _elementReceiver: {fileID: 0}
 --- !u!1 &4354096726551645476
 GameObject:
   m_ObjectHideFlags: 0
@@ -551,9 +551,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 4354096726618641764}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e9ce0cf545f4e24cb0a75beb5550b98, type: 3}
+  m_Script: {fileID: 11500000, guid: aaf7036f1a271aa47a5c8fcc5a7ba3a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _type: 1
   _chemistryReceiver: {fileID: 4354096725676731277}
   _susceptibility: 1
   _elementPercent: 0
@@ -733,7 +734,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _type: 1
   _chemistryReceiver: {fileID: 4354096725676731277}
-  _elementReceiver: {fileID: 4354096726618641766}
+  _elementReceiver: {fileID: 0}
+  _alwaysReduce: 0
   _weaknessType: 0
   _timeMultiplier: 0.5
   _timeBetweenCooldown: 1

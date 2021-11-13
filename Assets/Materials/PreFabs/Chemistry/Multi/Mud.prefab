@@ -123,7 +123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _type: 0
   _chemistryReceiver: {fileID: 6384784237222623781}
-  _elementReceiver: {fileID: 8843943464141254153}
+  _elementReceiver: {fileID: 0}
 --- !u!1 &1554661429747752289
 GameObject:
   m_ObjectHideFlags: 0
@@ -166,11 +166,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1554661429747752289}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 754abda9f6fa3d34bba810b58af38de1, type: 3}
+  m_Script: {fileID: 11500000, guid: aaf7036f1a271aa47a5c8fcc5a7ba3a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _type: 0
   _chemistryReceiver: {fileID: 6384784237222623781}
-  _susceptibility: 0.5
+  _susceptibility: 1
   _elementPercent: 0
   _activeTriggers: 0
 --- !u!114 &2149930959482081634
@@ -187,7 +188,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _type: 0
   _chemistryReceiver: {fileID: 6384784237222623781}
-  _elementReceiver: {fileID: 8843943464141254153}
+  _elementReceiver: {fileID: 0}
   _mudScript: {fileID: 5035384156917179538}
   _mudType: 1
   _changeMudType: 0.5
@@ -451,7 +452,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _type: 1
   _chemistryReceiver: {fileID: 6384784237222623781}
-  _elementReceiver: {fileID: 1514954133089805674}
+  _elementReceiver: {fileID: 0}
 --- !u!1 &8190466847353225032
 GameObject:
   m_ObjectHideFlags: 0
@@ -527,11 +528,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 8343788102853843314}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e9ce0cf545f4e24cb0a75beb5550b98, type: 3}
+  m_Script: {fileID: 11500000, guid: aaf7036f1a271aa47a5c8fcc5a7ba3a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _type: 1
   _chemistryReceiver: {fileID: 6384784237222623781}
-  _susceptibility: 0.5
+  _susceptibility: 1
   _elementPercent: 0
   _activeTriggers: 0
 --- !u!114 &4872630291165142083
@@ -548,7 +550,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _type: 1
   _chemistryReceiver: {fileID: 6384784237222623781}
-  _elementReceiver: {fileID: 1514954133089805674}
+  _elementReceiver: {fileID: 0}
   _mudScript: {fileID: 5035384156917179538}
   _mudType: 2
   _changeMudType: 0.5

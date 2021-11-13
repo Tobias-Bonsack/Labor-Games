@@ -502,7 +502,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _type: 0
   _chemistryReceiver: {fileID: 4129944632028862575}
-  _elementReceiver: {fileID: 6246685159759282518}
+  _elementReceiver: {fileID: 0}
 --- !u!1 &4634300961279673026
 GameObject:
   m_ObjectHideFlags: 0
@@ -679,7 +679,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _type: 0
   _chemistryReceiver: {fileID: 4129944632028862575}
-  _elementReceiver: {fileID: 6246685159759282518}
+  _elementReceiver: {fileID: 0}
   _objectToDestroy: {fileID: 5127017970051550383}
   _pointToDestroy: 1
 --- !u!1 &5127017970051550383
@@ -758,9 +758,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 5497311403590961477}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 754abda9f6fa3d34bba810b58af38de1, type: 3}
+  m_Script: {fileID: 11500000, guid: aaf7036f1a271aa47a5c8fcc5a7ba3a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _type: 0
   _chemistryReceiver: {fileID: 4129944632028862575}
   _susceptibility: 1
   _elementPercent: 0
@@ -807,9 +808,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 5689250950294352777}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e9ce0cf545f4e24cb0a75beb5550b98, type: 3}
+  m_Script: {fileID: 11500000, guid: aaf7036f1a271aa47a5c8fcc5a7ba3a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _type: 1
   _chemistryReceiver: {fileID: 4129944632028862575}
   _susceptibility: 1
   _elementPercent: 0
@@ -859,7 +861,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _type: 0
   _chemistryReceiver: {fileID: 4129944632028862575}
-  _elementReceiver: {fileID: 6246685159759282518}
+  _elementReceiver: {fileID: 0}
   _emitter: {fileID: 4375939870291819855}
   _pointToChange: 0.1
   _receiveRemeins: 1
@@ -1041,7 +1043,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _type: 1
   _chemistryReceiver: {fileID: 4129944632028862575}
-  _elementReceiver: {fileID: 8959168437935281361}
+  _elementReceiver: {fileID: 0}
 --- !u!1 &7603590340408383063
 GameObject:
   m_ObjectHideFlags: 0
@@ -1428,7 +1430,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _type: 1
   _chemistryReceiver: {fileID: 4129944632028862575}
-  _elementReceiver: {fileID: 8959168437935281361}
+  _elementReceiver: {fileID: 0}
   _emitter: {fileID: 4375939870291819855}
   _pointToChange: 0.5
   _receiveRemeins: 1
@@ -1448,7 +1450,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _type: 1
   _chemistryReceiver: {fileID: 4129944632028862575}
-  _elementReceiver: {fileID: 8959168437935281361}
+  _elementReceiver: {fileID: 0}
+  _alwaysReduce: 0
   _weaknessType: 0
   _timeMultiplier: 0.5
   _timeBetweenCooldown: 1

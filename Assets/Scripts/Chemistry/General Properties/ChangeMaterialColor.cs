@@ -14,19 +14,10 @@ namespace HeatEngine
         private Color _materialColor, _stepColor;
         void Awake()
         {
-            _chemistryReceiver._onReceiveHeat += EnterStay;
             _elementReceiver._onElementPercentChange += OnBurnPercentChange;
             _materialColor = _renderer.material.GetColor("_BaseColor");
 
             _stepColor = _endColor - _materialColor;
-        }
-        private void EnterStay(object sender, ChemistryReceiver.OnReceiveElementArgs e)
-        {
-            if (e._status == ChemistryEngine.IChemistryReceiver.Status.STAY)
-            {
-                Color color = _materialColor + (_stepColor * _elementReceiver._elementPercent);
-                _renderer.material.SetColor("_BaseColor", color);
-            }
         }
         private void OnBurnPercentChange(object sender, EventArgs e)
         {

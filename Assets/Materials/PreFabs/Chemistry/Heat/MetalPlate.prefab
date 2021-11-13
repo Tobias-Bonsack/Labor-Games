@@ -41,11 +41,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 405628425509079809}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 754abda9f6fa3d34bba810b58af38de1, type: 3}
+  m_Script: {fileID: 11500000, guid: aaf7036f1a271aa47a5c8fcc5a7ba3a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _type: 0
   _chemistryReceiver: {fileID: 6624070620796306670}
-  _susceptibility: 0.25
+  _susceptibility: 1
   _elementPercent: 0
   _activeTriggers: 0
 --- !u!1 &777538761891361920
@@ -95,7 +96,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _type: 0
   _chemistryReceiver: {fileID: 6624070620796306670}
-  _elementReceiver: {fileID: 6026116002775345098}
+  _elementReceiver: {fileID: 0}
+  _alwaysReduce: 0
   _weaknessType: 1
   _timeMultiplier: 0.5
   _timeBetweenCooldown: 1
@@ -114,7 +116,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _type: 0
   _chemistryReceiver: {fileID: 6624070620796306670}
-  _elementReceiver: {fileID: 6026116002775345098}
+  _elementReceiver: {fileID: 0}
   _emitter: {fileID: 5364019816809064218}
   _pointToChange: 0.5
   _receiveRemeins: 1
@@ -134,7 +136,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _type: 0
   _chemistryReceiver: {fileID: 6624070620796306670}
-  _elementReceiver: {fileID: 6026116002775345098}
+  _elementReceiver: {fileID: 0}
   _renderer: {fileID: 6724870324328718836}
   _endColor: {r: 1, g: 0, b: 0, a: 0}
 --- !u!1 &5233919536191130853

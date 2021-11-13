@@ -89,9 +89,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 884086050}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 754abda9f6fa3d34bba810b58af38de1, type: 3}
+  m_Script: {fileID: 11500000, guid: aaf7036f1a271aa47a5c8fcc5a7ba3a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _type: 0
   _chemistryReceiver: {fileID: 1849248337037774846}
   _susceptibility: 1
   _elementPercent: 0
@@ -490,7 +491,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _type: 0
   _chemistryReceiver: {fileID: 1849248337037774846}
-  _elementReceiver: {fileID: 4286297078658100895}
+  _elementReceiver: {fileID: 0}
   _emitter: {fileID: 8577983521727701865}
   _pointToChange: 1
   _receiveRemeins: 0
@@ -848,4 +849,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _type: 0
   _chemistryReceiver: {fileID: 1849248337037774846}
-  _elementReceiver: {fileID: 4286297078658100895}
+  _elementReceiver: {fileID: 0}

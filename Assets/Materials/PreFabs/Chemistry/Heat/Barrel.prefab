@@ -492,7 +492,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _type: 0
   _chemistryReceiver: {fileID: 6859814169030407581}
-  _elementReceiver: {fileID: 4686537601182074783}
+  _elementReceiver: {fileID: 0}
   _objectToDestroy: {fileID: 7446782720037582083}
   _pointToDestroy: 1
 --- !u!1 &2212802089811371971
@@ -679,9 +679,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 6958027712719566630}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 754abda9f6fa3d34bba810b58af38de1, type: 3}
+  m_Script: {fileID: 11500000, guid: aaf7036f1a271aa47a5c8fcc5a7ba3a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _type: 0
   _chemistryReceiver: {fileID: 6859814169030407581}
   _susceptibility: 1
   _elementPercent: 0
@@ -938,7 +939,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _type: 0
   _chemistryReceiver: {fileID: 6859814169030407581}
-  _elementReceiver: {fileID: 4686537601182074783}
+  _elementReceiver: {fileID: 0}
 --- !u!1 &7446782720037582083
 GameObject:
   m_ObjectHideFlags: 0
@@ -1064,7 +1065,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _type: 0
   _chemistryReceiver: {fileID: 6859814169030407581}
-  _elementReceiver: {fileID: 4686537601182074783}
+  _elementReceiver: {fileID: 0}
   _emitter: {fileID: 7424229642546322481}
   _pointToChange: 0.25
   _receiveRemeins: 1
