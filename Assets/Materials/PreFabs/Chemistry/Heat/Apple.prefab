@@ -321,7 +321,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _type: 0
   _chemistryReceiver: {fileID: 5844618056439269188}
-  _elementReceiver: {fileID: 0}
+  _elementReceiver: {fileID: 8253443969176652285}
   _renderer: {fileID: 1181320338241983696}
   _endColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &7860712481317084651
@@ -576,4 +576,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _type: 0
   _chemistryReceiver: {fileID: 5844618056439269188}
-  _elementReceiver: {fileID: 0}
+  _elementReceiver: {fileID: 8253443969176652285}

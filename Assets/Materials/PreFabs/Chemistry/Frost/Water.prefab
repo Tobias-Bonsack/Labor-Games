@@ -237,7 +237,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _type: 1
   _chemistryReceiver: {fileID: 4354096725676731277}
-  _elementReceiver: {fileID: 0}
+  _elementReceiver: {fileID: 4354096726618641766}
   _objectToChange: {fileID: 4354096725903472135}
   _lowestSize: {x: 0, y: 0, z: 0}
   _biggestSize: {x: 1, y: 2, z: 1}
@@ -458,7 +458,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _type: 1
   _chemistryReceiver: {fileID: 4354096725676731277}
-  _elementReceiver: {fileID: 0}
+  _elementReceiver: {fileID: 4354096726618641766}
 --- !u!1 &4354096726551645476
 GameObject:
   m_ObjectHideFlags: 0
@@ -734,7 +734,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _type: 1
   _chemistryReceiver: {fileID: 4354096725676731277}
-  _elementReceiver: {fileID: 0}
+  _elementReceiver: {fileID: 4354096726618641766}
   _alwaysReduce: 0
   _weaknessType: 0
   _timeMultiplier: 0.5

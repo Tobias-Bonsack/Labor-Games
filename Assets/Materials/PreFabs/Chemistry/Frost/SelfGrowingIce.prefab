@@ -438,7 +438,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _type: 1
   _chemistryReceiver: {fileID: 4354096725676731277}
-  _elementReceiver: {fileID: 0}
+  _elementReceiver: {fileID: 2947449932163188752}
   _alwaysReduce: 1
   _weaknessType: 3
   _timeMultiplier: 1

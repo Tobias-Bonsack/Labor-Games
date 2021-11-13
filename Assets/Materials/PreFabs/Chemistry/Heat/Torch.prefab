@@ -491,7 +491,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _type: 0
   _chemistryReceiver: {fileID: 1849248337037774846}
-  _elementReceiver: {fileID: 0}
+  _elementReceiver: {fileID: 4286297078658100895}
   _emitter: {fileID: 8577983521727701865}
   _pointToChange: 1
   _receiveRemeins: 0
@@ -849,4 +849,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _type: 0
   _chemistryReceiver: {fileID: 1849248337037774846}
-  _elementReceiver: {fileID: 0}
+  _elementReceiver: {fileID: 4286297078658100895}
