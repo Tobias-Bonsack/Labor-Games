@@ -97,7 +97,7 @@ namespace ChemistryEngine
             {
                 _activeReceiver.Add(receiver);
             }
-            Debug.Log("Emitter Enter: " + _activeReceiver.Count);
+            Debug.Log("Emitter Enter: " + _activeReceiver.Count + " Object: " + transform.parent.gameObject.name);
         }
         void OnTriggerExit(Collider other)
         {
@@ -105,7 +105,7 @@ namespace ChemistryEngine
             {
                 _activeReceiver.Remove(receiver);
             }
-            Debug.Log("Emitter Exit: " + _activeReceiver.Count);
+            Debug.Log("Emitter Exit: " + _activeReceiver.Count + " Object: " + transform.parent.gameObject.name);
         }
 
         public void RemoveReceiver(IChemistryReceiver receiver)

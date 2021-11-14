@@ -4719,6 +4719,18 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 7424229642546322481, guid: f022e44520d075a43b552c04cff3133e, type: 3}
+      propertyPath: _types.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7424229642546322481, guid: f022e44520d075a43b552c04cff3133e, type: 3}
+      propertyPath: _radiance.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7424229642546322481, guid: f022e44520d075a43b552c04cff3133e, type: 3}
+      propertyPath: _radiance.Array.data[0]
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 7446782720037582083, guid: f022e44520d075a43b552c04cff3133e, type: 3}
       propertyPath: m_Name
       value: Barrel (99)
@@ -6289,6 +6301,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5460766673339518902, guid: 6e1b45eda0f8d344984f264d10f305c1, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5876606609711241275, guid: 6e1b45eda0f8d344984f264d10f305c1, type: 3}
       propertyPath: m_Name
       value: MetalPlate (14)
@@ -7574,6 +7590,10 @@ PrefabInstance:
     - target: {fileID: 4593018908614279733, guid: 6e1b45eda0f8d344984f264d10f305c1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5460766673339518902, guid: 6e1b45eda0f8d344984f264d10f305c1, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5876606609711241275, guid: 6e1b45eda0f8d344984f264d10f305c1, type: 3}
       propertyPath: m_Name
@@ -8929,6 +8949,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5460766673339518902, guid: 6e1b45eda0f8d344984f264d10f305c1, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5876606609711241275, guid: 6e1b45eda0f8d344984f264d10f305c1, type: 3}
       propertyPath: m_Name
       value: MetalPlate (20)
@@ -10000,6 +10024,18 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 7424229642546322481, guid: f022e44520d075a43b552c04cff3133e, type: 3}
+      propertyPath: _types.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7424229642546322481, guid: f022e44520d075a43b552c04cff3133e, type: 3}
+      propertyPath: _radiance.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7424229642546322481, guid: f022e44520d075a43b552c04cff3133e, type: 3}
+      propertyPath: _radiance.Array.data[0]
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 7446782720037582083, guid: f022e44520d075a43b552c04cff3133e, type: 3}
       propertyPath: m_Name
       value: Barrel (82)
@@ -10133,6 +10169,10 @@ PrefabInstance:
     - target: {fileID: 4593018908614279733, guid: 6e1b45eda0f8d344984f264d10f305c1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5460766673339518902, guid: 6e1b45eda0f8d344984f264d10f305c1, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5876606609711241275, guid: 6e1b45eda0f8d344984f264d10f305c1, type: 3}
       propertyPath: m_Name
@@ -10398,6 +10438,10 @@ PrefabInstance:
     - target: {fileID: 4593018908614279733, guid: 6e1b45eda0f8d344984f264d10f305c1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5460766673339518902, guid: 6e1b45eda0f8d344984f264d10f305c1, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5876606609711241275, guid: 6e1b45eda0f8d344984f264d10f305c1, type: 3}
       propertyPath: m_Name
@@ -10898,6 +10942,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5460766673339518902, guid: 6e1b45eda0f8d344984f264d10f305c1, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5876606609711241275, guid: 6e1b45eda0f8d344984f264d10f305c1, type: 3}
       propertyPath: m_Name
       value: MetalPlate (17)
@@ -11174,6 +11222,10 @@ PrefabInstance:
     - target: {fileID: 4593018908614279733, guid: 6e1b45eda0f8d344984f264d10f305c1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5460766673339518902, guid: 6e1b45eda0f8d344984f264d10f305c1, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5876606609711241275, guid: 6e1b45eda0f8d344984f264d10f305c1, type: 3}
       propertyPath: m_Name
@@ -11513,6 +11565,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5460766673339518902, guid: 6e1b45eda0f8d344984f264d10f305c1, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5876606609711241275, guid: 6e1b45eda0f8d344984f264d10f305c1, type: 3}
       propertyPath: m_Name
       value: MetalPlate (22)
@@ -11713,6 +11769,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5460766673339518902, guid: 6e1b45eda0f8d344984f264d10f305c1, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5876606609711241275, guid: 6e1b45eda0f8d344984f264d10f305c1, type: 3}
       propertyPath: m_Name
       value: MetalPlate
@@ -11838,6 +11898,10 @@ PrefabInstance:
     - target: {fileID: 4593018908614279733, guid: 6e1b45eda0f8d344984f264d10f305c1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5460766673339518902, guid: 6e1b45eda0f8d344984f264d10f305c1, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5876606609711241275, guid: 6e1b45eda0f8d344984f264d10f305c1, type: 3}
       propertyPath: m_Name
@@ -12682,6 +12746,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5460766673339518902, guid: 6e1b45eda0f8d344984f264d10f305c1, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5876606609711241275, guid: 6e1b45eda0f8d344984f264d10f305c1, type: 3}
       propertyPath: m_Name
       value: MetalPlate (13)
@@ -13019,6 +13087,10 @@ PrefabInstance:
     - target: {fileID: 4593018908614279733, guid: 6e1b45eda0f8d344984f264d10f305c1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5460766673339518902, guid: 6e1b45eda0f8d344984f264d10f305c1, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5876606609711241275, guid: 6e1b45eda0f8d344984f264d10f305c1, type: 3}
       propertyPath: m_Name
@@ -13653,6 +13725,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5460766673339518902, guid: 6e1b45eda0f8d344984f264d10f305c1, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5876606609711241275, guid: 6e1b45eda0f8d344984f264d10f305c1, type: 3}
       propertyPath: m_Name
       value: MetalPlate (1)
@@ -14006,6 +14082,10 @@ PrefabInstance:
     - target: {fileID: 4593018908614279733, guid: 6e1b45eda0f8d344984f264d10f305c1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5460766673339518902, guid: 6e1b45eda0f8d344984f264d10f305c1, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5876606609711241275, guid: 6e1b45eda0f8d344984f264d10f305c1, type: 3}
       propertyPath: m_Name
@@ -14418,6 +14498,10 @@ PrefabInstance:
     - target: {fileID: 4593018908614279733, guid: 6e1b45eda0f8d344984f264d10f305c1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5460766673339518902, guid: 6e1b45eda0f8d344984f264d10f305c1, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5876606609711241275, guid: 6e1b45eda0f8d344984f264d10f305c1, type: 3}
       propertyPath: m_Name
@@ -15442,6 +15526,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5460766673339518902, guid: 6e1b45eda0f8d344984f264d10f305c1, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5876606609711241275, guid: 6e1b45eda0f8d344984f264d10f305c1, type: 3}
       propertyPath: m_Name
       value: MetalPlate (10)
@@ -16224,6 +16312,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5460766673339518902, guid: 6e1b45eda0f8d344984f264d10f305c1, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5876606609711241275, guid: 6e1b45eda0f8d344984f264d10f305c1, type: 3}
       propertyPath: m_Name
       value: MetalPlate (12)
@@ -16281,6 +16373,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5460766673339518902, guid: 6e1b45eda0f8d344984f264d10f305c1, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5876606609711241275, guid: 6e1b45eda0f8d344984f264d10f305c1, type: 3}
       propertyPath: m_Name
       value: MetalPlate (8)
@@ -16337,6 +16433,10 @@ PrefabInstance:
     - target: {fileID: 4593018908614279733, guid: 6e1b45eda0f8d344984f264d10f305c1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5460766673339518902, guid: 6e1b45eda0f8d344984f264d10f305c1, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5876606609711241275, guid: 6e1b45eda0f8d344984f264d10f305c1, type: 3}
       propertyPath: m_Name
@@ -16532,6 +16632,10 @@ PrefabInstance:
     - target: {fileID: 4593018908614279733, guid: 6e1b45eda0f8d344984f264d10f305c1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5460766673339518902, guid: 6e1b45eda0f8d344984f264d10f305c1, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5876606609711241275, guid: 6e1b45eda0f8d344984f264d10f305c1, type: 3}
       propertyPath: m_Name
@@ -16939,6 +17043,10 @@ PrefabInstance:
     - target: {fileID: 4593018908614279733, guid: 6e1b45eda0f8d344984f264d10f305c1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5460766673339518902, guid: 6e1b45eda0f8d344984f264d10f305c1, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5876606609711241275, guid: 6e1b45eda0f8d344984f264d10f305c1, type: 3}
       propertyPath: m_Name
@@ -19399,6 +19507,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5460766673339518902, guid: 6e1b45eda0f8d344984f264d10f305c1, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5876606609711241275, guid: 6e1b45eda0f8d344984f264d10f305c1, type: 3}
       propertyPath: m_Name
       value: MetalPlate (19)
@@ -19662,6 +19774,10 @@ PrefabInstance:
     - target: {fileID: 4593018908614279733, guid: 6e1b45eda0f8d344984f264d10f305c1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5460766673339518902, guid: 6e1b45eda0f8d344984f264d10f305c1, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5876606609711241275, guid: 6e1b45eda0f8d344984f264d10f305c1, type: 3}
       propertyPath: m_Name
@@ -20147,6 +20263,10 @@ PrefabInstance:
     - target: {fileID: 4593018908614279733, guid: 6e1b45eda0f8d344984f264d10f305c1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5460766673339518902, guid: 6e1b45eda0f8d344984f264d10f305c1, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5876606609711241275, guid: 6e1b45eda0f8d344984f264d10f305c1, type: 3}
       propertyPath: m_Name

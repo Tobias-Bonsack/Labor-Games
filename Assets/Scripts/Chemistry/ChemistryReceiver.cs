@@ -65,7 +65,7 @@ namespace ChemistryEngine
 
         private void TriggerElementEvents(IChemistryReceiver.Status status, ChemistryEmitter chemistryEmitter, IChemistry.ChemistryTypes type, float radiance)
         {
-            Debug.Log("Receiver " + status + ": " + _activeEmitter.Count);
+            Debug.Log("Receiver " + status + ": " + _activeEmitter.Count + " Object: " + transform.parent.gameObject.name);
 
             switch (type)
             {

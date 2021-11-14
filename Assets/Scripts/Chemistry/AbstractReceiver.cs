@@ -48,7 +48,7 @@ namespace ChemistryEngine
             if (e._status == IChemistryReceiver.Status.ENTER)
             {
                 _activeTriggers++;
-                Debug.Log(_activeTriggers);
+                Debug.Log("Active triggers: " + _activeTriggers + " Object: " + _chemistryReceiver.transform.parent.gameObject.name);
                 OnActiveTriggerChangeTrigger();
                 ExtendEnterTrigger(e);
             }
@@ -68,7 +68,7 @@ namespace ChemistryEngine
             if (e._status == IChemistryReceiver.Status.EXIT)
             {
                 _activeTriggers--;
-                Debug.Log(_activeTriggers);
+                Debug.Log("Active triggers: " + _activeTriggers + " Object: " + _chemistryReceiver.transform.parent.gameObject.name);
                 OnActiveTriggerChangeTrigger();
                 ExtendExitTrigger(e);
             }
