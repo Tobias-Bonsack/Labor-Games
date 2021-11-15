@@ -29,7 +29,7 @@ namespace ChemistryEngine
         #endregion
 
         #region parameter
-        [SerializeField] bool _burnItself = false, _frostItself = false;
+        [SerializeField] bool _burnItself = false, _frostItself = false, _shockItself = false;
         [SerializeField] ChemistryEmitter _ownEmitter;
         #endregion
 
@@ -81,6 +81,13 @@ namespace ChemistryEngine
                     {
                         OnReceiveElementArgs onReceiveFrostArgs = new OnReceiveElementArgs { _status = status, _radiance = radiance };
                         OnReceiveFrostTrigger(onReceiveFrostArgs);
+                    }
+                    break;
+                case IChemistry.ChemistryTypes.ELECTRICITY:
+                    if (IsStrangerEmitter(chemistryEmitter, _shockItself))
+                    {
+                        OnReceiveElementArgs onReceiveFrostArgs = new OnReceiveElementArgs { _status = status, _radiance = radiance };
+                        OnReceiveElectricityTrigger(onReceiveFrostArgs);
                     }
                     break;
                 default:

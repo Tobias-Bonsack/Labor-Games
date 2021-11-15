@@ -190,6 +190,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _burnItself: 0
   _frostItself: 0
+  _shockItself: 0
   _ownEmitter: {fileID: 0}
 --- !u!1 &4354096725903472135
 GameObject:
@@ -232,15 +233,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 4354096725903472135}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 606aac698886b0d46aeeb159b8f6993c, type: 3}
+  m_Script: {fileID: 11500000, guid: 5886ec02ba4e76d4ea662d2ca4099001, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _type: 1
+  _type: 0
   _chemistryReceiver: {fileID: 4354096725676731277}
   _elementReceiver: {fileID: 4354096726618641766}
-  _objectToChange: {fileID: 4354096725903472135}
-  _lowestSize: {x: 0, y: 0, z: 0}
-  _biggestSize: {x: 1, y: 2, z: 1}
+  _toChange: {fileID: 4354096725903472134}
+  _changePosition: 0
+  _addPosition: {x: 0, y: 0, z: 0}
+  _changeRotation: 0
+  _addRotation: {x: 0, y: 0, z: 0}
+  _changeScale: 1
+  _addScale: {x: 1, y: 1, z: 1}
 --- !u!1 &4354096726180287322
 GameObject:
   m_ObjectHideFlags: 0
