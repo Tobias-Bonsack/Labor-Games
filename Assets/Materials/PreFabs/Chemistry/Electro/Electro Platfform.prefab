@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7007739530784822003}
   - component: {fileID: 2152981201665840642}
   - component: {fileID: 2029632809411561195}
+  - component: {fileID: 6731369352878236633}
   m_Layer: 6
   m_Name: Receiver
   m_TagString: Untagged
@@ -113,12 +114,32 @@ MonoBehaviour:
   _chemistryReceiver: {fileID: 7007739530784822003}
   _elementReceiver: {fileID: 2152981201665840642}
   _toChange: {fileID: 0}
-  _changePosition: 0
+  _changePosition: 1
   _addPosition: {x: 0, y: 0, z: 0}
   _changeRotation: 0
   _addRotation: {x: 0, y: 0, z: 0}
   _changeScale: 0
   _addScale: {x: 0, y: 0, z: 0}
+--- !u!114 &6731369352878236633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 569615484579153679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22a67aa791c9a494c962da685a677224, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _type: 2
+  _chemistryReceiver: {fileID: 7007739530784822003}
+  _elementReceiver: {fileID: 2152981201665840642}
+  _alwaysReduce: 0
+  _weaknessType: 3
+  _timeMultiplier: 0.5
+  _timeBetweenCooldown: 0.5
+  _rateToCooldown: 0.01
 --- !u!1 &7434040469919020932
 GameObject:
   m_ObjectHideFlags: 0

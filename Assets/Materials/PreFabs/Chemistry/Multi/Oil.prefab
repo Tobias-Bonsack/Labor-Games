@@ -502,7 +502,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _type: 0
   _chemistryReceiver: {fileID: 4129944632028862575}
-  _elementReceiver: {fileID: 0}
+  _elementReceiver: {fileID: 6246685159759282518}
 --- !u!1 &4634300961279673026
 GameObject:
   m_ObjectHideFlags: 0
@@ -679,7 +679,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _type: 0
   _chemistryReceiver: {fileID: 4129944632028862575}
-  _elementReceiver: {fileID: 0}
+  _elementReceiver: {fileID: 6246685159759282518}
   _objectToDestroy: {fileID: 5127017970051550383}
   _pointToDestroy: 1
 --- !u!1 &5127017970051550383
@@ -861,7 +861,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _type: 0
   _chemistryReceiver: {fileID: 4129944632028862575}
-  _elementReceiver: {fileID: 0}
+  _elementReceiver: {fileID: 6246685159759282518}
   _emitter: {fileID: 4375939870291819855}
   _pointToChange: 0.1
   _receiveRemeins: 1
@@ -1043,7 +1043,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _type: 1
   _chemistryReceiver: {fileID: 4129944632028862575}
-  _elementReceiver: {fileID: 0}
+  _elementReceiver: {fileID: 8959168437935281361}
 --- !u!1 &7603590340408383063
 GameObject:
   m_ObjectHideFlags: 0
@@ -1383,6 +1383,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _burnItself: 1
   _frostItself: 0
+  _shockItself: 0
   _ownEmitter: {fileID: 4375939870291819855}
 --- !u!1 &8217996298538057268
 GameObject:
@@ -1430,7 +1431,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _type: 1
   _chemistryReceiver: {fileID: 4129944632028862575}
-  _elementReceiver: {fileID: 0}
+  _elementReceiver: {fileID: 8959168437935281361}
   _emitter: {fileID: 4375939870291819855}
   _pointToChange: 0.5
   _receiveRemeins: 1
@@ -1450,7 +1451,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _type: 1
   _chemistryReceiver: {fileID: 4129944632028862575}
-  _elementReceiver: {fileID: 0}
+  _elementReceiver: {fileID: 8959168437935281361}
   _alwaysReduce: 0
   _weaknessType: 0
   _timeMultiplier: 0.5
