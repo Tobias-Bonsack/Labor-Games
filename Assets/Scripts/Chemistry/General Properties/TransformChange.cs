@@ -8,6 +8,7 @@ namespace ChemistryEngine
     public class TransformChange : AbstractProperty
     {
         [SerializeField] Transform _toChange;
+        [SerializeField, Range(0f, 1f)] float _pointToStartChagne = 0f, _pointToEndChange = 1f;
 
         [Header("Position")]
         [SerializeField] bool _changePosition;
@@ -35,11 +36,11 @@ namespace ChemistryEngine
 
         private void ChangeScale(object sender, EventArgs e)
         {
-            Debug.Log("Position: " + (_originPosition + _addPosition * _elementReceiver.ElementPercent));
-            Debug.Log("Rotation: " + (_originRotation + _addRotation * _elementReceiver.ElementPercent));
-            if (_changePosition) _toChange.position = _originPosition + _addPosition * _elementReceiver.ElementPercent;
-            if (_changeRotation) _toChange.rotation = Quaternion.Euler(_originRotation + _addRotation * _elementReceiver.ElementPercent);
-            if (_changeScale) _toChange.localScale = _originScale + _addScale * _elementReceiver.ElementPercent;
+            float range = _pointToEndChange - _pointToStartChagne;
+            float changePercent = Mathf.Clamp(_elementReceiver.ElementPercent - _pointToStartChagne, 0f, range) / range;
+            if (_changePosition) _toChange.position = _originPosition + _addPosition * changePercent;
+            if (_changeRotation) _toChange.rotation = Quaternion.Euler(_originRotation + _addRotation * changePercent);
+            if (_changeScale) _toChange.localScale = _originScale + _addScale * changePercent;
         }
     }
 }
