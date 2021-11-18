@@ -35,7 +35,7 @@ namespace ChemistryEngine
 
         private void StayTrigger(object sender, ChemistryReceiver.OnReceiveElementArgs e)
         {
-            if (e._status == IChemistryReceiver.Status.STAY && _elementReceiver._elementPercent >= _pointToDestroy)
+            if (e._status == IChemistryReceiver.Status.STAY && _elementReceiver.ElementPercent >= _pointToDestroy)
             {
                 transform.parent = null;
                 Destroy(_objectToDestroy);

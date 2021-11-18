@@ -39,14 +39,14 @@ namespace ChemistryEngine
             while (_numberOfChanges-- > 0)
             {
                 yield return new WaitForSeconds(Time.fixedDeltaTime * 2);
-                if (!_isEmitter && _elementReceiver._elementPercent >= _pointToChange)
+                if (!_isEmitter && _elementReceiver.ElementPercent >= _pointToChange)
                 {
                     _isEmitter = true;
                     ChangeEmitter(true);
                     _elementReceiver.MultiplieSusceptibility(_multiplierForSusceptibility);
                     _elementReceiver.gameObject.SetActive(_receiveRemeins);
                 }
-                else if (_isEmitter && _elementReceiver._elementPercent <= _pointToChange)
+                else if (_isEmitter && _elementReceiver.ElementPercent <= _pointToChange)
                 {
                     _isEmitter = false;
                     ChangeEmitter(false);

@@ -22,14 +22,14 @@ namespace ChemistryEngine
 
         private void ElementPercentChange(object sender, EventArgs e)
         {
-            if (!_isElementRemoved && _elementReceiver._elementPercent >= _percentToRemove)
+            if (!_isElementRemoved && _elementReceiver.ElementPercent >= _percentToRemove)
             {
                 _emitter.RemoveType(_type);
                 _isElementRemoved = true;
                 _reducer.SetActive(true);
             }
 
-            if (_destroyAfterRemove && _isElementRemoved && _elementReceiver._elementPercent <= _afterRemovePercentToDestroy)
+            if (_destroyAfterRemove && _isElementRemoved && _elementReceiver.ElementPercent <= _afterRemovePercentToDestroy)
             {
                 Destroy(_toDestroy);
             }

@@ -20,7 +20,7 @@ namespace PlayerInteraction
 
         private void ElementPercentChange(object sender, EventArgs e)
         {
-            if (_elementReceiver._elementPercent >= _changeMudType) _mudScript.State = _mudType;
+            if (_elementReceiver.ElementPercent >= _changeMudType) _mudScript.State = _mudType;
             else _mudScript.State = Mud.MudType.STANDART;
         }
     }

@@ -42,7 +42,7 @@ namespace ChemistryEngine
 
         private void TriggerChange(object sender, EventArgs e)
         {
-            if (_elementReceiver._activeTriggers != 0)
+            if (_elementReceiver.ActiveTriggers != 0)
             {
                 if (_cooldown != null) StopCoroutine(_cooldown);
             }
@@ -67,13 +67,12 @@ namespace ChemistryEngine
 
         IEnumerator CooldownRoutine()
         {
-            while (_elementReceiver._elementPercent > 0f)
+            while (_elementReceiver.ElementPercent > 0f)
             {
-                _elementReceiver._elementPercent -= _rateToCooldown;
-                _elementReceiver.OnElementPercentChangeTrigger();
+                _elementReceiver.ElementPercent -= _rateToCooldown;
                 yield return new WaitForSeconds(_timeBetweenCooldown);
             }
-            _elementReceiver._elementPercent = 0f;
+            _elementReceiver.ElementPercent = 0f;
         }
     }
 }

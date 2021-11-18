@@ -21,7 +21,7 @@ namespace HeatEngine
         }
         private void OnBurnPercentChange(object sender, EventArgs e)
         {
-            Color color = _materialColor + (_stepColor * _elementReceiver._elementPercent);
+            Color color = _materialColor + (_stepColor * _elementReceiver.ElementPercent);
             _renderer.material.SetColor("_BaseColor", color);
         }
     }

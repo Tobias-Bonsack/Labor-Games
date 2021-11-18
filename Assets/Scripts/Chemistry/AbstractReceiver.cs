@@ -11,8 +11,32 @@ namespace ChemistryEngine
         [SerializeField] protected IChemistry.ChemistryTypes _type;
         [SerializeField] protected ChemistryReceiver _chemistryReceiver;
         [SerializeField, Tooltip("0f = Full Resistance, 1f = Zero Resistance"), Range(0f, 1f)] protected float _susceptibility = 1f;
-        [HideInNormalInspector] public float _elementPercent = 0f;
-        [HideInNormalInspector] public int _activeTriggers = 0;
+        private float _elementPercent = 0f;
+        public float ElementPercent
+        {
+            get
+            {
+                return _elementPercent;
+            }
+            set
+            {
+                _elementPercent = value;
+                _onElementPercentChange?.Invoke(this, EventArgs.Empty);
+            }
+        }
+        private int _activeTriggers = 0;
+        public int ActiveTriggers
+        {
+            get
+            {
+                return _activeTriggers;
+            }
+            set
+            {
+                _activeTriggers = value;
+                _onActiveTriggerChange?.Invoke(this, EventArgs.Empty);
+            }
+        }
 
         public void MultiplieSusceptibility(float multiplier)
         {
@@ -47,9 +71,8 @@ namespace ChemistryEngine
         {
             if (e._status == IChemistryReceiver.Status.ENTER)
             {
-                _activeTriggers++;
-                Debug.Log("Active triggers: " + _activeTriggers + " Object: " + _chemistryReceiver.transform.parent.gameObject.name);
-                OnActiveTriggerChangeTrigger();
+                ActiveTriggers = ActiveTriggers + 1;
+                Debug.Log("Active triggers: " + ActiveTriggers + " Object: " + _chemistryReceiver.transform.parent.gameObject.name);
                 ExtendEnterTrigger(e);
             }
         }
@@ -57,9 +80,8 @@ namespace ChemistryEngine
         {
             if (e._status == IChemistryReceiver.Status.STAY)
             {
-                _elementPercent += _susceptibility * e._radiance * Time.fixedDeltaTime;
-                _elementPercent = Mathf.Clamp(_elementPercent, 0f, 1f);
-                OnElementPercentChangeTrigger();
+                float newElementPercent = ElementPercent + _susceptibility * e._radiance * Time.fixedDeltaTime;
+                ElementPercent = Mathf.Clamp(newElementPercent, 0f, 1f);
                 ExtendStayTrigger(e);
             }
         }
@@ -67,9 +89,8 @@ namespace ChemistryEngine
         {
             if (e._status == IChemistryReceiver.Status.EXIT)
             {
-                _activeTriggers--;
-                Debug.Log("Active triggers: " + _activeTriggers + " Object: " + _chemistryReceiver.transform.parent.gameObject.name);
-                OnActiveTriggerChangeTrigger();
+                ActiveTriggers = ActiveTriggers - 1;
+                Debug.Log("Active triggers: " + ActiveTriggers + " Object: " + _chemistryReceiver.transform.parent.gameObject.name);
                 ExtendExitTrigger(e);
             }
         }
@@ -81,11 +102,6 @@ namespace ChemistryEngine
         #region events
         public event EventHandler<EventArgs> _onElementPercentChange;
         public event EventHandler<EventArgs> _onActiveTriggerChange;
-        #endregion
-
-        #region trigger methods
-        public void OnElementPercentChangeTrigger() => _onElementPercentChange?.Invoke(this, EventArgs.Empty);
-        public void OnActiveTriggerChangeTrigger() => _onActiveTriggerChange?.Invoke(this, EventArgs.Empty);
         #endregion
     }
 }

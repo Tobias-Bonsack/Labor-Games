@@ -21,7 +21,7 @@ namespace ChemistryEngine
 
         private void Triggerchange(object sender, EventArgs e)
         {
-            _visualEffect.enabled = _elementReceiver._activeTriggers != 0;
+            _visualEffect.enabled = _elementReceiver.ActiveTriggers != 0;
         }
     }
 }
