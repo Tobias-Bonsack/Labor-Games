@@ -80,14 +80,24 @@ namespace ThirdPersonController
                 _holdItem.AddComponent<Rigidbody>();
                 _holdItem.transform.SetParent(null);
                 _holdItem.GetComponent<Rigidbody>().AddForce(_throwPosition.transform.forward * _throwPower, ForceMode.Impulse);
-                //TODO: make it in an angle...maybe in charger
-
 
                 _holdItem = null;
             }
 
             _throwPosition.GetComponent<LineRenderer>().positionCount = 0;
             _throwPower = _minThrowPower;
+        }
+
+        public void DropItem()
+        {
+            if (_holdItem != null)
+            {
+                _holdItem.GetComponent<Collider>().enabled = true;
+                _holdItem.AddComponent<Rigidbody>();
+                _holdItem.transform.SetParent(null);
+
+                _holdItem = null;
+            }
         }
     }
 }

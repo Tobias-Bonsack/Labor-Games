@@ -54,6 +54,14 @@
                     "interactions": ""
                 },
                 {
+                    "name": "Drop",
+                    "type": "Button",
+                    "id": "64f060ba-b294-411d-b634-7e981aabd527",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
                     "name": "Zoom",
                     "type": "Button",
                     "id": "68e0d940-a3ea-4f5b-904d-64fe512d8946",
@@ -368,6 +376,17 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "Zoom",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "176b4774-4e6d-4309-8c75-9b4f677e84c9",
+                    "path": "<XInputController>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Drop",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

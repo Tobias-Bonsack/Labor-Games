@@ -125,6 +125,11 @@ namespace ThirdPersonController
                 StaticProperties._currentCamera = 0;
             }
         }
+
+        public void OnItemDrop(InputAction.CallbackContext context)
+        {
+            if (context.started) _item.DropItem();
+        }
     }
 }
 

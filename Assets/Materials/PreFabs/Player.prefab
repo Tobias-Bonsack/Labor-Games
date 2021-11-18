@@ -575,6 +575,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 68e0d940-a3ea-4f5b-904d-64fe512d8946
     m_ActionName: Player/Zoom[/Mouse/rightButton]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1897186210740319777}
+        m_TargetAssemblyTypeName: ThirdPersonController.InputManager, Assembly-CSharp
+        m_MethodName: OnItemDrop
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 64f060ba-b294-411d-b634-7e981aabd527
+    m_ActionName: Player/New action
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Gamepad
   m_DefaultActionMap: Player
@@ -1109,7 +1125,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1897186212395723507}
-  m_LocalRotation: {x: 0.06257003, y: 0.000000018340415, z: -0.0000000011498134, w: 0.9980406}
+  m_LocalRotation: {x: 0.06257003, y: -0.000000018340417, z: 0.0000000011498135, w: 0.9980406}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
