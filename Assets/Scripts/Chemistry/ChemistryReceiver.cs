@@ -103,12 +103,18 @@ namespace ChemistryEngine
 
         public void NewEmitType(ChemistryEmitter emitter, IChemistry.ChemistryTypes type)
         {
-            _activeEmitter.Add(emitter);
-            TriggerElementEvents(IChemistryReceiver.Status.STAY, emitter, type, emitter.Radiance[emitter.Types.IndexOf(type)]);
+            Debug.Log("HashCode emitter: " + ((IChemistryEmitter)emitter).GetHashCode() + " " + transform.parent.gameObject.name);
+            foreach (IChemistryEmitter item in _activeEmitter)
+            {
+                Debug.Log("Equals: " + item.Equals((IChemistryEmitter)emitter) + " " + transform.parent.gameObject.name);
+                Debug.Log("HashCode: " + item.GetHashCode() + " " + transform.parent.gameObject.name);
+            }
+            _activeEmitter.Add((IChemistryEmitter)emitter);
+            TriggerElementEvents(IChemistryReceiver.Status.ENTER, emitter, type, emitter.Radiance[emitter.Types.IndexOf(type)]);
         }
         public void RemoveEmitType(ChemistryEmitter emitter, IChemistry.ChemistryTypes type)
         {
-            _activeEmitter.Remove(emitter);
+            _activeEmitter.Remove((IChemistryEmitter)emitter);
             TriggerElementEvents(IChemistryReceiver.Status.EXIT, emitter, type, 0f);
         }
 

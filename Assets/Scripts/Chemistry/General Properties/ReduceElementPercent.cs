@@ -11,7 +11,7 @@ namespace ChemistryEngine
         [Header("Propertie-Parameter")]
         [SerializeField, Tooltip("Starts the Routine in the Awake-Mehtod")] bool _alwaysReduce = false;
         [SerializeField] IChemistry.ChemistryTypes _weaknessType;
-        [SerializeField, Range(0f, 2f)] float _timeMultiplier = 0.5f;
+        [SerializeField, Range(0f, 2f), Tooltip("If weakness type is in range, _timeBetweenCooldown get multiplied with")] float _timeMultiplier = 0.5f;
         [SerializeField] float _timeBetweenCooldown = 1f;
         [SerializeField, Range(0f, 1f)] float _rateToCooldown = 0.01f;
         private Coroutine _cooldown;
@@ -33,6 +33,14 @@ namespace ChemistryEngine
                 case IChemistry.ChemistryTypes.HEAT:
                     _chemistryReceiver._onReceiveHeat += WeaknesEnterTrigger;
                     _chemistryReceiver._onReceiveHeat += WeaknesExitTrigger;
+                    break;
+                case IChemistry.ChemistryTypes.COLD:
+                    _chemistryReceiver._onReceiveFrost += WeaknesEnterTrigger;
+                    _chemistryReceiver._onReceiveFrost += WeaknesExitTrigger;
+                    break;
+                case IChemistry.ChemistryTypes.ELECTRICITY:
+                    _chemistryReceiver._onReceiveElectricity += WeaknesEnterTrigger;
+                    _chemistryReceiver._onReceiveElectricity += WeaknesExitTrigger;
                     break;
                 default:
                     break;
