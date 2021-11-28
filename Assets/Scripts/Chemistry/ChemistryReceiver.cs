@@ -19,6 +19,7 @@ namespace ChemistryEngine
         {
             public IChemistryReceiver.Status _status;
             public float _radiance;
+            public IChemistryEmitter.Type _emitterType;
         }
         #endregion
 
@@ -52,7 +53,7 @@ namespace ChemistryEngine
         }
         private void TriggerEvents(IChemistryReceiver.Status status, Collider other)
         {
-            if (other.gameObject.TryGetComponent<ChemistryEmitter>(out ChemistryEmitter chemistryEmitter))
+            if (other.gameObject.TryGetComponent<AbstractEmitter>(out AbstractEmitter chemistryEmitter))
             {
                 for (int i = 0; i < chemistryEmitter.Types.Count; i++)
                 {
@@ -63,31 +64,29 @@ namespace ChemistryEngine
             }
         }
 
-        private void TriggerElementEvents(IChemistryReceiver.Status status, ChemistryEmitter chemistryEmitter, IChemistry.ChemistryTypes type, float radiance)
+        private void TriggerElementEvents(IChemistryReceiver.Status status, AbstractEmitter chemistryEmitter, IChemistry.ChemistryTypes type, float radiance)
         {
             Debug.Log("Receiver " + status + ": " + _activeEmitter.Count + " Object: " + transform.parent.gameObject.name);
+            OnReceiveElementArgs onReceiveArgs = new OnReceiveElementArgs { _status = status, _radiance = radiance, _emitterType = chemistryEmitter._emitType };
 
             switch (type)
             {
                 case IChemistry.ChemistryTypes.HEAT:
                     if (IsStrangerEmitter(chemistryEmitter, _burnItself))
                     {
-                        OnReceiveElementArgs onReceiveHeatArgs = new OnReceiveElementArgs { _status = status, _radiance = radiance };
-                        OnReceiveHeatTrigger(onReceiveHeatArgs);
+                        OnReceiveHeatTrigger(onReceiveArgs);
                     }
                     break;
                 case IChemistry.ChemistryTypes.COLD:
                     if (IsStrangerEmitter(chemistryEmitter, _frostItself))
                     {
-                        OnReceiveElementArgs onReceiveFrostArgs = new OnReceiveElementArgs { _status = status, _radiance = radiance };
-                        OnReceiveFrostTrigger(onReceiveFrostArgs);
+                        OnReceiveFrostTrigger(onReceiveArgs);
                     }
                     break;
                 case IChemistry.ChemistryTypes.ELECTRICITY:
                     if (IsStrangerEmitter(chemistryEmitter, _shockItself))
                     {
-                        OnReceiveElementArgs onReceiveFrostArgs = new OnReceiveElementArgs { _status = status, _radiance = radiance };
-                        OnReceiveElectricityTrigger(onReceiveFrostArgs);
+                        OnReceiveElectricityTrigger(onReceiveArgs);
                     }
                     break;
                 default:
@@ -96,23 +95,18 @@ namespace ChemistryEngine
             }
         }
 
-        private bool IsStrangerEmitter(ChemistryEmitter chemistryEmitter, bool typeItself)
+        private bool IsStrangerEmitter(AbstractEmitter chemistryEmitter, bool typeItself)
         {
             return typeItself || _ownEmitter == null || _ownEmitter != chemistryEmitter;
         }
 
-        public void NewEmitType(ChemistryEmitter emitter, IChemistry.ChemistryTypes type)
+        public void NewEmitType(AbstractEmitter emitter, IChemistry.ChemistryTypes type)
         {
-            Debug.Log("HashCode emitter: " + ((IChemistryEmitter)emitter).GetHashCode() + " " + transform.parent.gameObject.name);
-            foreach (IChemistryEmitter item in _activeEmitter)
-            {
-                Debug.Log("Equals: " + item.Equals((IChemistryEmitter)emitter) + " " + transform.parent.gameObject.name);
-                Debug.Log("HashCode: " + item.GetHashCode() + " " + transform.parent.gameObject.name);
-            }
+            Debug.Log("New EmitType");
             _activeEmitter.Add((IChemistryEmitter)emitter);
             TriggerElementEvents(IChemistryReceiver.Status.ENTER, emitter, type, emitter.Radiance[emitter.Types.IndexOf(type)]);
         }
-        public void RemoveEmitType(ChemistryEmitter emitter, IChemistry.ChemistryTypes type)
+        public void RemoveEmitType(AbstractEmitter emitter, IChemistry.ChemistryTypes type)
         {
             _activeEmitter.Remove((IChemistryEmitter)emitter);
             TriggerElementEvents(IChemistryReceiver.Status.EXIT, emitter, type, 0f);

@@ -24,7 +24,7 @@ namespace ChemistryEngine
         {
             if (!_isElementRemoved && _elementReceiver.ElementPercent >= _percentToRemove)
             {
-                _emitter.RemoveType(_type);
+                _emitter.RemoveType(_type, float.MaxValue);
                 _isElementRemoved = true;
                 _reducer.SetActive(true);
             }

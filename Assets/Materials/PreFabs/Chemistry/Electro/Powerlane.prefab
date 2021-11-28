@@ -10,14 +10,14 @@ GameObject:
   m_Component:
   - component: {fileID: 4552033518524020840}
   - component: {fileID: 5782968906262259461}
-  - component: {fileID: 6332473445687857934}
+  - component: {fileID: 5903095894835350299}
   m_Layer: 6
   m_Name: Emitter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4552033518524020840
 Transform:
   m_ObjectHideFlags: 0
@@ -45,8 +45,8 @@ CapsuleCollider:
   m_Radius: 0.7
   m_Height: 2.4
   m_Direction: 1
-  m_Center: {x: 0, y: 0.25, z: 0}
---- !u!114 &6332473445687857934
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5903095894835350299
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -55,9 +55,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 737396953014597569}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0018e61335d1daa4da775965212d5e79, type: 3}
+  m_Script: {fileID: 11500000, guid: c41dd10b891d03a49ba778f3cd99e1b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _emitType: 0
   _types: 
   _radiance: []
   _typeOfEffect: 
@@ -74,6 +75,7 @@ GameObject:
   - component: {fileID: 1372798120704500080}
   - component: {fileID: 3272567434627447500}
   - component: {fileID: 5095080691020371668}
+  - component: {fileID: 4940412204433773006}
   m_Layer: 6
   m_Name: Without VFX
   m_TagString: Untagged
@@ -127,7 +129,7 @@ MonoBehaviour:
   _type: 2
   _chemistryReceiver: {fileID: 6315156656778590699}
   _elementReceiver: {fileID: 410199020502338198}
-  _emitter: {fileID: 6332473445687857934}
+  _emitter: {fileID: 5903095894835350299}
   _pointToChange: 0.75
   _receiveRemeins: 1
   _multiplierForSusceptibility: 1
@@ -147,11 +149,27 @@ MonoBehaviour:
   _type: 2
   _chemistryReceiver: {fileID: 6315156656778590699}
   _elementReceiver: {fileID: 410199020502338198}
-  _alwaysReduce: 0
+  _alwaysReduce: 1
   _weaknessType: 3
   _timeMultiplier: 1
   _timeBetweenCooldown: 1
-  _rateToCooldown: 0.05
+  _rateToCooldown: 0.1
+--- !u!114 &4940412204433773006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4399547416361145000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08b43452ed49bba4ca8f06ca75fe46ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _type: 2
+  _chemistryReceiver: {fileID: 6315156656778590699}
+  _elementReceiver: {fileID: 410199020502338198}
+  _gridName: 
 --- !u!1 &6584565760494988749
 GameObject:
   m_ObjectHideFlags: 0
@@ -315,7 +333,7 @@ MonoBehaviour:
   _burnItself: 0
   _frostItself: 0
   _shockItself: 0
-  _ownEmitter: {fileID: 6332473445687857934}
+  _ownEmitter: {fileID: 0}
 --- !u!114 &410199020502338198
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -331,3 +349,4 @@ MonoBehaviour:
   _type: 2
   _chemistryReceiver: {fileID: 6315156656778590699}
   _susceptibility: 1
+  _ableToReceive: 1

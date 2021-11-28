@@ -9,7 +9,7 @@ namespace ChemistryEngine
     public class ChangeToEmitter : AbstractProperty
     {
         [Header("Parameter")]
-        [SerializeField] ChemistryEmitter _emitter;
+        [SerializeField] AbstractEmitter _emitter;
         [SerializeField, Range(0f, 1f)] float _pointToChange;
         [SerializeField] bool _receiveRemeins = true;
         [SerializeField, Range(0f, 2f)] float _multiplierForSusceptibility = 1f;
@@ -38,7 +38,7 @@ namespace ChemistryEngine
         {
             while (_numberOfChanges-- > 0)
             {
-                yield return new WaitForSeconds(Time.fixedDeltaTime * 2);
+                yield return new WaitForSeconds(Time.fixedDeltaTime * 1.01f);
                 if (!_isEmitter && _elementReceiver.ElementPercent >= _pointToChange)
                 {
                     _isEmitter = true;
@@ -61,7 +61,7 @@ namespace ChemistryEngine
             _emitter.gameObject.SetActive(true);
 
             if (isAdd) _emitter.AddType(_type, _radiance);
-            else _emitter.RemoveType(_type);
+            else _emitter.RemoveType(_type, _radiance);
         }
     }
 }

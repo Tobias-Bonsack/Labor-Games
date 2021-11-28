@@ -21,7 +21,7 @@ namespace ChemistryEngine
             if (_alwaysReduce)
             {
                 Debug.Log("Start reduce");
-                _cooldown = StartCoroutine(CooldownRoutine());
+                _cooldown = StartCoroutine(AllwaysReduceCoroutine());
             }
             else
             {
@@ -81,6 +81,16 @@ namespace ChemistryEngine
                 yield return new WaitForSeconds(_timeBetweenCooldown);
             }
             _elementReceiver.ElementPercent = 0f;
+        }
+
+        IEnumerator AllwaysReduceCoroutine()
+        {
+            while (true)
+            {
+                float newValue = Mathf.Clamp(_elementReceiver.ElementPercent - _rateToCooldown, 0f, 1f);
+                _elementReceiver.ElementPercent = newValue;
+                yield return new WaitForSeconds(_timeBetweenCooldown);
+            }
         }
     }
 }

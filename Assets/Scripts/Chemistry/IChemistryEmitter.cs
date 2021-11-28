@@ -6,7 +6,13 @@ namespace ChemistryEngine
 {
     public interface IChemistryEmitter : IChemistry
     {
-        void RemoveType(IChemistry.ChemistryTypes type);
+        public enum Type
+        {
+            STANDARD,
+            GRID_MEMBER,
+            GRID_CONNECTOR
+        }
+        void RemoveType(IChemistry.ChemistryTypes type, float radiance);
         void AddType(IChemistry.ChemistryTypes type, float radiance);
 
         void RemoveReceiver(IChemistryReceiver receiver);

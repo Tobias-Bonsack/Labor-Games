@@ -11,7 +11,14 @@ namespace ChemistryEngine
         [SerializeField] protected IChemistry.ChemistryTypes _type;
         [SerializeField] protected ChemistryReceiver _chemistryReceiver;
         [SerializeField, Tooltip("0f = Full Resistance, 1f = Zero Resistance"), Range(0f, 1f)] protected float _susceptibility = 1f;
+        public bool _ableToReceive = true;
+
+        #region private properties
+        private int _activeTriggers = 0;
         private float _elementPercent = 0f;
+        #endregion
+
+        #region special getter und setter
         public float ElementPercent
         {
             get
@@ -20,11 +27,12 @@ namespace ChemistryEngine
             }
             set
             {
+                value = Mathf.Clamp(value, 0f, 1f);
+                if (_elementPercent == value || (_elementPercent < value && !_ableToReceive)) return;
                 _elementPercent = value;
                 _onElementPercentChange?.Invoke(this, EventArgs.Empty);
             }
         }
-        private int _activeTriggers = 0;
         public int ActiveTriggers
         {
             get
@@ -37,6 +45,7 @@ namespace ChemistryEngine
                 _onActiveTriggerChange?.Invoke(this, EventArgs.Empty);
             }
         }
+        #endregion
 
         public void MultiplieSusceptibility(float multiplier)
         {
@@ -81,7 +90,7 @@ namespace ChemistryEngine
             if (e._status == IChemistryReceiver.Status.STAY)
             {
                 float newElementPercent = ElementPercent + _susceptibility * e._radiance * Time.fixedDeltaTime;
-                ElementPercent = Mathf.Clamp(newElementPercent, 0f, 1f);
+                ElementPercent = newElementPercent;
                 ExtendStayTrigger(e);
             }
         }
