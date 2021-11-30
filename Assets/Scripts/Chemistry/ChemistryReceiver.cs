@@ -24,9 +24,9 @@ namespace ChemistryEngine
         #endregion
 
         #region trigger
-        public void OnReceiveHeatTrigger(OnReceiveElementArgs args) => _onReceiveHeat?.Invoke(this, args);
-        public void OnReceiveFrostTrigger(OnReceiveElementArgs args) => _onReceiveFrost?.Invoke(this, args);
-        public void OnReceiveElectricityTrigger(OnReceiveElementArgs args) => _onReceiveElectricity?.Invoke(this, args);
+        public void OnReceiveHeatTrigger(object sender, OnReceiveElementArgs args) => _onReceiveHeat?.Invoke(sender, args);
+        public void OnReceiveFrostTrigger(object sender, OnReceiveElementArgs args) => _onReceiveFrost?.Invoke(sender, args);
+        public void OnReceiveElectricityTrigger(object sender, OnReceiveElementArgs args) => _onReceiveElectricity?.Invoke(sender, args);
         #endregion
 
         #region parameter
@@ -74,19 +74,19 @@ namespace ChemistryEngine
                 case IChemistry.ChemistryTypes.HEAT:
                     if (IsStrangerEmitter(chemistryEmitter, _burnItself))
                     {
-                        OnReceiveHeatTrigger(onReceiveArgs);
+                        OnReceiveHeatTrigger(chemistryEmitter, onReceiveArgs);
                     }
                     break;
                 case IChemistry.ChemistryTypes.COLD:
                     if (IsStrangerEmitter(chemistryEmitter, _frostItself))
                     {
-                        OnReceiveFrostTrigger(onReceiveArgs);
+                        OnReceiveFrostTrigger(chemistryEmitter, onReceiveArgs);
                     }
                     break;
                 case IChemistry.ChemistryTypes.ELECTRICITY:
                     if (IsStrangerEmitter(chemistryEmitter, _shockItself))
                     {
-                        OnReceiveElectricityTrigger(onReceiveArgs);
+                        OnReceiveElectricityTrigger(chemistryEmitter, onReceiveArgs);
                     }
                     break;
                 default:

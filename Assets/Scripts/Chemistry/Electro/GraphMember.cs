@@ -5,13 +5,14 @@ using UnityEngine;
 
 namespace ChemistryEngine
 {
-    public class GridMember : AbstractProperty
+    public class GraphMember : AbstractProperty
     {
 
-        public static Dictionary<string, HashSet<GridMember>> grids = new Dictionary<string, HashSet<GridMember>>();
+        public static Dictionary<string, HashSet<GraphMember>> grids = new Dictionary<string, HashSet<GraphMember>>();
         public static Dictionary<string, int> gridsPowerNodes = new Dictionary<string, int>();
 
-        [SerializeField] string _gridName;
+        [SerializeField] string _graphName;
+        [SerializeField] GraphMemberEmitter _gridEmitter;
         public bool AbleToReceive
         {
             get
@@ -25,10 +26,12 @@ namespace ChemistryEngine
         }
         private void Awake()
         {
-            if (!grids.ContainsKey(_gridName)) grids.Add(_gridName, new HashSet<GridMember>());
-            if (!gridsPowerNodes.ContainsKey(_gridName)) gridsPowerNodes.Add(_gridName, 0);
+            if (!grids.ContainsKey(_graphName)) grids.Add(_graphName, new HashSet<GraphMember>());
+            if (!gridsPowerNodes.ContainsKey(_graphName)) gridsPowerNodes.Add(_graphName, 0);
 
-            grids[_gridName].Add(this);
+            _gridEmitter._graphName = _graphName;
+
+            grids[_graphName].Add(this);
             switch (_type)
             {
                 case IChemistry.ChemistryTypes.ELECTRICITY:
@@ -63,11 +66,11 @@ namespace ChemistryEngine
 
         private void UpdateAbleToReceive(int addValue)
         {
-            gridsPowerNodes[_gridName] += addValue;
+            gridsPowerNodes[_graphName] += addValue;
 
-            foreach (GridMember neighbor in grids[_gridName])
+            foreach (GraphMember neighbor in grids[_graphName])
             {
-                neighbor.AbleToReceive = gridsPowerNodes[_gridName] > 0;
+                neighbor.AbleToReceive = gridsPowerNodes[_graphName] > 0;
             }
         }
     }
