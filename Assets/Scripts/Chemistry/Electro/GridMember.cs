@@ -42,18 +42,16 @@ namespace ChemistryEngine
 
         private void EnterTrigger(object sender, ChemistryReceiver.OnReceiveElementArgs e)
         {
-            if (e._status == IChemistryReceiver.Status.ENTER)
+            if (e._status == IChemistryReceiver.Status.ENTER && !(IsGridElement(e._emitterType)))
             {
-                if (IsGridElement(e._emitterType)) return;
                 UpdateAbleToReceive(+1);
             }
         }
 
         private void ExitTrigger(object sender, ChemistryReceiver.OnReceiveElementArgs e)
         {
-            if (e._status == IChemistryReceiver.Status.EXIT)
+            if (e._status == IChemistryReceiver.Status.EXIT && !(IsGridElement(e._emitterType)))
             {
-                if (IsGridElement(e._emitterType)) return;
                 UpdateAbleToReceive(-1);
             }
         }
