@@ -40,7 +40,7 @@ namespace ChemistryEngine
 
         protected HashSet<IChemistryReceiver> _activeReceiver = new HashSet<IChemistryReceiver>();
 
-        public void AddType(IChemistry.ChemistryTypes type, float radiance)
+        public virtual void AddType(IChemistry.ChemistryTypes type, float radiance)
         {
             int position = Types.IndexOf(type);
             if (position == -1)
@@ -60,7 +60,7 @@ namespace ChemistryEngine
             UpdateVisualEffects(true, type);
         }
 
-        public void RemoveType(IChemistry.ChemistryTypes type, float radiance)
+        public virtual void RemoveType(IChemistry.ChemistryTypes type, float radiance)
         {
             int position = Types.IndexOf(type);
             if (position != -1)
@@ -83,7 +83,7 @@ namespace ChemistryEngine
             UpdateVisualEffects(false, type);
         }
 
-        protected void UpdateVisualEffects(bool toActivate, IChemistry.ChemistryTypes type)
+        protected virtual void UpdateVisualEffects(bool toActivate, IChemistry.ChemistryTypes type)
         {
             int pos = _typeOfEffect.IndexOf(type);
             if (pos == -1) return;
@@ -97,7 +97,6 @@ namespace ChemistryEngine
             {
                 _activeReceiver.Add(receiver);
             }
-            Debug.Log("Emitter Enter: " + _activeReceiver.Count + " Object: " + transform.parent.gameObject.name);
         }
         void OnTriggerExit(Collider other)
         {
@@ -105,7 +104,6 @@ namespace ChemistryEngine
             {
                 _activeReceiver.Remove(receiver);
             }
-            Debug.Log("Emitter Exit: " + _activeReceiver.Count + " Object: " + transform.parent.gameObject.name);
         }
 
         public void RemoveReceiver(IChemistryReceiver receiver)
@@ -115,7 +113,6 @@ namespace ChemistryEngine
 
         void OnDisable()
         {
-            Debug.Log("OnDisable Emitter");
             List<IChemistry.ChemistryTypes> copyTypes = new List<IChemistry.ChemistryTypes>(_types);
             foreach (IChemistry.ChemistryTypes type in copyTypes)
             {
@@ -130,7 +127,6 @@ namespace ChemistryEngine
 
         void OnDestroy()
         {
-            Debug.Log("On-Destroy ChemistryEmitter");
             List<IChemistry.ChemistryTypes> copyTypes = new List<IChemistry.ChemistryTypes>(_types);
             foreach (IChemistry.ChemistryTypes type in copyTypes)
             {

@@ -11,7 +11,8 @@ namespace ChemistryEngine
         public static readonly Dictionary<string, HashSet<GraphMember>> GRAPHS = new Dictionary<string, HashSet<GraphMember>>();
         public static readonly Dictionary<string, int> GRAPHS_POWER_NODES = new Dictionary<string, int>();
 
-        [HideInInspector] public Queue<string> _graphNameQueue = new Queue<string>();
+        [HideInNormalInspector] public Stack<string> _graphNameStack = new Stack<string>();
+        [HideInNormalInspector] public string _originalGraph;
         [SerializeField] protected string _graphName;
         public string GraphName
         {
@@ -21,23 +22,38 @@ namespace ChemistryEngine
             }
             set
             {
-                _graphName = value;
+                if (_graphNameStack.Count != 0 && _graphNameStack.Peek().Equals(value))
+                { // set to last graph
+                    _graphNameStack.Pop();
+                    GRAPHS[_graphName].Remove(this);
+                    AbleToReceive = GRAPHS_POWER_NODES[value] > 0;
+
+                    _graphName = value;
+                }
+                else
+                { // new value
+                    _graphNameStack.Push(_graphName);
+                    GRAPHS[value].Add(this);
+                    AbleToReceive = GRAPHS_POWER_NODES[value] > 0;
+
+                    _graphName = value;
+                }
             }
         }
         public bool AbleToReceive
         {
             get
             {
-                return _elementReceiver._ableToReceive;
+                return _elementReceiver.AbleToReceive;
             }
             set
             {
-                _elementReceiver._ableToReceive = value;
+                _elementReceiver.AbleToReceive = value;
             }
         }
-        protected virtual void Awake()
+        private void Awake()
         {
-            _graphNameQueue.Enqueue(_graphName);
+            _originalGraph = _graphName;
 
             if (!GRAPHS.ContainsKey(_graphName)) GRAPHS.Add(_graphName, new HashSet<GraphMember>());
             if (!GRAPHS_POWER_NODES.ContainsKey(_graphName)) GRAPHS_POWER_NODES.Add(_graphName, 0);
@@ -72,10 +88,8 @@ namespace ChemistryEngine
 
         protected void UpdateAbleToReceive(int addValue)
         {
-            foreach (string graphName in _graphNameQueue)
-            {
-                GRAPHS_POWER_NODES[graphName] += addValue;
-            }
+            if (!_originalGraph.Equals(_graphName)) GRAPHS_POWER_NODES[_originalGraph] += addValue;
+            GRAPHS_POWER_NODES[_graphName] += addValue;
 
             foreach (GraphMember neighbor in GRAPHS[_graphName])
             {

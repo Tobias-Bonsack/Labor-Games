@@ -31,7 +31,7 @@ namespace ChemistryEngine
 
         #region parameter
         [SerializeField] bool _burnItself = false, _frostItself = false, _shockItself = false;
-        [SerializeField] ChemistryEmitter _ownEmitter;
+        [SerializeField] AbstractEmitter _ownEmitter;
         #endregion
 
         private HashSet<IChemistryEmitter> _activeEmitter = new HashSet<IChemistryEmitter>();
@@ -66,7 +66,6 @@ namespace ChemistryEngine
 
         private void TriggerElementEvents(IChemistryReceiver.Status status, AbstractEmitter chemistryEmitter, IChemistry.ChemistryTypes type, float radiance)
         {
-            Debug.Log("Receiver " + status + ": " + _activeEmitter.Count + " Object: " + transform.parent.gameObject.name);
             OnReceiveElementArgs onReceiveArgs = new OnReceiveElementArgs { _status = status, _radiance = radiance, _emitterType = chemistryEmitter._emitType };
 
             switch (type)
@@ -102,7 +101,6 @@ namespace ChemistryEngine
 
         public void NewEmitType(AbstractEmitter emitter, IChemistry.ChemistryTypes type)
         {
-            Debug.Log("New EmitType");
             _activeEmitter.Add((IChemistryEmitter)emitter);
             TriggerElementEvents(IChemistryReceiver.Status.ENTER, emitter, type, emitter.Radiance[emitter.Types.IndexOf(type)]);
         }
@@ -114,7 +112,6 @@ namespace ChemistryEngine
 
         void OnDestroy()
         {
-            Debug.Log("OnDestroy Chemistry-Receiver");
             foreach (IChemistryEmitter emitter in _activeEmitter)
             {
                 emitter.RemoveReceiver(this);

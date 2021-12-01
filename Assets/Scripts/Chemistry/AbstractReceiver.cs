@@ -11,7 +11,21 @@ namespace ChemistryEngine
         [SerializeField] protected IChemistry.ChemistryTypes _type;
         [SerializeField] protected ChemistryReceiver _chemistryReceiver;
         [SerializeField, Tooltip("0f = Full Resistance, 1f = Zero Resistance"), Range(0f, 1f)] protected float _susceptibility = 1f;
-        public bool _ableToReceive = true;
+        [SerializeField] bool _ableToReceive = true;
+        public bool AbleToReceive
+        {
+            get
+            {
+                return _ableToReceive;
+            }
+            set
+            {
+                if (_ableToReceive == value) return;
+                _ableToReceive = value;
+                _onAbleToReceiveChange?.Invoke(this, EventArgs.Empty);
+
+            }
+        }
 
         #region private properties
         private int _activeTriggers = 0;
@@ -41,6 +55,7 @@ namespace ChemistryEngine
             }
             set
             {
+                if (_activeTriggers == value) return;
                 _activeTriggers = value;
                 _onActiveTriggerChange?.Invoke(this, EventArgs.Empty);
             }
@@ -81,7 +96,6 @@ namespace ChemistryEngine
             if (e._status == IChemistryReceiver.Status.ENTER)
             {
                 ActiveTriggers = ActiveTriggers + 1;
-                Debug.Log("Active triggers: " + ActiveTriggers + " Object: " + _chemistryReceiver.transform.parent.gameObject.name);
                 ExtendEnterTrigger(e);
             }
         }
@@ -99,7 +113,6 @@ namespace ChemistryEngine
             if (e._status == IChemistryReceiver.Status.EXIT)
             {
                 ActiveTriggers = ActiveTriggers - 1;
-                Debug.Log("Active triggers: " + ActiveTriggers + " Object: " + _chemistryReceiver.transform.parent.gameObject.name);
                 ExtendExitTrigger(e);
             }
         }
@@ -111,6 +124,7 @@ namespace ChemistryEngine
         #region events
         public event EventHandler<EventArgs> _onElementPercentChange;
         public event EventHandler<EventArgs> _onActiveTriggerChange;
+        public event EventHandler<EventArgs> _onAbleToReceiveChange;
         #endregion
     }
 }

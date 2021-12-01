@@ -26,6 +26,7 @@ namespace ChemistryEngine
             else
             {
                 _elementReceiver._onActiveTriggerChange += TriggerChange;
+                _elementReceiver._onAbleToReceiveChange += AbleToReceiveChange;
             }
 
             switch (_weaknessType)
@@ -48,16 +49,26 @@ namespace ChemistryEngine
 
         }
 
+        private void AbleToReceiveChange(object sender, EventArgs e)
+        {
+            StartReduce(!_elementReceiver.AbleToReceive);
+        }
+
         private void TriggerChange(object sender, EventArgs e)
         {
-            if (_elementReceiver.ActiveTriggers != 0)
-            {
-                if (_cooldown != null) StopCoroutine(_cooldown);
-            }
-            else
+            StartReduce(_elementReceiver.ActiveTriggers == 0);
+        }
+
+        private void StartReduce(bool start)
+        {
+            if (start)
             {
                 StopAllCoroutines();
                 _cooldown = StartCoroutine(CooldownRoutine());
+            }
+            else
+            {
+                if (_cooldown != null) StopCoroutine(_cooldown);
             }
         }
 

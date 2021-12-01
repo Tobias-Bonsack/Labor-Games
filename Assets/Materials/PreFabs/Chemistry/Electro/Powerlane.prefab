@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4552033518524020840
 Transform:
   m_ObjectHideFlags: 0
@@ -59,8 +59,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _emitType: 0
-  _types: 
-  _radiance: []
+  _types: 02000000
+  _radiance:
+  - 0
   _typeOfEffect: 
   _effects: []
   _member: {fileID: 4940412204433773006}
@@ -150,7 +151,7 @@ MonoBehaviour:
   _type: 2
   _chemistryReceiver: {fileID: 6315156656778590699}
   _elementReceiver: {fileID: 410199020502338198}
-  _alwaysReduce: 1
+  _alwaysReduce: 0
   _weaknessType: 3
   _timeMultiplier: 1
   _timeBetweenCooldown: 1
@@ -170,6 +171,7 @@ MonoBehaviour:
   _type: 2
   _chemistryReceiver: {fileID: 6315156656778590699}
   _elementReceiver: {fileID: 410199020502338198}
+  _originalGraph: 
   _graphName: 
 --- !u!1 &6584565760494988749
 GameObject:
@@ -334,7 +336,7 @@ MonoBehaviour:
   _burnItself: 0
   _frostItself: 0
   _shockItself: 0
-  _ownEmitter: {fileID: 0}
+  _ownEmitter: {fileID: 5903095894835350299}
 --- !u!114 &410199020502338198
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -350,4 +352,4 @@ MonoBehaviour:
   _type: 2
   _chemistryReceiver: {fileID: 6315156656778590699}
   _susceptibility: 1
-  _ableToReceive: 1
+  _ableToReceive: 0
