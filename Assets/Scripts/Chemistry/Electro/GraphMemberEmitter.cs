@@ -6,7 +6,21 @@ namespace ChemistryEngine
 {
     public class GraphMemberEmitter : AbstractEmitter
     {
-        [HideInInspector] public string _graphName;
+        [SerializeField] GraphMember _member;
+        public Queue<string> GRPAH_QUEUE
+        {
+            get
+            {
+                return _member._graphNameQueue;
+            }
+        }
+        public string GRAPH_NAME
+        {
+            get
+            {
+                return _member.GraphName;
+            }
+        }
         private void Awake()
         {
             _emitType = IChemistryEmitter.Type.GRID_MEMBER;

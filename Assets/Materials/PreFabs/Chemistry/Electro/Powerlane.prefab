@@ -63,6 +63,7 @@ MonoBehaviour:
   _radiance: []
   _typeOfEffect: 
   _effects: []
+  _member: {fileID: 4940412204433773006}
 --- !u!1 &4399547416361145000
 GameObject:
   m_ObjectHideFlags: 0
@@ -169,7 +170,7 @@ MonoBehaviour:
   _type: 2
   _chemistryReceiver: {fileID: 6315156656778590699}
   _elementReceiver: {fileID: 410199020502338198}
-  _gridName: 
+  _graphName: 
 --- !u!1 &6584565760494988749
 GameObject:
   m_ObjectHideFlags: 0

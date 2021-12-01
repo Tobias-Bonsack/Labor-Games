@@ -8,12 +8,22 @@ namespace ChemistryEngine
     public class GraphMember : AbstractProperty
     {
 
-        public static Dictionary<string, HashSet<GraphMember>> grids = new Dictionary<string, HashSet<GraphMember>>();
-        public static Dictionary<string, int> gridsPowerNodes = new Dictionary<string, int>();
+        public static readonly Dictionary<string, HashSet<GraphMember>> GRAPHS = new Dictionary<string, HashSet<GraphMember>>();
+        public static readonly Dictionary<string, int> GRAPHS_POWER_NODES = new Dictionary<string, int>();
 
-        [SerializeField] protected string _originalGraphName;
-        protected string _currentGraphName;
-        [SerializeField] GraphMemberEmitter _gridEmitter;
+        [HideInInspector] public Queue<string> _graphNameQueue = new Queue<string>();
+        [SerializeField] protected string _graphName;
+        public string GraphName
+        {
+            get
+            {
+                return _graphName;
+            }
+            set
+            {
+                _graphName = value;
+            }
+        }
         public bool AbleToReceive
         {
             get
@@ -25,16 +35,14 @@ namespace ChemistryEngine
                 _elementReceiver._ableToReceive = value;
             }
         }
-        private void Awake()
+        protected virtual void Awake()
         {
-            _currentGraphName = _originalGraphName;
+            _graphNameQueue.Enqueue(_graphName);
 
-            if (!grids.ContainsKey(_currentGraphName)) grids.Add(_currentGraphName, new HashSet<GraphMember>());
-            if (!gridsPowerNodes.ContainsKey(_currentGraphName)) gridsPowerNodes.Add(_currentGraphName, 0);
+            if (!GRAPHS.ContainsKey(_graphName)) GRAPHS.Add(_graphName, new HashSet<GraphMember>());
+            if (!GRAPHS_POWER_NODES.ContainsKey(_graphName)) GRAPHS_POWER_NODES.Add(_graphName, 0);
 
-            _gridEmitter._graphName = _currentGraphName;
-
-            grids[_currentGraphName].Add(this);
+            GRAPHS[_graphName].Add(this);
             switch (_type)
             {
                 case IChemistry.ChemistryTypes.ELECTRICITY:
@@ -62,14 +70,16 @@ namespace ChemistryEngine
             }
         }
 
-        private void UpdateAbleToReceive(int addValue)
+        protected void UpdateAbleToReceive(int addValue)
         {
-            if (_originalGraphName != _currentGraphName) gridsPowerNodes[_originalGraphName] += addValue;
-            gridsPowerNodes[_currentGraphName] += addValue;
-
-            foreach (GraphMember neighbor in grids[_currentGraphName])
+            foreach (string graphName in _graphNameQueue)
             {
-                neighbor.AbleToReceive = gridsPowerNodes[_currentGraphName] > 0;
+                GRAPHS_POWER_NODES[graphName] += addValue;
+            }
+
+            foreach (GraphMember neighbor in GRAPHS[_graphName])
+            {
+                neighbor.AbleToReceive = GRAPHS_POWER_NODES[_graphName] > 0;
             }
         }
     }
