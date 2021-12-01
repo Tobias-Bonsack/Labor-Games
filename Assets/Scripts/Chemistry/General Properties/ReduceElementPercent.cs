@@ -14,19 +14,20 @@ namespace ChemistryEngine
         [SerializeField, Range(0f, 2f), Tooltip("If weakness type is in range, _timeBetweenCooldown get multiplied with")] float _timeMultiplier = 0.5f;
         [SerializeField] float _timeBetweenCooldown = 1f;
         [SerializeField, Range(0f, 1f)] float _rateToCooldown = 0.01f;
-        [SerializeField, Tooltip("Only for GraphMemberEmitter necessary")] int _basisTriggerIgnore = 0;
+        [Header("Grid-Variablen")]
+        [SerializeField] bool _ignoreTriggerChange = false;
+        [SerializeField] int _basisTriggerIgnore = 0;
         private Coroutine _cooldown;
 
         private void Awake()
         {
             if (_alwaysReduce)
             {
-                Debug.Log("Start reduce");
                 _cooldown = StartCoroutine(AllwaysReduceCoroutine());
             }
             else
             {
-                _elementReceiver._onActiveTriggerChange += TriggerChange;
+                if (!_ignoreTriggerChange) _elementReceiver._onActiveTriggerChange += TriggerChange;
                 _elementReceiver._onAbleToReceiveChange += AbleToReceiveChange;
             }
 

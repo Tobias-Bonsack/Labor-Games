@@ -156,6 +156,8 @@ MonoBehaviour:
   _timeMultiplier: 1
   _timeBetweenCooldown: 1
   _rateToCooldown: 0.1
+  _ignoreTriggerChange: 1
+  _basisTriggerIgnore: 0
 --- !u!114 &4940412204433773006
 MonoBehaviour:
   m_ObjectHideFlags: 0

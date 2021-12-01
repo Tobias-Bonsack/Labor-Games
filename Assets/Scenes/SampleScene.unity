@@ -1151,6 +1151,10 @@ PrefabInstance:
       value: 0.001
       objectReference: {fileID: 0}
     - target: {fileID: 6731369352878236633, guid: 3a5ce688159967145828efdd1373b9ea, type: 3}
+      propertyPath: _basisTriggerIgnore
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6731369352878236633, guid: 3a5ce688159967145828efdd1373b9ea, type: 3}
       propertyPath: _timeBetweenCooldown
       value: 0.01
       objectReference: {fileID: 0}
@@ -14845,6 +14849,8 @@ MonoBehaviour:
   _timeMultiplier: 1
   _timeBetweenCooldown: 1
   _rateToCooldown: 0.1
+  _ignoreTriggerChange: 0
+  _basisTriggerIgnore: 0
 --- !u!114 &1831813658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14911,7 +14917,7 @@ MonoBehaviour:
   _type: 2
   _chemistryReceiver: {fileID: 1870882818}
   _susceptibility: 1
-  _ableToReceive: 1
+  _ableToReceive: 0
 --- !u!54 &1870882816
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -15947,11 +15953,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1897186212219561235, guid: 08297c6358d696b428ac978c3fb5a6fa, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.0000000042801314
+      value: -0.0000000042801305
       objectReference: {fileID: 0}
     - target: {fileID: 1897186212219561235, guid: 08297c6358d696b428ac978c3fb5a6fa, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -4.291885e-10
+      value: 4.291884e-10
       objectReference: {fileID: 0}
     - target: {fileID: 1897186212372658495, guid: 08297c6358d696b428ac978c3fb5a6fa, type: 3}
       propertyPath: m_LocalPosition.z
@@ -16777,6 +16783,10 @@ PrefabInstance:
     - target: {fileID: 6731369352878236633, guid: 3a5ce688159967145828efdd1373b9ea, type: 3}
       propertyPath: _rateToCooldown
       value: 0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 6731369352878236633, guid: 3a5ce688159967145828efdd1373b9ea, type: 3}
+      propertyPath: _basisTriggerIgnore
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6731369352878236633, guid: 3a5ce688159967145828efdd1373b9ea, type: 3}
       propertyPath: _timeBetweenCooldown
