@@ -11,7 +11,8 @@ namespace ChemistryEngine
         public static Dictionary<string, HashSet<GraphMember>> grids = new Dictionary<string, HashSet<GraphMember>>();
         public static Dictionary<string, int> gridsPowerNodes = new Dictionary<string, int>();
 
-        [SerializeField] string _graphName;
+        [SerializeField] protected string _originalGraphName;
+        protected string _currentGraphName;
         [SerializeField] GraphMemberEmitter _gridEmitter;
         public bool AbleToReceive
         {
@@ -26,12 +27,14 @@ namespace ChemistryEngine
         }
         private void Awake()
         {
-            if (!grids.ContainsKey(_graphName)) grids.Add(_graphName, new HashSet<GraphMember>());
-            if (!gridsPowerNodes.ContainsKey(_graphName)) gridsPowerNodes.Add(_graphName, 0);
+            _currentGraphName = _originalGraphName;
 
-            _gridEmitter._graphName = _graphName;
+            if (!grids.ContainsKey(_currentGraphName)) grids.Add(_currentGraphName, new HashSet<GraphMember>());
+            if (!gridsPowerNodes.ContainsKey(_currentGraphName)) gridsPowerNodes.Add(_currentGraphName, 0);
 
-            grids[_graphName].Add(this);
+            _gridEmitter._graphName = _currentGraphName;
+
+            grids[_currentGraphName].Add(this);
             switch (_type)
             {
                 case IChemistry.ChemistryTypes.ELECTRICITY:
@@ -43,34 +46,30 @@ namespace ChemistryEngine
             }
         }
 
-        private void EnterTrigger(object sender, ChemistryReceiver.OnReceiveElementArgs e)
+        protected void EnterTrigger(object sender, ChemistryReceiver.OnReceiveElementArgs e)
         {
-            if (e._status == IChemistryReceiver.Status.ENTER && !(IsGridElement(e._emitterType)))
+            if (e._status == IChemistryReceiver.Status.ENTER && e._emitterType != IChemistryEmitter.Type.GRID_MEMBER)
             {
                 UpdateAbleToReceive(+1);
             }
         }
 
-        private void ExitTrigger(object sender, ChemistryReceiver.OnReceiveElementArgs e)
+        protected void ExitTrigger(object sender, ChemistryReceiver.OnReceiveElementArgs e)
         {
-            if (e._status == IChemistryReceiver.Status.EXIT && !(IsGridElement(e._emitterType)))
+            if (e._status == IChemistryReceiver.Status.EXIT && e._emitterType != IChemistryEmitter.Type.GRID_MEMBER)
             {
                 UpdateAbleToReceive(-1);
             }
         }
 
-        private bool IsGridElement(IChemistryEmitter.Type type)
-        {
-            return type == IChemistryEmitter.Type.GRID_MEMBER || type == IChemistryEmitter.Type.GRID_CONNECTOR;
-        }
-
         private void UpdateAbleToReceive(int addValue)
         {
-            gridsPowerNodes[_graphName] += addValue;
+            if (_originalGraphName != _currentGraphName) gridsPowerNodes[_originalGraphName] += addValue;
+            gridsPowerNodes[_currentGraphName] += addValue;
 
-            foreach (GraphMember neighbor in grids[_graphName])
+            foreach (GraphMember neighbor in grids[_currentGraphName])
             {
-                neighbor.AbleToReceive = gridsPowerNodes[_graphName] > 0;
+                neighbor.AbleToReceive = gridsPowerNodes[_currentGraphName] > 0;
             }
         }
     }
