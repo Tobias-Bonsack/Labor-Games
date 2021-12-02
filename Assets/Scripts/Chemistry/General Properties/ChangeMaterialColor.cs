@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace HeatEngine
 {
-    public class ChangeMaterialColor : AbstractProperty
+    public class ChangeMaterialColor : AProperty
     {
         [Header("Propertie-Parameter")]
         [SerializeField] Renderer _renderer;

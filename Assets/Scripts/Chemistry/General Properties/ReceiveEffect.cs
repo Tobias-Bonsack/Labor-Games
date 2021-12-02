@@ -8,7 +8,7 @@ using UnityEngine.VFX;
 namespace ChemistryEngine
 {
     [RequireComponent(typeof(VisualEffect))]
-    public class ReceiveEffect : AbstractProperty
+    public class ReceiveEffect : AProperty
     {
         [Header("Propertie-Parameter")]
         VisualEffect _visualEffect;

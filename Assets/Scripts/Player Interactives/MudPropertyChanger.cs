@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace PlayerInteraction
 {
-    public class MudPropertyChanger : ChemistryEngine.AbstractProperty
+    public class MudPropertyChanger : ChemistryEngine.AProperty
     {
 
         [SerializeField] Mud _mudScript;

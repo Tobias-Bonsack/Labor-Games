@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace ChemistryEngine
 {
-    public class RemoveEmitter : AbstractProperty
+    public class RemoveEmitter : AProperty
     {
         [Header("Propertie-Parameter")]
         [SerializeField] ChemistryEmitter _emitter;

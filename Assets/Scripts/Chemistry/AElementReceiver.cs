@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace ChemistryEngine
 {
-    public abstract class AbstractReceiver : MonoBehaviour
+    public abstract class AElementReceiver : MonoBehaviour
     {
         [Header("Universal Properties")]
         [SerializeField] protected IChemistry.ChemistryTypes _type;

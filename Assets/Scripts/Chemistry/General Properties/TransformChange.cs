@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace ChemistryEngine
 {
-    public class TransformChange : AbstractProperty
+    public class TransformChange : AProperty
     {
         [SerializeField] Transform _toChange;
         [SerializeField, Range(0f, 1f)] float _pointToStartChagne = 0f, _pointToEndChange = 1f;

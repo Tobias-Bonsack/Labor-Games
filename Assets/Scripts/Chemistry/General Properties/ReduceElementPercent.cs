@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace ChemistryEngine
 {
-    public class ReduceElementPercent : AbstractProperty
+    public class ReduceElementPercent : AProperty
     {
         [Header("Propertie-Parameter")]
         [SerializeField, Tooltip("Starts the Routine in the Awake-Mehtod")] bool _alwaysReduce = false;

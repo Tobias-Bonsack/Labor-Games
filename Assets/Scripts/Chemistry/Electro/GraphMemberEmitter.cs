@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace ChemistryEngine
 {
-    public class GraphMemberEmitter : AbstractEmitter
+    public class GraphMemberEmitter : AChemistryEmitter
     {
         [SerializeField] GraphMember _member;
         public string ORIGINAL_GRAPH_NAME

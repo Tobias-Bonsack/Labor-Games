@@ -7,7 +7,7 @@ using UnityEngine.VFX;
 namespace ChemistryEngine
 {
     [RequireComponent(typeof(Collider))]
-    public abstract class AbstractEmitter : MonoBehaviour, IChemistryEmitter
+    public abstract class AChemistryEmitter : MonoBehaviour, IChemistryEmitter
     {
         [Header("Emit Parameter")]
         [HideInNormalInspector] public IChemistryEmitter.Type _emitType;

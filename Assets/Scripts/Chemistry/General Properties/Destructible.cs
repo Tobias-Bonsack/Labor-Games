@@ -9,7 +9,7 @@ namespace ChemistryEngine
 {
 
     [RequireComponent(typeof(VisualEffect))]
-    public class Destructible : AbstractProperty
+    public class Destructible : AProperty
     {
         [Header("Parameter")]
         [SerializeField] GameObject _objectToDestroy;

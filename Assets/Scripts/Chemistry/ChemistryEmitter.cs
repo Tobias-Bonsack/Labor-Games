@@ -6,7 +6,7 @@ using UnityEngine.VFX;
 
 namespace ChemistryEngine
 {
-    public class ChemistryEmitter : AbstractEmitter, IChemistryEmitter
+    public class ChemistryEmitter : AChemistryEmitter
     {
         // Standard Emitter
 

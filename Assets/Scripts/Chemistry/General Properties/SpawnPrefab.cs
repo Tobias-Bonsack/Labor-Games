@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace ChemistryEngine
 {
-    public class SpawnPrefab : AbstractProperty
+    public class SpawnPrefab : AProperty
     {
         [SerializeField] GameObject _preFabToSpawn;
         [SerializeField] GameObject _objectForRespawn;

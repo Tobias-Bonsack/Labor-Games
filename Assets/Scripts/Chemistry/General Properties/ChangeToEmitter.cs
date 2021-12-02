@@ -6,10 +6,10 @@ using UnityEngine;
 
 namespace ChemistryEngine
 {
-    public class ChangeToEmitter : AbstractProperty
+    public class ChangeToEmitter : AProperty
     {
         [Header("Parameter")]
-        [SerializeField] AbstractEmitter _emitter;
+        [SerializeField] AChemistryEmitter _emitter;
         [SerializeField, Range(0f, 1f)] float _pointToChange;
         [SerializeField] bool _receiveRemeins = true;
         [SerializeField, Range(0f, 2f)] float _multiplierForSusceptibility = 1f;

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace ChemistryEngine
 {
-    public class Receiver : AbstractReceiver
+    public class ElementReceiver : AElementReceiver
     {
         void Awake()
         {

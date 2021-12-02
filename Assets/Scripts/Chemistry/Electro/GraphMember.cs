@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace ChemistryEngine
 {
-    public class GraphMember : AbstractProperty
+    public class GraphMember : AProperty
     {
 
         public static readonly Dictionary<string, HashSet<GraphMember>> GRAPHS = new Dictionary<string, HashSet<GraphMember>>();
