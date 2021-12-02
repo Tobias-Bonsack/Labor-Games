@@ -16,11 +16,11 @@ namespace ChemistryEngine
         [SerializeField, Range(0f, 1f)] float _rateToCooldown = 0.01f;
         [Header("Grid-Variablen")]
         [SerializeField] bool _ignoreTriggerChange = false;
-        [SerializeField] int _basisTriggerIgnore = 0;
         private Coroutine _cooldown;
 
-        private void Awake()
+        protected override void Awake()
         {
+            base.Awake();
             if (_alwaysReduce)
             {
                 _cooldown = StartCoroutine(AllwaysReduceCoroutine());
@@ -58,7 +58,7 @@ namespace ChemistryEngine
 
         private void TriggerChange(object sender, EventArgs e)
         {
-            StartReduce(_elementReceiver.ActiveTriggers <= _basisTriggerIgnore);
+            StartReduce(_elementReceiver.ActiveTriggers <= 0);
         }
 
         private void StartReduce(bool start)

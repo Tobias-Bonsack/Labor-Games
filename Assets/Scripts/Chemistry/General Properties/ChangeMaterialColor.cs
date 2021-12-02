@@ -12,8 +12,9 @@ namespace HeatEngine
         [SerializeField] Renderer _renderer;
         [SerializeField] Color _endColor;
         private Color _materialColor, _stepColor;
-        void Awake()
+        protected override void Awake()
         {
+            base.Awake();
             _elementReceiver._onElementPercentChange += OnBurnPercentChange;
             _materialColor = _renderer.material.GetColor("_BaseColor");
 

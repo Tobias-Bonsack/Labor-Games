@@ -8,7 +8,12 @@ namespace ChemistryEngine
     {
         [Header("Generally Parameter")]
         [SerializeField] protected IChemistry.ChemistryTypes _type;
-        [SerializeField] protected ChemistryReceiver _chemistryReceiver;
         [SerializeField] protected AElementReceiver _elementReceiver;
+        protected AChemistryReceiver _chemistryReceiver;
+
+        protected virtual void Awake()
+        {
+            _chemistryReceiver = _elementReceiver.ChemistryReceiver;
+        }
     }
 }

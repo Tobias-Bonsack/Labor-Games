@@ -51,8 +51,10 @@ namespace ChemistryEngine
                 _elementReceiver.AbleToReceive = value;
             }
         }
-        private void Awake()
+        protected override void Awake()
         {
+            base.Awake();
+
             _originalGraph = _graphName;
 
             if (!GRAPHS.ContainsKey(_graphName)) GRAPHS.Add(_graphName, new HashSet<GraphMember>());
@@ -91,10 +93,21 @@ namespace ChemistryEngine
             if (!_originalGraph.Equals(_graphName)) GRAPHS_POWER_NODES[_originalGraph] += addValue;
             GRAPHS_POWER_NODES[_graphName] += addValue;
 
+            LogPowerSources();
+
             foreach (GraphMember neighbor in GRAPHS[_graphName])
             {
                 neighbor.AbleToReceive = GRAPHS_POWER_NODES[_graphName] > 0;
             }
+        }
+
+        protected static void LogPowerSources()
+        {
+            foreach (KeyValuePair<string, int> item in GRAPHS_POWER_NODES)
+            {
+                Debug.Log(item);
+            }
+            Debug.Log("-----");
         }
     }
 }

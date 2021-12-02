@@ -26,8 +26,9 @@ namespace ChemistryEngine
         private Vector3 _originScale;
         [SerializeField] Vector3 _addScale;
 
-        void Awake()
+        protected override void Awake()
         {
+            base.Awake();
             _originPosition = _toChange.position;
             _originRotation = _toChange.rotation.eulerAngles;
             _originScale = _toChange.localScale;

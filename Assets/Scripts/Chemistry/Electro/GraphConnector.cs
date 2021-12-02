@@ -8,8 +8,10 @@ namespace ChemistryEngine
     public class GraphConnector : GraphMember
     {
 
-        private void Awake()
+        protected override void Awake()
         {
+            _chemistryReceiver = _elementReceiver.ChemistryReceiver;
+
             _originalGraph = _graphName;
 
             if (!GRAPHS.ContainsKey(_graphName)) GRAPHS.Add(_graphName, new HashSet<GraphMember>());
@@ -36,7 +38,11 @@ namespace ChemistryEngine
                     GraphMemberEmitter emitter = (GraphMemberEmitter)sender;
                     string emitterGraphName = emitter.GRAPH_NAME;
 
+                    if (emitterGraphName.Equals(_graphName)) return;
+
                     GRAPHS_POWER_NODES[_graphName] += GRAPHS_POWER_NODES[emitterGraphName];
+                    LogPowerSources();
+
                     foreach (GraphMember member in GRAPHS[_graphName])
                     {
                         member.AbleToReceive = GRAPHS_POWER_NODES[_graphName] > 0;
@@ -58,11 +64,15 @@ namespace ChemistryEngine
             if (e._status == IChemistryReceiver.Status.EXIT)
             {
                 if (sender is GraphMemberEmitter)
-                { // Fusion of graphen
+                { // Defusion of graphen
                     GraphMemberEmitter emitter = (GraphMemberEmitter)sender;
                     string emitterGraphName = emitter.GRPAH_STACK.Peek();
 
+                    if (emitterGraphName.Equals(_graphName)) return;
+
                     GRAPHS_POWER_NODES[_graphName] -= GRAPHS_POWER_NODES[emitterGraphName];
+                    LogPowerSources();
+
                     foreach (GraphMember member in GRAPHS[emitterGraphName])
                     {
                         member.GraphName = emitterGraphName;

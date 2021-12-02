@@ -16,8 +16,9 @@ namespace ChemistryEngine
         [SerializeField, Range(0f, 1f)] float _pointToDestroy = 1f;
         private VisualEffect _visualEffect;
 
-        private void Awake()
+        protected override void Awake()
         {
+            base.Awake();
             _visualEffect = GetComponent<VisualEffect>();
 
             switch (_type)

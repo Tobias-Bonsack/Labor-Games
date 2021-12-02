@@ -9,7 +9,14 @@ namespace ChemistryEngine
     {
         [Header("Universal Properties")]
         [SerializeField] protected IChemistry.ChemistryTypes _type;
-        [SerializeField] protected ChemistryReceiver _chemistryReceiver;
+        [SerializeField] AChemistryReceiver _chemistryReceiver;
+        public AChemistryReceiver ChemistryReceiver
+        {
+            get
+            {
+                return _chemistryReceiver;
+            }
+        }
         [SerializeField, Tooltip("0f = Full Resistance, 1f = Zero Resistance"), Range(0f, 1f)] protected float _susceptibility = 1f;
         [SerializeField] bool _ableToReceive = true;
         public bool AbleToReceive

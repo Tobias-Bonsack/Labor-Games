@@ -8,15 +8,16 @@ namespace ChemistryEngine
     public class RemoveEmitter : AProperty
     {
         [Header("Propertie-Parameter")]
-        [SerializeField] ChemistryEmitter _emitter;
+        [SerializeField] AChemistryEmitter _emitter;
         [SerializeField, Range(0f, 1f)] float _percentToRemove;
         [SerializeField] bool _destroyAfterRemove = false;
         [SerializeField] GameObject _toDestroy;
         [SerializeField, Range(0f, 1f)] float _afterRemovePercentToDestroy;
         [SerializeField] GameObject _reducer;
         bool _isElementRemoved = false;
-        private void Awake()
+        protected override void Awake()
         {
+            base.Awake();
             _elementReceiver._onElementPercentChange += ElementPercentChange;
         }
 

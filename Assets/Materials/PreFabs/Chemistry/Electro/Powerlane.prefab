@@ -112,7 +112,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
-  _chemistryReceiver: {fileID: 6315156656778590699}
   _elementReceiver: {fileID: 410199020502338198}
   _renderer: {fileID: 6584565760494988751}
   _endColor: {r: 1, g: 1, b: 0, a: 0}
@@ -129,7 +128,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
-  _chemistryReceiver: {fileID: 6315156656778590699}
   _elementReceiver: {fileID: 410199020502338198}
   _emitter: {fileID: 5903095894835350299}
   _pointToChange: 0.75
@@ -149,7 +147,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
-  _chemistryReceiver: {fileID: 6315156656778590699}
   _elementReceiver: {fileID: 410199020502338198}
   _alwaysReduce: 0
   _weaknessType: 3
@@ -157,7 +154,6 @@ MonoBehaviour:
   _timeBetweenCooldown: 1
   _rateToCooldown: 0.1
   _ignoreTriggerChange: 1
-  _basisTriggerIgnore: 0
 --- !u!114 &4940412204433773006
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -171,7 +167,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
-  _chemistryReceiver: {fileID: 6315156656778590699}
   _elementReceiver: {fileID: 410199020502338198}
   _originalGraph: 
   _graphName: 
@@ -269,7 +264,7 @@ GameObject:
   - component: {fileID: 4835085615812333281}
   - component: {fileID: 4957458907488188284}
   - component: {fileID: 389152518903175142}
-  - component: {fileID: 6315156656778590699}
+  - component: {fileID: 999652266643881049}
   - component: {fileID: 410199020502338198}
   m_Layer: 6
   m_Name: Receiver
@@ -323,7 +318,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &6315156656778590699
+--- !u!114 &999652266643881049
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -332,7 +327,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8104781112372008259}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f25e7caab9e28e42bb118189cac8040, type: 3}
+  m_Script: {fileID: 11500000, guid: 65cd768a158423148b07fc142f6c0df0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _burnItself: 0
@@ -352,6 +347,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
-  _chemistryReceiver: {fileID: 6315156656778590699}
+  _chemistryReceiver: {fileID: 999652266643881049}
   _susceptibility: 1
   _ableToReceive: 0

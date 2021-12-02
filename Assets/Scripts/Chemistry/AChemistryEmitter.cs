@@ -94,16 +94,12 @@ namespace ChemistryEngine
         void OnTriggerEnter(Collider other)
         {
             if (other.gameObject.TryGetComponent<IChemistryReceiver>(out IChemistryReceiver receiver))
-            {
                 _activeReceiver.Add(receiver);
-            }
         }
         void OnTriggerExit(Collider other)
         {
             if (other.gameObject.TryGetComponent<IChemistryReceiver>(out IChemistryReceiver receiver))
-            {
                 _activeReceiver.Remove(receiver);
-            }
         }
 
         public void RemoveReceiver(IChemistryReceiver receiver)

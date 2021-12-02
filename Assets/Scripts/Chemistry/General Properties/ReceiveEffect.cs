@@ -13,8 +13,9 @@ namespace ChemistryEngine
         [Header("Propertie-Parameter")]
         VisualEffect _visualEffect;
 
-        void Awake()
+        protected override void Awake()
         {
+            base.Awake();
             _visualEffect = GetComponent<VisualEffect>();
             _elementReceiver._onActiveTriggerChange += Triggerchange;
         }

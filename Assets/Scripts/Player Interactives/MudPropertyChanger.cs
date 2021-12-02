@@ -13,8 +13,9 @@ namespace PlayerInteraction
         [SerializeField] Mud.MudType _mudType;
         [SerializeField] float _changeMudType;
 
-        private void Awake()
+        protected override void Awake()
         {
+            base.Awake();
             _elementReceiver._onElementPercentChange += ElementPercentChange;
         }
 

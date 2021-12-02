@@ -19,8 +19,9 @@ namespace ChemistryEngine
         private bool _isEmitter = false;
         private int _numberOfChanges = 0;
 
-        void Awake()
+        protected override void Awake()
         {
+            base.Awake();
             _elementReceiver._onElementPercentChange += OnBurnPercentChange;
         }
 
