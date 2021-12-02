@@ -14,6 +14,7 @@ namespace ChemistryEngine
         [HideInNormalInspector] public Stack<string> _graphNameStack = new Stack<string>();
         [HideInNormalInspector] public string _originalGraph;
         [SerializeField] protected string _graphName;
+        public List<GraphMember> _neibhbors = new List<GraphMember>();
         public string GraphName
         {
             get
@@ -74,29 +75,29 @@ namespace ChemistryEngine
 
         protected void EnterTrigger(object sender, ChemistryReceiver.OnReceiveElementArgs e)
         {
-            if (e._status == IChemistryReceiver.Status.ENTER && e._emitterType != IChemistryEmitter.Type.GRID_MEMBER)
+            if (e._status == IChemistryReceiver.Status.ENTER)
             {
-                UpdateAbleToReceive(+1);
+                if (e._emitterType != IChemistryEmitter.Type.GRID_MEMBER)
+                    UpdateAbleToReceive(+1);
+                else if (sender is GraphMemberEmitter && ((GraphMemberEmitter)sender).MEMBER != null)
+                    _neibhbors.Add(((GraphMemberEmitter)sender).MEMBER);
             }
         }
 
         protected void ExitTrigger(object sender, ChemistryReceiver.OnReceiveElementArgs e)
         {
-            if (e._status == IChemistryReceiver.Status.EXIT && e._emitterType != IChemistryEmitter.Type.GRID_MEMBER)
+            if (e._status == IChemistryReceiver.Status.EXIT)
             {
-                UpdateAbleToReceive(-1);
+                if (e._emitterType != IChemistryEmitter.Type.GRID_MEMBER)
+                    UpdateAbleToReceive(-1);
+                else if (sender is GraphMemberEmitter && ((GraphMemberEmitter)sender).MEMBER != null)
+                    _neibhbors.Remove(((GraphMemberEmitter)sender).MEMBER);
             }
         }
 
         protected void UpdateAbleToReceive(int addValue)
         {
-            if (_graphNameStack.Count != 0)
-            {
-                foreach (string item in _graphNameStack)
-                {
-                    GRAPHS_POWER_NODES[item] += addValue;
-                }
-            }
+            if (!_originalGraph.Equals(_graphName)) GRAPHS_POWER_NODES[_originalGraph] += addValue;
             GRAPHS_POWER_NODES[_graphName] += addValue;
 
             LogPowerSources();

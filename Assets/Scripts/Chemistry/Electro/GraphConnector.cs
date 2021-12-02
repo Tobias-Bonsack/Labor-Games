@@ -35,6 +35,7 @@ namespace ChemistryEngine
                 if (sender is GraphMemberEmitter)
                 { // Fusion of graphen
                     GraphMemberEmitter emitter = (GraphMemberEmitter)sender;
+                    _neibhbors.Add(emitter.MEMBER);
                     string emitterGraphName = emitter.GRAPH_NAME;
 
                     if (emitterGraphName.Equals(_graphName)) return;
@@ -65,12 +66,20 @@ namespace ChemistryEngine
                 if (sender is GraphMemberEmitter)
                 { // Defusion of graphen
                     GraphMemberEmitter emitter = (GraphMemberEmitter)sender;
-                    string emitterGraphName = emitter.GRPAH_STACK.Peek();
 
+                    if (new GraphDFS(this).startDFS(emitter.MEMBER))
+                    {
+                        _neibhbors.Remove(emitter.MEMBER);
+                        Debug.Log("Cycle found to: " + transform.parent.transform.parent.name);
+                        return;
+                    }
+                    _neibhbors.Remove(emitter.MEMBER);
+
+                    string emitterGraphName = emitter.GRPAH_STACK.Peek();
                     if (emitterGraphName.Equals(_graphName)) return;
 
 
-                    GRAPHS_POWER_NODES[_graphName] -= GRAPHS_POWER_NODES[emitterGraphName];
+                    GRAPHS_POWER_NODES[_graphName] -= GRAPHS_POWER_NODES[emitter.ORIGINAL_GRAPH_NAME];
                     LogPowerSources();
 
                     foreach (GraphMember member in GRAPHS[emitterGraphName])

@@ -28,6 +28,13 @@ namespace ChemistryEngine
                 return _member.GraphName;
             }
         }
+        public GraphMember MEMBER
+        {
+            get
+            {
+                return _member;
+            }
+        }
         private void Awake()
         {
             _emitType = IChemistryEmitter.Type.GRID_MEMBER;
