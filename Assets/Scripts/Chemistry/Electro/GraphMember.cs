@@ -90,7 +90,13 @@ namespace ChemistryEngine
 
         protected void UpdateAbleToReceive(int addValue)
         {
-            if (!_originalGraph.Equals(_graphName)) GRAPHS_POWER_NODES[_originalGraph] += addValue;
+            if (_graphNameStack.Count != 0)
+            {
+                foreach (string item in _graphNameStack)
+                {
+                    GRAPHS_POWER_NODES[item] += addValue;
+                }
+            }
             GRAPHS_POWER_NODES[_graphName] += addValue;
 
             LogPowerSources();

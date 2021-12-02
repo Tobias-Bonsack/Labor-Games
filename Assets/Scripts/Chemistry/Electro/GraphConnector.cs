@@ -7,7 +7,6 @@ namespace ChemistryEngine
 {
     public class GraphConnector : GraphMember
     {
-
         protected override void Awake()
         {
             _chemistryReceiver = _elementReceiver.ChemistryReceiver;
@@ -69,6 +68,7 @@ namespace ChemistryEngine
                     string emitterGraphName = emitter.GRPAH_STACK.Peek();
 
                     if (emitterGraphName.Equals(_graphName)) return;
+
 
                     GRAPHS_POWER_NODES[_graphName] -= GRAPHS_POWER_NODES[emitterGraphName];
                     LogPowerSources();
