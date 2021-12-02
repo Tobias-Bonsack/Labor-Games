@@ -7,14 +7,10 @@ namespace ChemistryEngine
 {
     public class GraphMember : AProperty
     {
-
-        public static readonly Dictionary<string, HashSet<GraphMember>> GRAPHS = new Dictionary<string, HashSet<GraphMember>>();
-        public static readonly Dictionary<string, int> GRAPHS_POWER_NODES = new Dictionary<string, int>();
-
         [HideInNormalInspector] public Stack<string> _graphNameStack = new Stack<string>();
         [HideInNormalInspector] public string _originalGraph;
         [SerializeField] protected string _graphName;
-        public List<GraphMember> _neibhbors = new List<GraphMember>();
+        [HideInNormalInspector] public List<GraphMember> _neibhbors = new List<GraphMember>();
         public string GraphName
         {
             get
@@ -23,19 +19,18 @@ namespace ChemistryEngine
             }
             set
             {
-                if (_graphNameStack.Count != 0 && _graphNameStack.Peek().Equals(value))
+                if (_graphNameStack.Peek().Equals(value))
                 { // set to last graph
                     _graphNameStack.Pop();
-                    GRAPHS[_graphName].Remove(this);
-                    AbleToReceive = GRAPHS_POWER_NODES[value] > 0;
+                    AbleToReceive = GraphSystem.graphs_power_nodes[value] > 0;
 
                     _graphName = value;
                 }
                 else
                 { // new value
                     _graphNameStack.Push(_graphName);
-                    GRAPHS[value].Add(this);
-                    AbleToReceive = GRAPHS_POWER_NODES[value] > 0;
+                    GraphSystem.graphs[value].Add(this);
+                    AbleToReceive = GraphSystem.graphs_power_nodes[value] > 0;
 
                     _graphName = value;
                 }
@@ -58,10 +53,10 @@ namespace ChemistryEngine
 
             _originalGraph = _graphName;
 
-            if (!GRAPHS.ContainsKey(_graphName)) GRAPHS.Add(_graphName, new HashSet<GraphMember>());
-            if (!GRAPHS_POWER_NODES.ContainsKey(_graphName)) GRAPHS_POWER_NODES.Add(_graphName, 0);
+            if (!GraphSystem.graphs.ContainsKey(_graphName)) GraphSystem.graphs.Add(_graphName, new HashSet<GraphMember>());
+            if (!GraphSystem.graphs_power_nodes.ContainsKey(_graphName)) GraphSystem.graphs_power_nodes.Add(_graphName, 0);
 
-            GRAPHS[_graphName].Add(this);
+            GraphSystem.graphs[_graphName].Add(this);
             switch (_type)
             {
                 case IChemistry.ChemistryTypes.ELECTRICITY:
@@ -97,20 +92,20 @@ namespace ChemistryEngine
 
         protected void UpdateAbleToReceive(int addValue)
         {
-            if (!_originalGraph.Equals(_graphName)) GRAPHS_POWER_NODES[_originalGraph] += addValue;
-            GRAPHS_POWER_NODES[_graphName] += addValue;
+            if (!_originalGraph.Equals(_graphName)) GraphSystem.graphs_power_nodes[_originalGraph] += addValue;
+            GraphSystem.graphs_power_nodes[_graphName] += addValue;
 
             LogPowerSources();
 
-            foreach (GraphMember neighbor in GRAPHS[_graphName])
+            foreach (GraphMember neighbor in GraphSystem.graphs[_graphName])
             {
-                neighbor.AbleToReceive = GRAPHS_POWER_NODES[_graphName] > 0;
+                neighbor.AbleToReceive = GraphSystem.graphs_power_nodes[_graphName] > 0;
             }
         }
 
         protected static void LogPowerSources()
         {
-            foreach (KeyValuePair<string, int> item in GRAPHS_POWER_NODES)
+            foreach (KeyValuePair<string, int> item in GraphSystem.graphs_power_nodes)
             {
                 Debug.Log(item);
             }

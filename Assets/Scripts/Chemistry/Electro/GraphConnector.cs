@@ -13,10 +13,10 @@ namespace ChemistryEngine
 
             _originalGraph = _graphName;
 
-            if (!GRAPHS.ContainsKey(_graphName)) GRAPHS.Add(_graphName, new HashSet<GraphMember>());
-            if (!GRAPHS_POWER_NODES.ContainsKey(_graphName)) GRAPHS_POWER_NODES.Add(_graphName, 0);
+            if (!GraphSystem.graphs.ContainsKey(_graphName)) GraphSystem.graphs.Add(_graphName, new HashSet<GraphMember>());
+            if (!GraphSystem.graphs_power_nodes.ContainsKey(_graphName)) GraphSystem.graphs_power_nodes.Add(_graphName, 0);
 
-            GRAPHS[_graphName].Add(this);
+            GraphSystem.graphs[_graphName].Add(this);
             switch (_type)
             {
                 case IChemistry.ChemistryTypes.ELECTRICITY:
@@ -40,14 +40,15 @@ namespace ChemistryEngine
 
                     if (emitterGraphName.Equals(_graphName)) return;
 
-                    GRAPHS_POWER_NODES[_graphName] += GRAPHS_POWER_NODES[emitterGraphName];
+                    //Valid Fusion
+                    GraphSystem graphSystem = new GraphSystem(_graphName + emitterGraphName, new string[] { _graphName, emitterGraphName });
                     LogPowerSources();
 
-                    foreach (GraphMember member in GRAPHS[_graphName])
+                    foreach (GraphMember member in GraphSystem.graphs[_graphName])
                     {
-                        member.AbleToReceive = GRAPHS_POWER_NODES[_graphName] > 0;
+                        member.GraphName = _graphName;
                     }
-                    foreach (GraphMember member in GRAPHS[emitterGraphName])
+                    foreach (GraphMember member in GraphSystem.graphs[emitterGraphName])
                     {
                         member.GraphName = _graphName;
                     }
@@ -78,18 +79,14 @@ namespace ChemistryEngine
                     string emitterGraphName = emitter.GRPAH_STACK.Peek();
                     if (emitterGraphName.Equals(_graphName)) return;
 
-
-                    GRAPHS_POWER_NODES[_graphName] -= GRAPHS_POWER_NODES[emitter.ORIGINAL_GRAPH_NAME];
+                    //Valid defusion
                     LogPowerSources();
 
-                    foreach (GraphMember member in GRAPHS[emitterGraphName])
+                    foreach (GraphMember member in GraphSystem.graphs[_graphName])
                     {
-                        member.GraphName = emitterGraphName;
+                        member.GraphName = member._graphNameStack.Peek();
                     }
-                    foreach (GraphMember member in GRAPHS[_graphName])
-                    {
-                        member.AbleToReceive = GRAPHS_POWER_NODES[_graphName] > 0;
-                    }
+                    GraphSystem.DestroySystem(_graphName);
                 }
                 else
                 { // is PowerSource
