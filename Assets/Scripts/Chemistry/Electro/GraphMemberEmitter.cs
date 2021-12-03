@@ -18,7 +18,7 @@ namespace ChemistryEngine
         {
             get
             {
-                return _member.GraphName;
+                return _member._originalGraph;
             }
         }
         public GraphMember MEMBER

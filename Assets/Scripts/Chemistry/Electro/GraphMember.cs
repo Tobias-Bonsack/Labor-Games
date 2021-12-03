@@ -9,14 +9,6 @@ namespace ChemistryEngine
     {
         public string _originalGraph;
         [HideInNormalInspector] public List<GraphMember> _neibhbors = new List<GraphMember>();
-        public string GraphName
-        {
-            get
-            {
-                return GraphSystem.FindCurrentGraphName(this);
-            }
-
-        }
         public bool AbleToReceive
         {
             get
@@ -32,7 +24,7 @@ namespace ChemistryEngine
         {
             base.Awake();
 
-            new GraphSystem(_originalGraph, new string[0]);
+            GraphSystem.AddBaseGraph(_originalGraph);
             GraphSystem.graphs[_originalGraph].Add(this);
 
             switch (_type)
@@ -70,17 +62,7 @@ namespace ChemistryEngine
 
         protected void UpdateAbleToReceive(int addValue)
         {
-            GraphSystem.graphSystems[_originalGraph].UpdatePowerLevel(addValue);
-
-            foreach (GraphMember neighbor in GraphSystem.graphs[GraphName])
-            {
-                neighbor.AbleToReceive = GraphSystem.graphSystems[GraphName]._powerLevel > 0;
-            }
-
-            foreach (string item in GraphSystem.graphSystems.Keys)
-            {
-                Debug.Log(item + ": " + GraphSystem.graphSystems[item]._powerLevel);
-            }
+            GraphSystem.AddPowerSource(_originalGraph, addValue);
         }
     }
 }

@@ -11,7 +11,7 @@ namespace ChemistryEngine
         {
             _chemistryReceiver = _elementReceiver.ChemistryReceiver;
 
-            new GraphSystem(_originalGraph, new string[0]);
+            GraphSystem.AddBaseGraph(_originalGraph);
             GraphSystem.graphs[_originalGraph].Add(this);
 
             switch (_type)
@@ -34,21 +34,12 @@ namespace ChemistryEngine
                     GraphMemberEmitter emitter = (GraphMemberEmitter)sender;
                     _neibhbors.Add(emitter.MEMBER);
                     string emitterGraphName = emitter.GRAPH_NAME;
-                    string graphName = GraphName;
+                    string graphName = _originalGraph;
 
                     if (emitterGraphName.Equals(graphName)) return;
 
                     //Valid Fusion
-                    GraphSystem graphSystem = new GraphSystem(graphName + emitterGraphName, new string[] { graphName, emitterGraphName });
-
-                    foreach (string child in graphSystem._children)
-                    {
-                        foreach (GraphMember member in GraphSystem.graphs[child])
-                        {
-                            GraphSystem.graphs[graphSystem._name].Add(member);
-                        }
-                    }
-                    UpdateAbleToReceive(0);
+                    GraphSystem.AddCombineGraph(new string[] { _originalGraph, emitter.MEMBER._originalGraph });
                 }
                 else
                 { // is PowerSource
@@ -64,31 +55,11 @@ namespace ChemistryEngine
                 if (sender is GraphMemberEmitter)
                 { // Defusion of graphen
                     GraphMemberEmitter emitter = (GraphMemberEmitter)sender;
-                    string graphName = GraphName;
-                    List<string> children = GraphSystem.graphSystems[graphName]._children;
-
-                    if (new GraphDFS(this).startDFS(emitter.MEMBER))
-                    { // there is an cycle
-                        string toDestroyGraph = "";
-                        foreach (string child in children)
-                        {
-                            if (child.Contains(_originalGraph) && !child.Equals(_originalGraph))
-                            { // if child contains, but is not exact the same as the original one
-                                toDestroyGraph = child;
-                                break;
-                            }
-                        }
-                        if (toDestroyGraph.Length != 0) GraphSystem.DestroySystem(toDestroyGraph);
-                        _neibhbors.Remove(emitter.MEMBER);
-                        return;
-                    }
+                    string graphName = _originalGraph;
 
                     // no cycle found
                     _neibhbors.Remove(emitter.MEMBER);
-                    if (children.Contains(graphName)) return;
-                    //Valid defusion
-                    GraphSystem.DestroySystem(graphName);
-                    UpdateAbleToReceive(0);
+                    GraphSystem.RemoveCombineGraph(_originalGraph + ":" + emitter.MEMBER._originalGraph);
                 }
                 else
                 { // is PowerSource
