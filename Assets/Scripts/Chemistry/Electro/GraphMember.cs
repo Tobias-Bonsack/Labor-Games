@@ -7,34 +7,15 @@ namespace ChemistryEngine
 {
     public class GraphMember : AProperty
     {
-        [HideInNormalInspector] public Stack<string> _graphNameStack = new Stack<string>();
-        [HideInNormalInspector] public string _originalGraph;
-        [SerializeField] protected string _graphName;
+        public string _originalGraph;
         [HideInNormalInspector] public List<GraphMember> _neibhbors = new List<GraphMember>();
         public string GraphName
         {
             get
             {
-                return _graphName;
+                return GraphSystem.FindCurrentGraphName(this);
             }
-            set
-            {
-                if (_graphNameStack.Peek().Equals(value))
-                { // set to last graph
-                    _graphNameStack.Pop();
-                    AbleToReceive = GraphSystem.graphs_power_nodes[value] > 0;
 
-                    _graphName = value;
-                }
-                else
-                { // new value
-                    _graphNameStack.Push(_graphName);
-                    GraphSystem.graphs[value].Add(this);
-                    AbleToReceive = GraphSystem.graphs_power_nodes[value] > 0;
-
-                    _graphName = value;
-                }
-            }
         }
         public bool AbleToReceive
         {
@@ -51,12 +32,9 @@ namespace ChemistryEngine
         {
             base.Awake();
 
-            _originalGraph = _graphName;
+            new GraphSystem(_originalGraph, new string[0]);
+            GraphSystem.graphs[_originalGraph].Add(this);
 
-            if (!GraphSystem.graphs.ContainsKey(_graphName)) GraphSystem.graphs.Add(_graphName, new HashSet<GraphMember>());
-            if (!GraphSystem.graphs_power_nodes.ContainsKey(_graphName)) GraphSystem.graphs_power_nodes.Add(_graphName, 0);
-
-            GraphSystem.graphs[_graphName].Add(this);
             switch (_type)
             {
                 case IChemistry.ChemistryTypes.ELECTRICITY:
@@ -92,24 +70,17 @@ namespace ChemistryEngine
 
         protected void UpdateAbleToReceive(int addValue)
         {
-            if (!_originalGraph.Equals(_graphName)) GraphSystem.graphs_power_nodes[_originalGraph] += addValue;
-            GraphSystem.graphs_power_nodes[_graphName] += addValue;
+            GraphSystem.graphSystems[_originalGraph].UpdatePowerLevel(addValue);
 
-            LogPowerSources();
-
-            foreach (GraphMember neighbor in GraphSystem.graphs[_graphName])
+            foreach (GraphMember neighbor in GraphSystem.graphs[GraphName])
             {
-                neighbor.AbleToReceive = GraphSystem.graphs_power_nodes[_graphName] > 0;
+                neighbor.AbleToReceive = GraphSystem.graphSystems[GraphName]._powerLevel > 0;
             }
-        }
 
-        protected static void LogPowerSources()
-        {
-            foreach (KeyValuePair<string, int> item in GraphSystem.graphs_power_nodes)
+            foreach (string item in GraphSystem.graphSystems.Keys)
             {
-                Debug.Log(item);
+                Debug.Log(item + ": " + GraphSystem.graphSystems[item]._powerLevel);
             }
-            Debug.Log("-----");
         }
     }
 }

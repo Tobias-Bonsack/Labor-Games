@@ -339,6 +339,10 @@ PrefabInstance:
       value: test03
       objectReference: {fileID: 0}
     - target: {fileID: 4940412204433773006, guid: 411282023aa0a3e41bf366ca4ece5844, type: 3}
+      propertyPath: _originalGraph
+      value: t02
+      objectReference: {fileID: 0}
+    - target: {fileID: 4940412204433773006, guid: 411282023aa0a3e41bf366ca4ece5844, type: 3}
       propertyPath: _neibhbors.Array.size
       value: 0
       objectReference: {fileID: 0}
@@ -801,6 +805,10 @@ PrefabInstance:
       value: test02
       objectReference: {fileID: 0}
     - target: {fileID: 4940412204433773006, guid: 411282023aa0a3e41bf366ca4ece5844, type: 3}
+      propertyPath: _originalGraph
+      value: t01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4940412204433773006, guid: 411282023aa0a3e41bf366ca4ece5844, type: 3}
       propertyPath: _neibhbors.Array.size
       value: 0
       objectReference: {fileID: 0}
@@ -995,6 +1003,10 @@ PrefabInstance:
     - target: {fileID: 4940412204433773006, guid: 411282023aa0a3e41bf366ca4ece5844, type: 3}
       propertyPath: _graphName
       value: test02
+      objectReference: {fileID: 0}
+    - target: {fileID: 4940412204433773006, guid: 411282023aa0a3e41bf366ca4ece5844, type: 3}
+      propertyPath: _originalGraph
+      value: t01
       objectReference: {fileID: 0}
     - target: {fileID: 4940412204433773006, guid: 411282023aa0a3e41bf366ca4ece5844, type: 3}
       propertyPath: _neibhbors.Array.size
@@ -1444,6 +1456,10 @@ PrefabInstance:
     - target: {fileID: 4940412204433773006, guid: 411282023aa0a3e41bf366ca4ece5844, type: 3}
       propertyPath: _graphName
       value: test02
+      objectReference: {fileID: 0}
+    - target: {fileID: 4940412204433773006, guid: 411282023aa0a3e41bf366ca4ece5844, type: 3}
+      propertyPath: _originalGraph
+      value: t01
       objectReference: {fileID: 0}
     - target: {fileID: 4940412204433773006, guid: 411282023aa0a3e41bf366ca4ece5844, type: 3}
       propertyPath: _neibhbors.Array.size
@@ -7089,6 +7105,10 @@ PrefabInstance:
       value: test
       objectReference: {fileID: 0}
     - target: {fileID: 4940412204433773006, guid: 411282023aa0a3e41bf366ca4ece5844, type: 3}
+      propertyPath: _originalGraph
+      value: t00
+      objectReference: {fileID: 0}
+    - target: {fileID: 4940412204433773006, guid: 411282023aa0a3e41bf366ca4ece5844, type: 3}
       propertyPath: _neibhbors.Array.size
       value: 0
       objectReference: {fileID: 0}
@@ -12622,6 +12642,10 @@ PrefabInstance:
       value: test03
       objectReference: {fileID: 0}
     - target: {fileID: 4940412204433773006, guid: 411282023aa0a3e41bf366ca4ece5844, type: 3}
+      propertyPath: _originalGraph
+      value: t02
+      objectReference: {fileID: 0}
+    - target: {fileID: 4940412204433773006, guid: 411282023aa0a3e41bf366ca4ece5844, type: 3}
       propertyPath: _neibhbors.Array.size
       value: 0
       objectReference: {fileID: 0}
@@ -13259,6 +13283,10 @@ PrefabInstance:
       value: test03
       objectReference: {fileID: 0}
     - target: {fileID: 4940412204433773006, guid: 411282023aa0a3e41bf366ca4ece5844, type: 3}
+      propertyPath: _originalGraph
+      value: t02
+      objectReference: {fileID: 0}
+    - target: {fileID: 4940412204433773006, guid: 411282023aa0a3e41bf366ca4ece5844, type: 3}
       propertyPath: _neibhbors.Array.size
       value: 0
       objectReference: {fileID: 0}
@@ -13358,6 +13386,10 @@ PrefabInstance:
     - target: {fileID: 4940412204433773006, guid: 411282023aa0a3e41bf366ca4ece5844, type: 3}
       propertyPath: _graphName
       value: test
+      objectReference: {fileID: 0}
+    - target: {fileID: 4940412204433773006, guid: 411282023aa0a3e41bf366ca4ece5844, type: 3}
+      propertyPath: _originalGraph
+      value: t00
       objectReference: {fileID: 0}
     - target: {fileID: 4940412204433773006, guid: 411282023aa0a3e41bf366ca4ece5844, type: 3}
       propertyPath: _neibhbors.Array.size
@@ -13544,6 +13576,10 @@ PrefabInstance:
     - target: {fileID: 4940412204433773006, guid: 411282023aa0a3e41bf366ca4ece5844, type: 3}
       propertyPath: _graphName
       value: test02
+      objectReference: {fileID: 0}
+    - target: {fileID: 4940412204433773006, guid: 411282023aa0a3e41bf366ca4ece5844, type: 3}
+      propertyPath: _originalGraph
+      value: t01
       objectReference: {fileID: 0}
     - target: {fileID: 4940412204433773006, guid: 411282023aa0a3e41bf366ca4ece5844, type: 3}
       propertyPath: _neibhbors.Array.size
@@ -13773,8 +13809,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _type: 2
   _elementReceiver: {fileID: 1476531379}
-  _originalGraph: 
-  _graphName: con02
+  _originalGraph: c01
   _neibhbors: []
 --- !u!1001 &1346854447
 PrefabInstance:
@@ -13881,6 +13916,10 @@ PrefabInstance:
       value: test02
       objectReference: {fileID: 0}
     - target: {fileID: 4940412204433773006, guid: 411282023aa0a3e41bf366ca4ece5844, type: 3}
+      propertyPath: _originalGraph
+      value: t01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4940412204433773006, guid: 411282023aa0a3e41bf366ca4ece5844, type: 3}
       propertyPath: _neibhbors.Array.size
       value: 0
       objectReference: {fileID: 0}
@@ -13980,6 +14019,10 @@ PrefabInstance:
     - target: {fileID: 4940412204433773006, guid: 411282023aa0a3e41bf366ca4ece5844, type: 3}
       propertyPath: _graphName
       value: test
+      objectReference: {fileID: 0}
+    - target: {fileID: 4940412204433773006, guid: 411282023aa0a3e41bf366ca4ece5844, type: 3}
+      propertyPath: _originalGraph
+      value: t00
       objectReference: {fileID: 0}
     - target: {fileID: 4940412204433773006, guid: 411282023aa0a3e41bf366ca4ece5844, type: 3}
       propertyPath: _neibhbors.Array.size
@@ -14090,6 +14133,10 @@ PrefabInstance:
     - target: {fileID: 4940412204433773006, guid: 411282023aa0a3e41bf366ca4ece5844, type: 3}
       propertyPath: _graphName
       value: test03
+      objectReference: {fileID: 0}
+    - target: {fileID: 4940412204433773006, guid: 411282023aa0a3e41bf366ca4ece5844, type: 3}
+      propertyPath: _originalGraph
+      value: t02
       objectReference: {fileID: 0}
     - target: {fileID: 6584565760494988745, guid: 411282023aa0a3e41bf366ca4ece5844, type: 3}
       propertyPath: m_RootOrder
@@ -14328,6 +14375,10 @@ PrefabInstance:
     - target: {fileID: 4940412204433773006, guid: 411282023aa0a3e41bf366ca4ece5844, type: 3}
       propertyPath: _graphName
       value: test
+      objectReference: {fileID: 0}
+    - target: {fileID: 4940412204433773006, guid: 411282023aa0a3e41bf366ca4ece5844, type: 3}
+      propertyPath: _originalGraph
+      value: t00
       objectReference: {fileID: 0}
     - target: {fileID: 4940412204433773006, guid: 411282023aa0a3e41bf366ca4ece5844, type: 3}
       propertyPath: _neibhbors.Array.size
@@ -14986,6 +15037,10 @@ PrefabInstance:
     - target: {fileID: 4940412204433773006, guid: 411282023aa0a3e41bf366ca4ece5844, type: 3}
       propertyPath: _graphName
       value: test
+      objectReference: {fileID: 0}
+    - target: {fileID: 4940412204433773006, guid: 411282023aa0a3e41bf366ca4ece5844, type: 3}
+      propertyPath: _originalGraph
+      value: t00
       objectReference: {fileID: 0}
     - target: {fileID: 4940412204433773006, guid: 411282023aa0a3e41bf366ca4ece5844, type: 3}
       propertyPath: _neibhbors.Array.size
@@ -15914,8 +15969,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _type: 2
   _elementReceiver: {fileID: 1870882815}
-  _originalGraph: 
-  _graphName: con01
+  _originalGraph: c00
   _neibhbors: []
 --- !u!114 &1831813656
 MonoBehaviour:
@@ -16097,6 +16151,10 @@ PrefabInstance:
     - target: {fileID: 4940412204433773006, guid: 411282023aa0a3e41bf366ca4ece5844, type: 3}
       propertyPath: _graphName
       value: test
+      objectReference: {fileID: 0}
+    - target: {fileID: 4940412204433773006, guid: 411282023aa0a3e41bf366ca4ece5844, type: 3}
+      propertyPath: _originalGraph
+      value: t00
       objectReference: {fileID: 0}
     - target: {fileID: 4940412204433773006, guid: 411282023aa0a3e41bf366ca4ece5844, type: 3}
       propertyPath: _neibhbors.Array.size
@@ -16549,6 +16607,10 @@ PrefabInstance:
     - target: {fileID: 4940412204433773006, guid: 411282023aa0a3e41bf366ca4ece5844, type: 3}
       propertyPath: _graphName
       value: test03
+      objectReference: {fileID: 0}
+    - target: {fileID: 4940412204433773006, guid: 411282023aa0a3e41bf366ca4ece5844, type: 3}
+      propertyPath: _originalGraph
+      value: t02
       objectReference: {fileID: 0}
     - target: {fileID: 6584565760494988745, guid: 411282023aa0a3e41bf366ca4ece5844, type: 3}
       propertyPath: m_RootOrder

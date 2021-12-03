@@ -14,13 +14,6 @@ namespace ChemistryEngine
                 return _member._originalGraph;
             }
         }
-        public Stack<string> GRPAH_STACK
-        {
-            get
-            {
-                return _member._graphNameStack;
-            }
-        }
         public string GRAPH_NAME
         {
             get

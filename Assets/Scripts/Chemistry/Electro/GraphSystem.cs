@@ -9,20 +9,19 @@ namespace ChemistryEngine
     {
         public static readonly Dictionary<string, GraphSystem> graphSystems = new Dictionary<string, GraphSystem>();
         public static readonly Dictionary<string, HashSet<GraphMember>> graphs = new Dictionary<string, HashSet<GraphMember>>();
-        public static readonly Dictionary<string, int> graphs_power_nodes = new Dictionary<string, int>();
 
         public string _name, _parent;
         public int _powerLevel = 0;
-        public string[] _children;
+        public List<string> _children = new List<string>();
 
 
         public GraphSystem(string name, string[] children)
         {
             _name = name;
-            _children = children;
+            _children.AddRange(children);
+            if (graphSystems.ContainsKey(_name)) return;
             graphSystems.Add(name, this);
             graphs.Add(_name, new HashSet<GraphMember>());
-            graphs_power_nodes.Add(_name, 0);
 
             foreach (string child in _children)
             {
@@ -33,19 +32,42 @@ namespace ChemistryEngine
 
         internal void UpdatePowerLevel(int addValue)
         {
-            //TODO sich selbst zurechnen und dann seinem parent per recursion
+            _powerLevel += addValue;
+
+            if (_parent != null) graphSystems[_parent].UpdatePowerLevel(addValue);
         }
 
         internal static void DestroySystem(string graphName)
         {
             foreach (string child in graphSystems[graphName]._children)
             {
-                graphSystems[child]._parent = null;
+                string parent = graphSystems[graphName]._parent;
+                graphSystems[child]._parent = parent;
+                if (parent != null) graphSystems[parent]._children.Add(child);
             }
+            graphSystems[graphName]._children.Remove(graphName);
 
             graphSystems.Remove(graphName);
             graphs.Remove(graphName);
-            graphs_power_nodes.Remove(graphName);
+        }
+
+        internal static string FindCurrentGraphName(GraphMember member)
+        {
+            foreach (string key in graphs.Keys)
+            {
+                if (graphs[key].Contains(member))
+                {
+                    return graphSystems[key].getEndName();
+                }
+
+            }
+            return null;
+        }
+
+        private string getEndName()
+        {
+            if (_parent == null) return _name;
+            return graphSystems[_parent].getEndName();
         }
     }
 }

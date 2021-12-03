@@ -19,6 +19,8 @@ namespace ChemistryEngine
             }
         }
 
+        //TODO override from new emit type ... no enter or exit event
+
         public override void RemoveEmitType(AChemistryEmitter emitter, IChemistry.ChemistryTypes type)
         {
             if (emitter is GraphMemberEmitter) _activeEmitter.Remove((IChemistryEmitter)emitter);

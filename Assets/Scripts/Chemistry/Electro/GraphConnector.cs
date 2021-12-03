@@ -11,12 +11,9 @@ namespace ChemistryEngine
         {
             _chemistryReceiver = _elementReceiver.ChemistryReceiver;
 
-            _originalGraph = _graphName;
+            new GraphSystem(_originalGraph, new string[0]);
+            GraphSystem.graphs[_originalGraph].Add(this);
 
-            if (!GraphSystem.graphs.ContainsKey(_graphName)) GraphSystem.graphs.Add(_graphName, new HashSet<GraphMember>());
-            if (!GraphSystem.graphs_power_nodes.ContainsKey(_graphName)) GraphSystem.graphs_power_nodes.Add(_graphName, 0);
-
-            GraphSystem.graphs[_graphName].Add(this);
             switch (_type)
             {
                 case IChemistry.ChemistryTypes.ELECTRICITY:
@@ -37,21 +34,21 @@ namespace ChemistryEngine
                     GraphMemberEmitter emitter = (GraphMemberEmitter)sender;
                     _neibhbors.Add(emitter.MEMBER);
                     string emitterGraphName = emitter.GRAPH_NAME;
+                    string graphName = GraphName;
 
-                    if (emitterGraphName.Equals(_graphName)) return;
+                    if (emitterGraphName.Equals(graphName)) return;
 
                     //Valid Fusion
-                    GraphSystem graphSystem = new GraphSystem(_graphName + emitterGraphName, new string[] { _graphName, emitterGraphName });
-                    LogPowerSources();
+                    GraphSystem graphSystem = new GraphSystem(graphName + emitterGraphName, new string[] { graphName, emitterGraphName });
 
-                    foreach (GraphMember member in GraphSystem.graphs[_graphName])
+                    foreach (string child in graphSystem._children)
                     {
-                        member.GraphName = _graphName;
+                        foreach (GraphMember member in GraphSystem.graphs[child])
+                        {
+                            GraphSystem.graphs[graphSystem._name].Add(member);
+                        }
                     }
-                    foreach (GraphMember member in GraphSystem.graphs[emitterGraphName])
-                    {
-                        member.GraphName = _graphName;
-                    }
+                    UpdateAbleToReceive(0);
                 }
                 else
                 { // is PowerSource
@@ -67,26 +64,31 @@ namespace ChemistryEngine
                 if (sender is GraphMemberEmitter)
                 { // Defusion of graphen
                     GraphMemberEmitter emitter = (GraphMemberEmitter)sender;
+                    string graphName = GraphName;
+                    List<string> children = GraphSystem.graphSystems[graphName]._children;
 
                     if (new GraphDFS(this).startDFS(emitter.MEMBER))
-                    {
+                    { // there is an cycle
+                        string toDestroyGraph = "";
+                        foreach (string child in children)
+                        {
+                            if (child.Contains(_originalGraph) && !child.Equals(_originalGraph))
+                            { // if child contains, but is not exact the same as the original one
+                                toDestroyGraph = child;
+                                break;
+                            }
+                        }
+                        if (toDestroyGraph.Length != 0) GraphSystem.DestroySystem(toDestroyGraph);
                         _neibhbors.Remove(emitter.MEMBER);
-                        Debug.Log("Cycle found to: " + transform.parent.transform.parent.name);
                         return;
                     }
+
+                    // no cycle found
                     _neibhbors.Remove(emitter.MEMBER);
-
-                    string emitterGraphName = emitter.GRPAH_STACK.Peek();
-                    if (emitterGraphName.Equals(_graphName)) return;
-
+                    if (children.Contains(graphName)) return;
                     //Valid defusion
-                    LogPowerSources();
-
-                    foreach (GraphMember member in GraphSystem.graphs[_graphName])
-                    {
-                        member.GraphName = member._graphNameStack.Peek();
-                    }
-                    GraphSystem.DestroySystem(_graphName);
+                    GraphSystem.DestroySystem(graphName);
+                    UpdateAbleToReceive(0);
                 }
                 else
                 { // is PowerSource
