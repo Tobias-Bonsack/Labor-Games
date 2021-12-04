@@ -19,7 +19,11 @@ namespace ChemistryEngine
         public static void AddCombineGraph(string[] couple)
         {
             string combinedName = couple[0] + ":" + couple[1];
-            if (combineGraphen.ContainsKey(combinedName)) return;
+            if (combineGraphen.ContainsKey(combinedName))
+            {
+                combineGraphen[combinedName]._connections++;
+                return;
+            }
 
             combineGraphen.Add(combinedName, new Graph(combinedName));
 
@@ -31,6 +35,8 @@ namespace ChemistryEngine
         }
         public static void RemoveCombineGraph(string combineName)
         {
+            if (--combineGraphen[combineName]._connections > 0) return;
+
             combineGraphen.Remove(combineName);
             foreach (string item in combineGraphen.Keys)
             {
