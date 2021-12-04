@@ -237,9 +237,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 0
-  _chemistryReceiver: {fileID: 4354096725676731277}
   _elementReceiver: {fileID: 4354096726618641766}
   _toChange: {fileID: 4354096725903472134}
+  _pointToStartChagne: 0
+  _pointToEndChange: 1
   _changePosition: 0
   _addPosition: {x: 0, y: 0, z: 0}
   _changeRotation: 0
@@ -301,6 +302,9 @@ VisualEffect:
         m_Overridden: 1
       - m_Value: 1.5
         m_Name: Lifetime B
+        m_Overridden: 1
+      - m_Value: 0.1
+        m_Name: Size
         m_Overridden: 1
     m_Vector2f:
       m_Array: []
@@ -462,7 +466,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
-  _chemistryReceiver: {fileID: 4354096725676731277}
   _elementReceiver: {fileID: 4354096726618641766}
 --- !u!1 &4354096726551645476
 GameObject:
@@ -562,8 +565,7 @@ MonoBehaviour:
   _type: 1
   _chemistryReceiver: {fileID: 4354096725676731277}
   _susceptibility: 1
-  _elementPercent: 0
-  _activeTriggers: 0
+  _ableToReceive: 1
 --- !u!1 &4354096727013051112
 GameObject:
   m_ObjectHideFlags: 0
@@ -738,10 +740,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
-  _chemistryReceiver: {fileID: 4354096725676731277}
   _elementReceiver: {fileID: 4354096726618641766}
   _alwaysReduce: 0
   _weaknessType: 0
   _timeMultiplier: 0.5
   _timeBetweenCooldown: 1
   _rateToCooldown: 0.01
+  _ignoreTriggerChange: 0

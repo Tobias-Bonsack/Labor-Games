@@ -146,6 +146,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _burnItself: 0
   _frostItself: 0
+  _shockItself: 0
   _ownEmitter: {fileID: 0}
 --- !u!1 &1837029415452652228
 GameObject:
@@ -195,8 +196,7 @@ MonoBehaviour:
   _type: 0
   _chemistryReceiver: {fileID: 5844618056439269188}
   _susceptibility: 1
-  _elementPercent: 0
-  _activeTriggers: 0
+  _ableToReceive: 1
 --- !u!1 &5741402971234802504
 GameObject:
   m_ObjectHideFlags: 0
@@ -320,7 +320,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 0
-  _chemistryReceiver: {fileID: 5844618056439269188}
   _elementReceiver: {fileID: 8253443969176652285}
   _renderer: {fileID: 1181320338241983696}
   _endColor: {r: 0, g: 0, b: 0, a: 0}
@@ -379,6 +378,9 @@ VisualEffect:
         m_Overridden: 1
       - m_Value: 3
         m_Name: Lifetime B
+        m_Overridden: 1
+      - m_Value: 0.1
+        m_Name: Size
         m_Overridden: 1
     m_Vector2f:
       m_Array: []
@@ -575,5 +577,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 0
-  _chemistryReceiver: {fileID: 5844618056439269188}
   _elementReceiver: {fileID: 8253443969176652285}

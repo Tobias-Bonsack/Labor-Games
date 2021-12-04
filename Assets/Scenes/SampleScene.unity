@@ -6855,7 +6855,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 601987954}
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -30, y: 0.8, z: 6.8}
+  m_LocalPosition: {x: -28.12, y: 1.1, z: 6.8}
   m_LocalScale: {x: 0.20000002, y: 2, z: 0.2}
   m_Children:
   - {fileID: 2126128675}
@@ -14265,7 +14265,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4930c6ffa5b9b9f4098249a43abf8506, type: 2}
+  - {fileID: 2100000, guid: 6968e89851431104b8f931c37d69356b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -15476,7 +15476,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1687258581}
-  m_LocalRotation: {x: 0.08165903, y: 0.0000000023048783, z: 1.8886273e-10, w: 0.99666035}
+  m_LocalRotation: {x: 0.08165903, y: -0.0000000023048783, z: -1.8886273e-10, w: 0.99666035}
   m_LocalPosition: {x: -28, y: 3.3500001, z: -14.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -17278,11 +17278,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1897186212219561235, guid: 08297c6358d696b428ac978c3fb5a6fa, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.0000000042801314
+      value: -0.0000000042801305
       objectReference: {fileID: 0}
     - target: {fileID: 1897186212219561235, guid: 08297c6358d696b428ac978c3fb5a6fa, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -4.291885e-10
+      value: 4.291884e-10
       objectReference: {fileID: 0}
     - target: {fileID: 1897186212372658495, guid: 08297c6358d696b428ac978c3fb5a6fa, type: 3}
       propertyPath: m_LocalPosition.z
@@ -17298,11 +17298,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1897186212395723504, guid: 08297c6358d696b428ac978c3fb5a6fa, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000017171585
+      value: 0.000000017171585
       objectReference: {fileID: 0}
     - target: {fileID: 1897186212395723504, guid: 08297c6358d696b428ac978c3fb5a6fa, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000000010937184
+      value: -0.0000000010937184
       objectReference: {fileID: 0}
     - target: {fileID: 2727826627379492551, guid: 08297c6358d696b428ac978c3fb5a6fa, type: 3}
       propertyPath: m_Materials.Array.data[0]

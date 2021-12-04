@@ -22,6 +22,7 @@ namespace ChemistryEngine
                 {
                     Debug.Log(item + ": " + GraphSystem.baseGraphen[item]._powerLevel);
                 }
+                
                 foreach (string item in GraphSystem.combineGraphen.Keys)
                 {
                     Debug.Log(item + ": " + GraphSystem.combineGraphen[item]._powerLevel);
