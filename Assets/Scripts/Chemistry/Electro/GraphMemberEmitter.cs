@@ -7,13 +7,6 @@ namespace ChemistryEngine
     public class GraphMemberEmitter : AChemistryEmitter
     {
         [SerializeField] GraphMember _member;
-        public string ORIGINAL_GRAPH_NAME
-        {
-            get
-            {
-                return _member._originalGraph;
-            }
-        }
         public string GRAPH_NAME
         {
             get

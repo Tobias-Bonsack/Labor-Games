@@ -29,7 +29,6 @@ namespace ChemistryEngine
                 }
             }
         }
-
         public Graph(string name)
         {
             _name = name;

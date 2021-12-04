@@ -32,7 +32,6 @@ namespace ChemistryEngine
                 if (sender is GraphMemberEmitter)
                 { // Fusion of graphen
                     GraphMemberEmitter emitter = (GraphMemberEmitter)sender;
-                    _neibhbors.Add(emitter.MEMBER);
                     string emitterGraphName = emitter.GRAPH_NAME;
                     string graphName = _originalGraph;
 
@@ -55,10 +54,6 @@ namespace ChemistryEngine
                 if (sender is GraphMemberEmitter)
                 { // Defusion of graphen
                     GraphMemberEmitter emitter = (GraphMemberEmitter)sender;
-                    string graphName = _originalGraph;
-
-                    // no cycle found
-                    _neibhbors.Remove(emitter.MEMBER);
                     GraphSystem.RemoveCombineGraph(_originalGraph + ":" + emitter.MEMBER._originalGraph);
                 }
                 else

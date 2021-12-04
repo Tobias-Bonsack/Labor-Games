@@ -8,7 +8,6 @@ namespace ChemistryEngine
     public class GraphMember : AProperty
     {
         public string _originalGraph;
-        [HideInNormalInspector] public List<GraphMember> _neibhbors = new List<GraphMember>();
         public bool AbleToReceive
         {
             get
@@ -37,29 +36,20 @@ namespace ChemistryEngine
                     break;
             }
         }
-
         protected void EnterTrigger(object sender, ChemistryReceiver.OnReceiveElementArgs e)
         {
             if (e._status == IChemistryReceiver.Status.ENTER)
             {
-                if (e._emitterType != IChemistryEmitter.Type.GRID_MEMBER)
-                    UpdateAbleToReceive(+1);
-                else if (sender is GraphMemberEmitter && ((GraphMemberEmitter)sender).MEMBER != null)
-                    _neibhbors.Add(((GraphMemberEmitter)sender).MEMBER);
+                if (e._emitterType != IChemistryEmitter.Type.GRID_MEMBER) UpdateAbleToReceive(+1);
             }
         }
-
         protected void ExitTrigger(object sender, ChemistryReceiver.OnReceiveElementArgs e)
         {
             if (e._status == IChemistryReceiver.Status.EXIT)
             {
-                if (e._emitterType != IChemistryEmitter.Type.GRID_MEMBER)
-                    UpdateAbleToReceive(-1);
-                else if (sender is GraphMemberEmitter && ((GraphMemberEmitter)sender).MEMBER != null)
-                    _neibhbors.Remove(((GraphMemberEmitter)sender).MEMBER);
+                if (e._emitterType != IChemistryEmitter.Type.GRID_MEMBER) UpdateAbleToReceive(-1);
             }
         }
-
         protected void UpdateAbleToReceive(int addValue)
         {
             GraphSystem.AddPowerSource(_originalGraph, addValue);
