@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Cryonis Trial.unity
     guid: 4ad888a40bcd5b144aedaf6ef77ded6f
+  - enabled: 1
+    path: Assets/Scenes/HeatDungeon00.unity
+    guid: 97f9ea82265c1eb448453396dafcd014
   m_configObjects: {}
