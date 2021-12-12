@@ -12,9 +12,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Main Area.unity
     guid: e8e1fadc53ead744990c83bc54beeb15
   - enabled: 1
-    path: Assets/Scenes/Cryonis Trial.unity
+    path: Assets/Scenes/Zelda BotW/Cryonis Trial.unity
     guid: 4ad888a40bcd5b144aedaf6ef77ded6f
   - enabled: 1
     path: Assets/Scenes/HeatDungeon00.unity
     guid: 97f9ea82265c1eb448453396dafcd014
+  - enabled: 1
+    path: Assets/Scenes/Zelda BotW/The whole picture.unity
+    guid: b306f66a7ab2ba54fa2e29b248307f17
   m_configObjects: {}
