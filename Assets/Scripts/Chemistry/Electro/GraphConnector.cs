@@ -38,15 +38,16 @@ namespace ChemistryEngine
                     if (emitterGraphName.Equals(graphName)) return;
 
                     //Valid Fusion
-                    GraphSystem.AddCombineGraph(new string[] { _originalGraph, emitter.MEMBER._originalGraph });
+                    GraphSystem.AddCombineGraph(new string[] { graphName, emitterGraphName }, emitter.GetHashCode());
                 }
                 else
                 { // is PowerSource
                     UpdateAbleToReceive(+1);
                 }
+
+                NewMethod();
             }
         }
-
         new protected void ExitTrigger(object sender, ChemistryReceiver.OnReceiveElementArgs e)
         {
             if (e._status == IChemistryReceiver.Status.EXIT)
@@ -54,12 +55,14 @@ namespace ChemistryEngine
                 if (sender is GraphMemberEmitter)
                 { // Defusion of graphen
                     GraphMemberEmitter emitter = (GraphMemberEmitter)sender;
-                    GraphSystem.RemoveCombineGraph(_originalGraph + ":" + emitter.MEMBER._originalGraph);
+                    GraphSystem.RemoveCombineGraph(_originalGraph + ":" + emitter.GRAPH_NAME, emitter.GetHashCode());
                 }
                 else
                 { // is PowerSource
                     UpdateAbleToReceive(-1);
                 }
+
+                NewMethod();
             }
         }
     }

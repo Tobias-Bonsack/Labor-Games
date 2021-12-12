@@ -16,16 +16,18 @@ namespace ChemistryEngine
             baseGraphen.Add(name, new Graph(name));
             graphs.Add(name, new HashSet<GraphMember>());
         }
-        public static void AddCombineGraph(string[] couple)
+        public static void AddCombineGraph(string[] couple, int code)
         {
             string combinedName = couple[0] + ":" + couple[1];
+
             if (combineGraphen.ContainsKey(combinedName))
             {
-                combineGraphen[combinedName]._connections++;
+                combineGraphen[combinedName]._connections.Add(code);
                 return;
             }
 
             combineGraphen.Add(combinedName, new Graph(combinedName));
+            combineGraphen[combinedName]._connections.Add(code);
 
             foreach (string item in combineGraphen.Keys)
             {
@@ -33,9 +35,10 @@ namespace ChemistryEngine
             }
             UpdateAllAbleToReceive();
         }
-        public static void RemoveCombineGraph(string combineName)
+        public static void RemoveCombineGraph(string combineName, int code)
         {
-            if (--combineGraphen[combineName]._connections > 0) return;
+            combineGraphen[combineName]._connections.Remove(code);
+            if (combineGraphen[combineName]._connections.Count > 0) return;
 
             combineGraphen.Remove(combineName);
             foreach (string item in combineGraphen.Keys)

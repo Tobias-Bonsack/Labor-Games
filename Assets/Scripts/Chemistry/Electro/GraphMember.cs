@@ -38,21 +38,39 @@ namespace ChemistryEngine
         }
         protected void EnterTrigger(object sender, ChemistryReceiver.OnReceiveElementArgs e)
         {
-            if (e._status == IChemistryReceiver.Status.ENTER)
+            if (e._status == IChemistryReceiver.Status.ENTER && e._emitterType != IChemistryEmitter.Type.GRID_MEMBER)
             {
-                if (e._emitterType != IChemistryEmitter.Type.GRID_MEMBER) UpdateAbleToReceive(+1);
+                UpdateAbleToReceive(+1);
+                NewMethod();
             }
+
         }
         protected void ExitTrigger(object sender, ChemistryReceiver.OnReceiveElementArgs e)
         {
-            if (e._status == IChemistryReceiver.Status.EXIT)
+            if (e._status == IChemistryReceiver.Status.EXIT && e._emitterType != IChemistryEmitter.Type.GRID_MEMBER)
             {
-                if (e._emitterType != IChemistryEmitter.Type.GRID_MEMBER) UpdateAbleToReceive(-1);
+                UpdateAbleToReceive(-1);
+                NewMethod();
             }
+
         }
         protected void UpdateAbleToReceive(int addValue)
         {
             GraphSystem.AddPowerSource(_originalGraph, addValue);
+        }
+
+        protected static void NewMethod()
+        {
+            Debug.Log("-------------");
+            foreach (string item in GraphSystem.baseGraphen.Keys)
+            {
+                Debug.Log(item + ": " + GraphSystem.baseGraphen[item].PowerLevel + "-" + GraphSystem.baseGraphen[item]._connections.Count);
+            }
+
+            foreach (string item in GraphSystem.combineGraphen.Keys)
+            {
+                Debug.Log(item + ": " + GraphSystem.combineGraphen[item].PowerLevel + "-" + GraphSystem.combineGraphen[item]._connections.Count);
+            }
         }
     }
 }
