@@ -160,7 +160,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _type: 2
   _elementReceiver: {fileID: 6177915162369780626}
-  _renderer: {fileID: 0}
+  _renderer: {fileID: 6364259935946222466}
   _endColor: {r: 1, g: 1, b: 0, a: 0}
 --- !u!114 &5792220165940436018
 MonoBehaviour:
@@ -212,6 +212,8 @@ GameObject:
   - component: {fileID: 5939751807714954576}
   - component: {fileID: 705399439048637338}
   - component: {fileID: 6364259935946222466}
+  - component: {fileID: 4463870453212722761}
+  - component: {fileID: 155071211275524550}
   m_Layer: 0
   m_Name: Powerlane_curved
   m_TagString: Untagged
@@ -284,6 +286,36 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &4463870453212722761
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6274781561331810670}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: deaeda937651a4e439c8186002bb29db, type: 3}
+--- !u!54 &155071211275524550
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6274781561331810670}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &6721421834126382173
 GameObject:
   m_ObjectHideFlags: 0
