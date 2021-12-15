@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8376022913862906439}
-  - component: {fileID: 5485146240396533545}
+  - component: {fileID: 8176471299422891868}
   - component: {fileID: 1714990287790120620}
   - component: {fileID: 8048369718099301020}
   - component: {fileID: 5456446630117120737}
@@ -35,8 +35,8 @@ Transform:
   m_Father: {fileID: 5722862350075952704}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &5485146240396533545
-SphereCollider:
+--- !u!136 &8176471299422891868
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -45,8 +45,9 @@ SphereCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.7
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
   m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!54 &1714990287790120620
 Rigidbody:
@@ -179,7 +180,7 @@ MonoBehaviour:
   _weaknessType: 0
   _timeMultiplier: 0.5
   _timeBetweenCooldown: 1
-  _rateToCooldown: 0.01
+  _rateToCooldown: 0.05
   _ignoreTriggerChange: 1
 --- !u!114 &4323086926429095618
 MonoBehaviour:
@@ -199,7 +200,7 @@ MonoBehaviour:
   _pointToChange: 0.75
   _receiveRemeins: 1
   _multiplierForSusceptibility: 1
-  _radiance: 0.2
+  _radiance: 0.25
 --- !u!1 &4851947660996090749
 GameObject:
   m_ObjectHideFlags: 0
@@ -209,7 +210,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1540938067051809604}
-  - component: {fileID: 3449240630684076083}
+  - component: {fileID: 5512225094668500102}
   - component: {fileID: 8032444113982045271}
   m_Layer: 6
   m_Name: Emitter
@@ -232,8 +233,8 @@ Transform:
   m_Father: {fileID: 5722862350075952704}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &3449240630684076083
-SphereCollider:
+--- !u!136 &5512225094668500102
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -242,8 +243,9 @@ SphereCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
   m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!114 &8032444113982045271
 MonoBehaviour:

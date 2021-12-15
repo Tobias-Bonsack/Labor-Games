@@ -148,7 +148,7 @@ MonoBehaviour:
   _pointToChange: 0.75
   _receiveRemeins: 1
   _multiplierForSusceptibility: 1
-  _radiance: 0.2
+  _radiance: 0.25
 --- !u!114 &5095080691020371668
 MonoBehaviour:
   m_ObjectHideFlags: 0
